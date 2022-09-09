@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
     <Resource
-        name="sys" auth="Container" type="javax.sql.DataSource" username="root" password="1234" driverClassName="com.mysql.cj.jdbc.Driver"
-        url="jdbc:mysql://localhost:3306/test?serverTimezone=UTC"
+        name="sakila" auth="Container" type="javax.sql.DataSource" username="root" password="1234" driverClassName="com.mysql.cj.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/sakila?serverTimezone=Asia/Seoul"
         maxActive="100" maxIdle="30"
         maxWait="10000"
     />
