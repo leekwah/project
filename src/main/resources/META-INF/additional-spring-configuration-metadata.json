@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "itemimgLocation",
+      "type": "java.lang.String",
+      "description": "Description for itemimgLocation."
+  }
+] }
