@@ -22,7 +22,7 @@
         MultipartRequest multi=new MultipartRequest(request,
                 uploadPath,
                 size,
-                "euc-kr",
+                "UTF-8",
                 new DefaultFileRenamePolicy());
 
         name=multi.getParameter("name");

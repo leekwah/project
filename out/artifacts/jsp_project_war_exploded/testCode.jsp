@@ -19,8 +19,7 @@
     try
     {
         // 연결하려는 DB이름 (context.xml에서 해당 이름과 일치하는 DB 가져옴)
-        // String dbName = "Server-Mysql";
-        String dbName = "sys";
+        String dbName = "sakila";
 
         // Connection Pool을 찾는 과정
         Context init = new InitialContext();

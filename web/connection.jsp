@@ -16,9 +16,9 @@
 <%
     Connection conn = null;
     try {
-        String url = "jdbc:mysql://localhost:3306/sys";
+        String url = "jdbc:mysql://localhost:3306/sakila?serverTimezone=Asia/Seoul";
         /*
-            현재 DB명을 sys로 해뒀습니다. 추후에 정해지고, 바뀌게 되면
+            현재 DB명을 sakila로 해뒀습니다. 추후에 정해지고, 바뀌게 되면
             다르게 지정하겠습니다.
             user, password는 root와 1234로 저장해뒀습니다.
 
