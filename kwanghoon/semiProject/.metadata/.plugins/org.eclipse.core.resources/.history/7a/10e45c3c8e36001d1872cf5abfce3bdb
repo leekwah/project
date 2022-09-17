@@ -1,0 +1,47 @@
+<%@page import="login.UserDBBean"%>
+<%@page import="login.UserBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	String id = request.getParameter("user_id");
+	String pwd = request.getParameter("user_pwd");
+	// login.jsp 에서 input의 name값을 받아옴
+	
+	UserDBBean manager = UserDBBean.getInstance();
+	
+	int check = manager.userCheck(id, pwd);
+	UserBean ur = manager.getUser(id);
+	// 아이디가 일치하는 멤버의 정보를 mb객체에 저장
+	
+	if(ur == null) {
+%>
+	<script>
+		alert("존재하지 않는 회원");
+		history.go(-1);
+	</script>
+<%
+	} else {
+		String name = ur.getUser_name();
+		
+		if(check == 1) {
+			session.setAttribute("uid", id);
+			session.setAttribute("name", name);
+			session.setAttribute("User", "yes"); // 임의로 회원일 경우 "yes"값을 준다
+			response.sendRedirect("main.jsp");			
+		}else if(check == 0){
+%>
+		<script>
+			alert("비밀번호가 맞지 않습니다.");
+			history.go(-1);
+		</script>
+<%
+		}else{
+%>
+		<script>
+			alert("아이디가 맞지 않습니다.");
+			history.go(-1);
+		</script>	
+<%
+		}
+	}
+%>
