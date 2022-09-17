@@ -27,6 +27,7 @@
 				<td colspan="2" align="center">
 					<input type="submit" value="로그인" >
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!-- 회원가입을 눌리면 register.jsp로 넘어간다. -->
 					<input type="button" value="회원가입" onclick="javascript:window.location='register.jsp'">
 				</td>
 			</tr>

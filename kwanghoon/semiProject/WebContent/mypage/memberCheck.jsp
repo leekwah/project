@@ -1,5 +1,11 @@
+<%@ page import="login.UserBean" %>
+<%@ page import="login.UserDBBean" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<%
+	UserDBBean userdb = UserDBBean.getInstance();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +24,7 @@
 				<div>
 					<tr>
 						<th><strong>아이디</strong></th>
-						<td colspan="2">표현식을 통해서 출력해야함</td>
+						<td colspan="2"><input type="text" size="10" value=<% userdb. %>></td>
 					</tr>
 					<tr>
 						<th scope="row" class="top"><strong>비밀번호</strong></th>
