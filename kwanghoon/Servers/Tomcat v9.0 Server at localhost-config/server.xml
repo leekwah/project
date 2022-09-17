@@ -151,10 +151,11 @@
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
+
       <Context docBase="semiProject" path="/semiProject" reloadable="true" source="org.eclipse.jst.jee.server:semiProject">
-      		<Resource URIEncoding="utf-8" auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="green" password="1234" />      	
-      </Context>
-      <Context docBase="team3" path="/team3" reloadable="true" source="org.eclipse.jst.jee.server:team3"/></Host>
+    	<Resource URIEncoding="utf-8" auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/oracle" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="green" password="1234" />      	
+      </Context>>
+      </Host>
     </Engine>
   </Service>
 </Server>
