@@ -8,11 +8,11 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
 	int b_id,b_view, b_level, b_fsize;
-	String b_category, u_id, b_title, b_content, b_pwd, b_secret;
+	String b_category, u_id, b_title, b_content, b_pwd, b_secret, b_anschk;
 	Timestamp b_date;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	QnABoardDBBean qdb = QnABoardDBBean.getInstance();
-
+	
 	// 페이징 처리
 	int pageSize = 10; // 한페이지에 보여질 글 수
 	int count = qdb.getCount(new QnABoardBean()); // 전체 글 수
@@ -57,18 +57,18 @@
 				<td>비공개</td>
 			</tr>
 	<%
-		for(int i=0; i < list.size(); i++) {
-			QnABoardBean board = list.get(i); // 배열에 넣은 역순으로 board 객체에 값을 넣어줌
-			b_id=board.getB_id();
-			u_id=board.getU_id();
-			b_category=board.getB_category();
-			b_pwd=board.getB_pwd();
-			b_title= board.getB_title();
-			b_date= board.getB_date();
-			b_view= board.getB_view();
-			b_level = board.getB_level();
-			b_fsize = board.getB_fsize();
-			b_secret = board.getB_secret();
+			for(int i=0; i < list.size(); i++) {
+				QnABoardBean board = list.get(i); // 배열에 넣은 역순으로 board 객체에 값을 넣어줌
+				b_id=board.getB_id();
+				u_id=board.getU_id();
+				b_category=board.getB_category();
+				b_pwd=board.getB_pwd();
+				b_title= board.getB_title();
+				b_date= board.getB_date();
+				b_view= board.getB_view();
+				b_level = board.getB_level();
+				b_fsize = board.getB_fsize();
+				b_secret = board.getB_secret();
 	%>
 			<tr height="25" bgcolor="#E8E8E8" onmouseover="this.style.backgroundColor='#AEBAB4'"
 			onmouseout="this.style.backgroundColor='#E8E8E8'">
@@ -111,12 +111,17 @@
 					%>
 				</td>
 			</tr>
-	<%
-		}
-	%>
+		<%
+			}
+		%>
+	<% if(session.getAttribute("id") != null){
+		%>
 			<tr>
 				<td colspan="8"><a href="write.jsp?pageNum=<%= pageNum %>">글 쓰 기</a></td>
 			</tr>
+	<% 
+		}
+	%>
 		</table>
 		<div>
 	<%

@@ -12,7 +12,9 @@
 <body>
 	<% 
 		String id = "admin";
+		String grade = "admin";
 		session.setAttribute("id", id); 
+		session.setAttribute("grade", grade); 
 		String b_title="";
 		/* if(session.getAttribute(id) == null){
 			response.sendRedirect("login.jsp");

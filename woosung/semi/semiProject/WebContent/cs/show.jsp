@@ -82,7 +82,7 @@
 					%>
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<% 
-						if(session.getAttribute("grade")=="관리자" || session.getAttribute("id")=="admin" ) {
+						if(session.getAttribute("grade")=="admin" || session.getAttribute("id")=="admin" ) {
 					%>
 					<input type="button" value="답변글" onclick="location.href='reply.jsp?b_id=<%= qbb.getB_id() %>&pageNum=<%= pageNum %>'" />
 					<% 

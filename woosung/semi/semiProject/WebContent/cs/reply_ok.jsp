@@ -67,7 +67,6 @@
 			location.href= "list.jsp?pageNum=<%= pageNum %>";
 		</script>
 <%
-		qBoard.setB_anschk("Y");
 	}else{
 		%>
 		<script>

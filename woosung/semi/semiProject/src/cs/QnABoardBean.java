@@ -21,6 +21,16 @@ public class QnABoardBean {
 	private String b_rfname;
 	private String b_anschk;
 	
+	private String u_grade; // 회원 등급
+	
+	public String getU_grade() {
+		return u_grade;
+	}
+
+	public void setU_grade(String u_grade) {
+		this.u_grade = u_grade;
+	}
+	
 	private int count; // 전체 글 개수
 	
 	public int getCount() {
