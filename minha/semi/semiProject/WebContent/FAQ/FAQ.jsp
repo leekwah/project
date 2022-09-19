@@ -16,8 +16,12 @@
 	Timestamp b_date;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	String b_titleSearch = "";
+	
 	int b_categorySearch = 0;
+	
+	
 	String[] category = {"","회원정보", "상품문의", "주문/결제", "배송", "교환/취소", "서비스"};
+	
 	
 	if(request.getParameter("b_titleS")!=null){
 		b_titleSearch = request.getParameter("b_titleS");		
@@ -25,7 +29,7 @@
 	if(request.getParameter("b_categoryS")!=null){
 		b_categorySearch = Integer.parseInt(request.getParameter("b_categoryS"));
 	}
-	
+
 	//객체생성 및 객체 배열
 	FAQDBBean faqdbBean = FAQDBBean.getInstance();
 	ArrayList<QnABoardBean> list = faqdbBean.listBoardFQA(b_titleSearch,category[b_categorySearch]);
@@ -42,14 +46,51 @@
 			<input type="text" name="b_titleS">
 			<input type="submit" value="FAQ검색">
 		</form>
-		<input type="radio" name="category" id="001" onclick="location.href='FAQ.jsp?b_categoryS=1'">
-		<input type="radio" name="category" id="002" onclick="location.href='FAQ.jsp?b_categoryS=2'">
-		<input type="radio" name="category" id="003" onclick="location.href='FAQ.jsp?b_categoryS=3'">
-		<input type="radio" name="category" id="004" onclick="location.href='FAQ.jsp?b_categoryS=4'">
-		<input type="radio" name="category" id="005" onclick="location.href='FAQ.jsp?b_categoryS=5'">
-		<input type="radio" name="category" id="006" onclick="location.href='FAQ.jsp?b_categoryS=6'">
+		<input type="radio" name="category" id="001" onclick="location.href='FAQ.jsp?b_categoryS=1'"
+		<%
+			if(b_categorySearch == 1){
+				%>
+					checked="checked"
+				<%
+			}
+		%> style="display: none;">
+		<input type="radio" name="category" id="002" onclick="location.href='FAQ.jsp?b_categoryS=2'"<%
+			if(b_categorySearch == 2){
+				%>
+					checked="checked"
+				<%
+			}
+		%> style="display: none;">
+		<input type="radio" name="category" id="003" onclick="location.href='FAQ.jsp?b_categoryS=3'"<%
+			if(b_categorySearch == 3){
+				%>
+					checked="checked"
+				<%
+			}
+		%> style="display: none;">
+		<input type="radio" name="category" id="004" onclick="location.href='FAQ.jsp?b_categoryS=4'"<%
+			if(b_categorySearch == 4){
+				%>
+					checked="checked"
+				<%
+			}
+		%> style="display: none;">
+		<input type="radio" name="category" id="005" onclick="location.href='FAQ.jsp?b_categoryS=5'"<%
+			if(b_categorySearch == 5){
+				%>
+					checked="checked"
+				<%
+			}
+		%> style="display: none;">
+		<input type="radio" name="category" id="006" onclick="location.href='FAQ.jsp?b_categoryS=6'"<%
+			if(b_categorySearch == 6){
+				%>
+					checked="checked"
+				<%
+			}
+		%> style="display: none;">
 		<label for="001">회원정보</label>
-		<label for="002">상품확인</label>
+		<label for="002">상품문의</label>
 		<label for="003">주문/결제</label>
 		<label for="004">배송</label>
 		<label for="005">교환/취소</label>
@@ -63,6 +104,15 @@
 				<td>작성일</td> -->
 			</tr>
 		<%
+			if(list.size()==0){
+		%>
+			 	<tr>
+			 		<td colspan="2">
+			 			조회 결과가 없습니다.
+			 		</td>
+			 	</tr>
+		<%
+			}
 			for(int i=0;i<list.size();i++){
 				board = list.get(i);
 				
@@ -77,6 +127,7 @@
 				b_level = board.getB_level();
 				b_fsize = board.getB_fsize();
 				b_secret = board.getB_secret();
+				
 				
 		%>
 			<tr><!-- 조회순 20개의 질문글 -->
