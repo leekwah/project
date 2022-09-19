@@ -277,4 +277,79 @@ public class ProductDBBean {
 		
 		return upbd;
 	}
+	
+	public int updateProduct(ProductBean upbd) throws Exception{
+		int re=-1;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql="";
+		
+		try {
+			conn = getConnection();
+			
+			sql = "UPDATE PRODUCT SET category_code=? \r \n"
+					+ ", product_name=? \r \n"
+					+ ", product_price=? \r \n"
+					+ ", product_stock=? \r \n"
+					+ ", product_desc=? \r \n"
+					+ "WHERE product_number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, upbd.getCategory_code());
+			pstmt.setString(2, upbd.getProduct_name());
+			pstmt.setInt(3, upbd.getProduct_price());
+			pstmt.setInt(4, upbd.getProduct_stock());
+			pstmt.setString(5, upbd.getProduct_desc());
+			pstmt.setInt(6, upbd.getProduct_number());
+			pstmt.executeUpdate();
+			re=1;
+		}catch(SQLException ex){
+			System.out.println("수정 실패");
+			ex.printStackTrace();
+		}finally{
+			try{
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteProduct(int product_number) throws Exception {
+		int re=-1;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="";
+		
+		try {
+			conn = getConnection();
+			
+			sql = "DELETE PRODUCT WHERE product_number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, product_number);
+			pstmt.executeUpdate();
+			
+			sql = "DELETE PRODUCT_IMAGEFILE WHERE product_number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, product_number);
+			pstmt.executeUpdate();
+			re=1;
+			System.out.println("삭제 성공");
+		}catch(SQLException ex){
+			System.out.println("삭제 실패");
+			ex.printStackTrace();
+		}finally{
+			try{
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		return re;
+	}
 }

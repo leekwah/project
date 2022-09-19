@@ -40,6 +40,8 @@
 			<td width="80">카테고리</td>
 			<td width="80">재고</td>
 			<td width="80">등록일</td>
+			<td width="80">수정</td>
+			<td width="80">삭제</td>
 		</tr>
 		<%
 			for(int i = 0; i < productList.size(); i++) {
@@ -52,7 +54,7 @@
 				product_stock = upbd.getProduct_stock();
 				stored_file_name = updb.getImg(product_number).getStored_file_name();
 				create_date = updb.getImg(product_number).getCreate_date();
-			}
+			
 		%>
 		<tr>
 			<td align="center">
@@ -73,10 +75,16 @@
 			<td>
 				<%=sdf.format(create_date)%>
 			</td>
-			<td>
-				<input type="button" value="수정" onclick="location.href='updateProduct.jsp?product_number=<%=product_number%>'">
+			<td align="center">
+				<input type="button" value="수정" onclick="location.href='updateProduct.jsp?product_number=<%=product_number%>&pageNum=<%= pageNum %>'">
+			</td>
+			<td align="center">
+				<input type="button" value="삭제" onclick="location.href='deleteProduct_ok.jsp?product_number=<%=product_number%>&pageNum=<%= pageNum %>'">
 			</td>
 		</tr>
+		<%
+			}
+		%>
 	</table>
 </body>
 </html>
