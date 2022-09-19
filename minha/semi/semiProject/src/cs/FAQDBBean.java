@@ -30,7 +30,7 @@ public class FAQDBBean { //QnABoardBean과 QnABoardDBBean을 사용
 		return ds.getConnection();
 	}
 	
-	public ArrayList<QnABoardBean> listBoardFQA() throws Exception {
+	public ArrayList<QnABoardBean> listBoardFQA(String b_title, String b_category) throws Exception {
 		String sql = "select b_id\r\n" + 
 				"     , u_id\r\n" + 
 				"     , b_category\r\n" + 
@@ -52,13 +52,16 @@ public class FAQDBBean { //QnABoardBean과 QnABoardDBBean을 사용
 				" where b_level = 0 \r\n" + 
 				"   and b_anschk = 'Y' \r\n" + 
 				"   and b_secret = 'N' \r\n" + 
+				"   and b_title like '%"+b_title+"%' \r\n" + 
+				"   and b_category like '%"+b_category+"%' \r\n" + 
 				"   and rownum <= 20 \r\n" + 
 				" order by b_view desc";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-				
+		
+		
 		ArrayList<QnABoardBean> list = new ArrayList<QnABoardBean>();
 		try {
 			conn = getConnection();

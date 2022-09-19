@@ -8,7 +8,7 @@
 <jsp:useBean class="cs.NoticeBean" id="notice"></jsp:useBean>
 <%
 
-	String pageNum = request.getParameter("pageNum");
+	String pageNum = request.getParameter("pageNum");//
 
 	String n_user_id = "test";
 	
@@ -37,6 +37,7 @@
 </head>
 <body>
 	<div style="text-align: center;">
+	<a href="../cs/cs_main.jsp">메인페이지</a>><a href="../cs/cs_main.jsp">고객센터</a>><a href="listNotice.jsp">공지사항</a>
 	<h3>공지사항</h3>
 	<table border="1" width="800" cellspacing="0">
 		<tr height="25">

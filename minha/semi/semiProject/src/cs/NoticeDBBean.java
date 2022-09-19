@@ -217,7 +217,7 @@ public class NoticeDBBean {
 				rs.absolute(absolutePage);
 				int count = 0;
 				
-				while(count<BoardBean.pageSize){
+				while(count<NoticeBean.pageSize){
 					NoticeBean notice = new NoticeBean();
 					
 					notice.setN_num(rs.getInt("n_num"));

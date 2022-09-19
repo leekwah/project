@@ -17,7 +17,7 @@
 		response.sendRedirect("listNotice.jsp");
 	} else {
 		n_num = Integer.parseInt(request.getParameter("n_num"));
-		notice = noticeDBBean.getNotice(n_num, false);
+		notice = noticeDBBean.getNotice(n_num, true);
 		
 		n_date = sdf.format(notice.getN_date());
 		user_id=notice.getUser_id();
@@ -80,7 +80,7 @@
 	%>
 				<div >
 					<a href="showNotice.jsp?n_num=<%= notice.getAfter() %>&pageNum=<%= pageNum %>" id="upPage">
-						위 페이지&nbsp;PREV&nbsp;&nbsp;&nbsp;&nbsp;<%= notice.getAfter() %>
+						위 페이지&nbsp;PREV&nbsp;&nbsp;&nbsp;&nbsp;<%= n_title2 %>
 					</a>
 				</div>
 	<%
