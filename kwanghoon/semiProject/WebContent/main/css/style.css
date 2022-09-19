@@ -1,0 +1,51 @@
+a, a:visited {text-decoration : none;}
+
+h1 { font-size: 30px; }
+header {
+    display: flex; margin-bottom: 30px;
+    background-color: black;
+    color: white;
+}
+nav { margin: 10px auto; }
+nav ul li {
+    display: inline-block;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+}
+nav ul {
+    display: block;
+    margin: 0 auto;
+}
+.main_title { margin: 10px 15px; 
+
+}
+.member {
+    display: block;
+    clear: both;
+    margin: 0 15px;
+}
+
+.login_btn {
+    padding: 10px 30px;
+    border: 1px solid black;
+}
+.login_btn:hover {
+	cursor: pointer
+}
+.member ul li {
+    display: inline-block;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+}
+
+.member a {
+    color: black;
+}

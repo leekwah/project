@@ -47,7 +47,7 @@ public class QnABoardDBBean {
 			} else {
 				number = 1;
 			}
-			
+
 			if (bid != 0) {
 				sql = "UPDATE qna_board SET B_STEP = B_STEP+1 WHERE B_REF = ? AND B_STEP > ?";
 				pstmt = conn.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class QnABoardDBBean {
 			pstmt.setInt(1, number);
 			pstmt.setString(2, qBoard.getU_id());
 			pstmt.setString(3, qBoard.getB_category());
-			pstmt.setInt(4, qBoard.getB_view());	
+			pstmt.setInt(4, qBoard.getB_view());
 			pstmt.setString(5, qBoard.getB_title());
 			pstmt.setString(6, qBoard.getB_content());
 			pstmt.setString(7, qBoard.getB_ip());
@@ -82,14 +82,14 @@ public class QnABoardDBBean {
 			pstmt.setString(16, qBoard.getB_rfname());
 			pstmt.setString(17, "N");
 			pstmt.executeUpdate();
-			
+
 			if(ref != number) {
 				sql = "UPDATE qna_board SET B_ANSCHK = 'Y' WHERE B_REF=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, qBoard.getB_ref());
 				pstmt.executeUpdate();
 			}
-			
+
 			re=1;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -112,17 +112,18 @@ public class QnABoardDBBean {
 	}
 
 	public ArrayList<QnABoardBean> listBoard(int startRow, int pageSize) throws Exception {
-		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
-				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
-				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
-				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" + 
-				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" + 
-				" WHERE rnum >= ? AND rnum <= ?";		// ÆäÀÌÁö¿¡ ±ÛÀ» ¸î °³ º¸¿©ÁÖ´ÂÁö Á¦ÇÑÇÏ´Â Äõ¸®
-		
+		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
+				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
+				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" +
+				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" +
+				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" +
+				" WHERE rnum >= ? AND rnum <= ?";
+		// 09-18 ìš°ì„± ê¸€ì„ ëª‡ ê°œ ë³´ì—¬ì¤„ ê±´ì§€ ì •í•˜ëŠ” SQL êµ¬ë¬¸
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-				
+
 		ArrayList<QnABoardBean> list = new ArrayList<QnABoardBean>();
 		try {
 			conn = getConnection();
@@ -149,12 +150,12 @@ public class QnABoardDBBean {
 				qbb.setB_fsize(rs.getInt("B_FSIZE"));
 				qbb.setB_rfname(rs.getString("B_RFNAME"));
 				qbb.setB_anschk(rs.getString("B_ANSCHK"));
-				
+
 				list.add(qbb);
 			}
-			
+
 		} catch (SQLException ex) {
-			System.out.print("Á¶È¸ ½ÇÆÐ");
+			System.out.print("listBoard Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -180,7 +181,7 @@ public class QnABoardDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		QnABoardBean qbb = null;
-		
+
 		try {
 			if (hitAdd == true) {
 				sql = "UPDATE QNA_BOARD SET B_VIEW=B_VIEW+1 WHERE B_ID = ?";
@@ -188,14 +189,14 @@ public class QnABoardDBBean {
 				;
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, b_id);
-				pstmt.executeUpdate(); // Äõ¸® ½ÇÇà
+				pstmt.executeUpdate(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			} else {
 				conn = getConnection();
 			}
-			
-			sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
-					",B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
-					",B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
+
+			sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
+					",B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
+					",B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" +
 					"  FROM QNA_BOARD WHERE B_ID = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, b_id);
@@ -222,7 +223,7 @@ public class QnABoardDBBean {
 				qbb.setB_anschk(rs.getString("B_ANSCHK"));
 			}
 		} catch (SQLException ex) {
-			System.out.print("Á¶È¸ ½ÇÆÐ");
+			System.out.print("getBoard Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -260,7 +261,7 @@ public class QnABoardDBBean {
 				bb.setB_rfname(rs.getString("B_RFNAME"));
 			}
 		} catch (SQLException ex) {
-			System.out.print("Á¶È¸ ½ÇÆÐ");
+			System.out.print("getFileName Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -279,7 +280,7 @@ public class QnABoardDBBean {
 		}
 		return bb;
 	}
-	
+
 	public int getCount(QnABoardBean qbb) throws Exception {
 		String sql = "SELECT COUNT(*) FROM qna_board";
 		int re=0;
@@ -293,12 +294,12 @@ public class QnABoardDBBean {
 			pstmt.setString(1,qboard.getB_anschk());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-					re = rs.getInt(1); // ±Û °¹¼ö
+				re = rs.getInt(1); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			} else {
-					re = 0; // ±Û ¾øÀ½
+				re = 0; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}catch (SQLException ex) {
-			System.out.print("Á¶È¸ ½ÇÆÐ");
+			System.out.print("getCount Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -328,12 +329,12 @@ public class QnABoardDBBean {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				re = rs.getInt(1); // ±Û °¹¼ö
+				re = rs.getInt(1); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			} else {
-				re = 0; // ±Û ¾øÀ½
+				re = 0; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}catch (SQLException ex) {
-			System.out.print("Á¶È¸ ½ÇÆÐ");
+			System.out.print("getReplyCount Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -352,9 +353,9 @@ public class QnABoardDBBean {
 		}
 		return re;
 	}
-	
+
 	public int deleteBoard(String b_pwd, int b_id) throws Exception {
-		String sql = "SELECT B_PWD FROM qna_board WHERE B_ID = ?"; // °Ô½Ã±Û¿¡ ¸Â´Â ºñ¹Ð¹øÈ£ Á¶È¸
+		String sql = "SELECT B_PWD FROM qna_board WHERE B_ID = ?"; // ï¿½Ô½Ã±Û¿ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½È¸
 		int re = -1;
 
 		Connection conn = null;
@@ -367,21 +368,21 @@ public class QnABoardDBBean {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				String db_pwd = rs.getString("B_PWD"); // ¼Ó¼º°ª¿¡ Á¶È¸ÇÑ ºñ¹Ð¹øÈ£ ÀÔ·Â
+				String db_pwd = rs.getString("B_PWD"); // ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½Ô·ï¿½
 				if (db_pwd.equals(b_pwd)) {
 					sql = "DELETE FROM qna_board WHERE B_ID = ?";
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, b_id);
 					pstmt.executeUpdate();
-					re = 1; // ¹øÈ£, ºñ¹Ð¹øÈ£ ÀÏÄ¡
+					re = 1; // ï¿½ï¿½È£, ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½Ä¡
 				} else {
-					re = 0; // ºñ¹Ð¹øÈ£ ºÒÀÏÄ¡
+					re = 0; // ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡
 				}
 			} else {
 				re = -1;
 			}
 		} catch (SQLException ex) {
-			System.out.print("»èÁ¦ ½ÇÆÐ");
+			System.out.print("deleteBoard Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -402,8 +403,8 @@ public class QnABoardDBBean {
 	}
 
 	public int editBoard(QnABoardBean qbb) throws Exception {
-		String sql = "SELECT B_PWD FROM qna_board WHERE B_ID = ?"; // °Ô½Ã±Û¿¡ ¸Â´Â ºñ¹Ð¹øÈ£ Á¶È¸
-		int re = -1; // ¼öÁ¤ ½ÇÆÐ
+		String sql = "SELECT B_PWD FROM qna_board WHERE B_ID = ?"; // ï¿½Ô½Ã±Û¿ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½È¸
+		int re = -1; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -413,7 +414,7 @@ public class QnABoardDBBean {
 			pstmt.setInt(1, qbb.getB_id());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				String db_pwd = rs.getString("B_PWD"); // ¼Ó¼º°ª¿¡ Á¶È¸ÇÑ ºñ¹Ð¹øÈ£ ÀÔ·Â
+				String db_pwd = rs.getString("B_PWD"); // ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½Ô·ï¿½
 				if (db_pwd.equals(qbb.getB_pwd())) {
 					sql = "UPDATE qna_board SET B_CATEGORY=?, B_TITLE=?, B_CONTENT=? WHERE B_ID=?";
 					pstmt = conn.prepareStatement(sql);
@@ -422,15 +423,15 @@ public class QnABoardDBBean {
 					pstmt.setString(3,qbb.getB_content());
 					pstmt.setInt(4, qbb.getB_id());
 					pstmt.executeUpdate();
-					re = 1; // ¼öÁ¤ ¼º°ø
+					re = 1; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				} else {
-					re = 0; // ºñ¹Ð¹øÈ£ ºÒÀÏÄ¡
+					re = 0; // ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½Ä¡
 				}
 			} else {
-				re = -1; // Á¶È¸ ½ÇÆÐ
+				re = -1; // ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½
 			}
 		}catch (SQLException ex) {
-			System.out.print("¼öÁ¤ ½ÇÆÐ");
+			System.out.print("editBoard Fail");
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -450,17 +451,17 @@ public class QnABoardDBBean {
 		return re;
 	}
 	public ArrayList<QnABoardBean> adminListBoard(int startRow, int pageSize) throws Exception {
-		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
-				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
-				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
-				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" + 
-				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" + 
-				" WHERE rnum >= ? AND rnum <= ? AND B_ANSCHK = 'N'";		// ´ä±ÛÀÌ ¾ø´Â ±Û¸¸ ºÒ·¯¿À´Â Äõ¸®
-		
+		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
+				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
+				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" +
+				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" +
+				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" +
+				" WHERE rnum >= ? AND rnum <= ? AND B_ANSCHK = 'N'";		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-				
+
 		ArrayList<QnABoardBean> adminList = new ArrayList<QnABoardBean>();
 		try {
 			conn = getConnection();
@@ -487,12 +488,12 @@ public class QnABoardDBBean {
 				qbb.setB_fsize(rs.getInt("B_FSIZE"));
 				qbb.setB_rfname(rs.getString("B_RFNAME"));
 				qbb.setB_anschk(rs.getString("B_ANSCHK"));
-				
+
 				adminList.add(qbb);
 			}
-			
+
 		} catch (SQLException ex) {
-			System.out.print("Á¶È¸ ½ÇÆÐ");
+			System.out.print("ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½");
 			ex.printStackTrace();
 		} finally {
 			try {

@@ -21,6 +21,7 @@ public class QnABoardBean {
 	private String b_rfname;
 	private String b_anschk;
 	private int count;
+	private String u_grade;
 	
 	public int getCount() { return count; }
 	public void setCount(int count) { this.count = count; }
@@ -58,4 +59,6 @@ public class QnABoardBean {
 	public void setB_fsize(int b_size) { this.b_fsize = b_size; }
 	public String getB_rfname() { return b_rfname; }
 	public void setB_rfname(String b_rfname) { this.b_rfname = b_rfname; }
+	public String getU_grade() { return u_grade; }
+	public void setU_grade(String u_grade) { this.u_grade = u_grade; }
 }
