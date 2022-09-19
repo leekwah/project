@@ -27,6 +27,7 @@
 </head>
 <body>
 		<a href="../cs/cs_main.jsp">메인페이지</a>><a href="../cs/cs_main.jsp">고객센터</a>><a href="FAQ">FAQ</a>
+		<h3>자주 묻는 질문 FAQ</h3>
 		<table border="1">
 			<tr>
 				<td>글번호</td>
@@ -34,9 +35,6 @@
 				<td>제목</td>
 				<td>작성자</td>
 				<td>작성일</td>
-				<td>조회수</td>
-				<td>첨부파일</td>
-				<td>비공개</td>
 			</tr>
 		<%
 			for(int i=0;i<list.size();i++){
@@ -61,9 +59,7 @@
 				<td><%= b_title %></td>
 				<td><%= u_id %></td>
 				<td><%= sdf.format(b_date) %></td>
-				<td><%= b_view %></td>
-				<td><%= b_fsize %></td>
-				<td><%= b_secret %></td>
+				<td><%= b_view %><td>
 			</tr>
 			<tr><!-- 위의 질문글에 대한 답변 -->
 		<%
@@ -87,9 +83,6 @@
 				<td><%= b_title %></td>
 				<td><%= u_id %></td>
 				<td><%= sdf.format(b_date) %></td>
-				<td><%= b_view %></td>
-				<td><%= b_fsize %></td>
-				<td><%= b_secret %></td>
 			</tr>
 		<% 
 			}
