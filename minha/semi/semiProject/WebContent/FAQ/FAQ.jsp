@@ -59,7 +59,6 @@
 				<td><%= b_title %></td>
 				<td><%= u_id %></td>
 				<td><%= sdf.format(b_date) %></td>
-				<td><%= b_view %><td>
 			</tr>
 			<tr><!-- 위의 질문글에 대한 답변 -->
 		<%
