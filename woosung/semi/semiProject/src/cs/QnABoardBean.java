@@ -20,15 +20,29 @@ public class QnABoardBean {
 	private int b_fsize;
 	private String b_rfname;
 	private String b_anschk;
-	private String u_grade;
+	
+	static private int b_nm;
+	
+	
+	public static int getB_nm() {
+		return b_nm;
+	}
+
+	public static void setB_nm(int b_nm) {
+		QnABoardBean.b_nm = b_nm;
+	}
+
+	private String u_grade; // È¸¿ø µî±Þ
 	
 	public String getU_grade() {
 		return u_grade;
 	}
+
 	public void setU_grade(String u_grade) {
 		this.u_grade = u_grade;
 	}
-	private int count; // ï¿½ï¿½Ã¼ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	
+	private int count; // ÀüÃ¼ ±Û °³¼ö
 	
 	public int getCount() {
 		return count;
