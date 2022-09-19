@@ -42,7 +42,12 @@
 			</tr>
 			<tr height="30">
 				<td width="80">주    소</td>
-				<td><input type="text" name="user_addr" size="40"></td>
+				<td><input type="text" name="user_addr" size="40">
+					  <input id="member_post"  type="text" placeholder="Zip Code" readonly onclick="findAddr()">
+  					  <input id="member_addr" type="text" placeholder="Address" readonly> <br>
+  					  <input type="text" placeholder="Detailed Address">
+				</td>
+				
 			</tr>
 			<tr height="30">
 				<td colspan="2" align="center">
