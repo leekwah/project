@@ -12,8 +12,7 @@ public class UserBean {
 	private String user_grade;
 	private int userPurchase;
 	
-	public UserBean() {
-	}
+	public UserBean() { }
 	public UserBean(String user_id, String user_pwd, String user_name, String user_email, String user_phone,
 			String user_addr, String user_grade) {
 		this.user_id = user_id;

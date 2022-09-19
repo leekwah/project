@@ -12,7 +12,8 @@
 	QnABoardBean qbb = qdb.getBoard(b_id, false);
 	String fName = qbb.getB_fname();
 	// String fPath = "D:/woosung/semi/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload/";
-	String fPath = "C:/Users/lkwng/Desktop/green/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
+	// String fPath = "C:/Users/lkwng/Desktop/green/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
+	String fPath = "/Users/kwah/Desktop/semi_project/kwanghoon/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
 	
 	int re = qdb.deleteBoard(pwd, b_id); 
 	

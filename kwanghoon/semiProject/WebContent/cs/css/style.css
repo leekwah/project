@@ -1,0 +1,17 @@
+h1 { font-size: 30px; }
+header { display: flex; }
+nav { margin: 10px auto; }
+nav ul li {
+    display: inline-block;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+}
+nav ul {
+    display: block;
+    margin: 0 auto;
+}
+.main_title { margin: 10px 15px; }
