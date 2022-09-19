@@ -26,7 +26,7 @@
 			qboard.setB_ip("1");
 			qboard.setB_pwd("test");
 			qboard.setB_date(new Timestamp(System.currentTimeMillis()));
-			qboard.setB_secret(b_secret[i%2]);
+			qboard.setB_secret(b_secret[(int)(Math.random()*2)]);
 			db.insertBoard(qboard);
 		}
 		for(int i=61;i<=120;i++){
@@ -39,7 +39,7 @@
 			qboard.setB_ip("1");
 			qboard.setB_pwd("test");
 			qboard.setB_date(new Timestamp(System.currentTimeMillis()));
-			qboard.setB_secret(b_secret[i%2]);
+			qboard.setB_secret(b_secret[(int)(Math.random()*2)]);
 			qboard.setB_ref(i-60);
 			db.insertBoard(qboard);
 			if(i==120){
@@ -57,7 +57,7 @@
 			qboard.setB_ip("1");
 			qboard.setB_pwd("test");
 			qboard.setB_date(new Timestamp(System.currentTimeMillis()));
-			qboard.setB_secret(b_secret[i%2]);
+			qboard.setB_secret(b_secret[(int)(Math.random()*2)]);
 			db.insertBoard(qboard);
 		}
 	%>

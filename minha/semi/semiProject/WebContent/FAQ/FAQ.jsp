@@ -14,10 +14,11 @@
 	int b_id,b_view, b_level, b_fsize;
 	String b_category, u_id, b_title, b_content, b_pwd, b_secret, b_anschk;
 	Timestamp b_date;
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-	String b_titleSearch = "";
 	
-	int b_categorySearch = 0;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	
+	String b_titleSearch = "";//제목 검색 변수
+	int b_categorySearch = 0;//카테고리를 위한 변수
 	
 	
 	String[] category = {"","회원정보", "상품문의", "주문/결제", "배송", "교환/취소", "서비스"};
@@ -32,21 +33,30 @@
 
 	//객체생성 및 객체 배열
 	FAQDBBean faqdbBean = FAQDBBean.getInstance();
-	ArrayList<QnABoardBean> list = faqdbBean.listBoardFQA(b_titleSearch,category[b_categorySearch]);
+	ArrayList<QnABoardBean> list = faqdbBean.listBoardFAQ(b_titleSearch,category[b_categorySearch]);
 %>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+	#title:hover{cursor: pointer;}
+	.content{display: none;}
+	.on{display: table-cell;}
+</style>
+<script src="jquery.min.js"></script>
+<script type="text/javascript" src="faq.js"></script>
 </head>
 <body>
-		<a href="../cs/cs_main.jsp">메인페이지</a>><a href="../cs/cs_main.jsp">고객센터</a>><a href="FAQ">FAQ</a>
+		<a href="../main/main.jsp">메인페이지</a>><a href="../cs/cs_main.jsp">고객센터</a>><a href="FAQ.jsp">FAQ</a>
 		<h3>자주 묻는 질문 FAQ</h3>
-		<form method="post" action="FAQ.jsp">
+		<form method="post" action="../FAQ/FAQ.jsp">
 			<input type="text" name="b_titleS">
 			<input type="submit" value="FAQ검색">
 		</form>
-		<input type="radio" name="category" id="001" onclick="location.href='FAQ.jsp?b_categoryS=1'"
+		<input type="radio" name="category" id="001" onclick="location.href='../FAQ/FAQ.jsp?b_categoryS=1'"
 		<%
 			if(b_categorySearch == 1){
 				%>
@@ -54,35 +64,35 @@
 				<%
 			}
 		%> style="display: none;">
-		<input type="radio" name="category" id="002" onclick="location.href='FAQ.jsp?b_categoryS=2'"<%
+		<input type="radio" name="category" id="002" onclick="location.href='../FAQ/FAQ.jsp?b_categoryS=2'"<%
 			if(b_categorySearch == 2){
 				%>
 					checked="checked"
 				<%
 			}
 		%> style="display: none;">
-		<input type="radio" name="category" id="003" onclick="location.href='FAQ.jsp?b_categoryS=3'"<%
+		<input type="radio" name="category" id="003" onclick="location.href='../FAQ/FAQ.jsp?b_categoryS=3'"<%
 			if(b_categorySearch == 3){
 				%>
 					checked="checked"
 				<%
 			}
 		%> style="display: none;">
-		<input type="radio" name="category" id="004" onclick="location.href='FAQ.jsp?b_categoryS=4'"<%
+		<input type="radio" name="category" id="004" onclick="location.href='../FAQ/FAQ.jsp?b_categoryS=4'"<%
 			if(b_categorySearch == 4){
 				%>
 					checked="checked"
 				<%
 			}
 		%> style="display: none;">
-		<input type="radio" name="category" id="005" onclick="location.href='FAQ.jsp?b_categoryS=5'"<%
+		<input type="radio" name="category" id="005" onclick="location.href='../FAQ/FAQ.jsp?b_categoryS=5'"<%
 			if(b_categorySearch == 5){
 				%>
 					checked="checked"
 				<%
 			}
 		%> style="display: none;">
-		<input type="radio" name="category" id="006" onclick="location.href='FAQ.jsp?b_categoryS=6'"<%
+		<input type="radio" name="category" id="006" onclick="location.href='../FAQ/FAQ.jsp?b_categoryS=6'"<%
 			if(b_categorySearch == 6){
 				%>
 					checked="checked"
@@ -95,11 +105,11 @@
 		<label for="004">배송</label>
 		<label for="005">교환/취소</label>
 		<label for="006">서비스</label>
-		<table border="1">
+		<table border="1" class="tableFAQ">
 			<tr>
 				<!-- <td>글번호</td> -->
-				<td>분류</td>
-				<td>제목</td>
+				<td colspan="1">분류</td>
+				<td colspan="1">제목</td>
 				<!-- <td>작성자</td>
 				<td>작성일</td> -->
 			</tr>
@@ -132,19 +142,24 @@
 		%>
 			<tr><!-- 조회순 20개의 질문글 -->
 				<%-- <td><%= b_id %></td> --%>
+
 				<td><%= b_category %></td>
-				<td><%= b_title %></td>
+				<td id="title" class="title<%=i%>">
+					<%= b_title %> 
+					<input type="hidden" value="<%=i%>" class="hidden">
+				</td>
 				<%-- <td><%= u_id %></td>
 				<td><%= sdf.format(b_date) %></td> --%>
 			</tr>
 			<tr><!-- 위의 질문글에 대한 답변 -->
 		<%
 				
-				board2 = faqdbBean.getBoardFQA(b_id, false);
+				board2 = faqdbBean.getBoardFAQ(b_id, false);
 		
 				b_id=board2.getB_id();
 				u_id=board2.getU_id();
 				b_category=board2.getB_category();
+				b_content=board2.getB_content();
 				b_pwd=board2.getB_pwd();
 				b_title= board2.getB_title();
 				b_date= board2.getB_date();
@@ -155,12 +170,18 @@
 		
 		%>
 				<%-- <td><%= b_id %></td> --%>
-				<td><%= b_category %></td>
-				<td><%= b_title %></td>
+				<%-- <td colspan="1"><%= b_category %></td>
+				<td colspan="1" ><%= b_title %></td> --%>
 				<%-- <td><%= u_id %></td>
 				<td><%= sdf.format(b_date) %></td> --%>
 			</tr>
-		<% 
+			<tr class="contentbox">
+				<td colspan="2" class="content content<%= i %>">[답변]<br><%= b_content %></td>
+			</tr>
+			<%-- <tr class="content content<%= i %>">
+				<td colspan="2">[답변]<br><%= b_content %></td>
+			</tr> --%>
+		<%
 			}
 		%>
 		</table>

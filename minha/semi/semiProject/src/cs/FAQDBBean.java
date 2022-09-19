@@ -30,7 +30,7 @@ public class FAQDBBean { //QnABoardBean과 QnABoardDBBean을 사용
 		return ds.getConnection();
 	}
 	
-	public ArrayList<QnABoardBean> listBoardFQA(String b_title, String b_category) throws Exception {
+	public ArrayList<QnABoardBean> listBoardFAQ(String b_title, String b_category) throws Exception {
 		String sql = "select b_id\r\n" + 
 				"     , u_id\r\n" + 
 				"     , b_category\r\n" + 
@@ -112,7 +112,7 @@ public class FAQDBBean { //QnABoardBean과 QnABoardDBBean을 사용
 		return list;
 	}
 	
-	public QnABoardBean getBoardFQA(int b_id, boolean hitAdd) throws Exception {
+	public QnABoardBean getBoardFAQ(int b_id, boolean hitAdd) throws Exception {
 		String sql = "";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
