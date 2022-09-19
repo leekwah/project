@@ -53,7 +53,7 @@ public class FAQDBBean { //QnABoardBean과 QnABoardDBBean을 사용
 				"   and b_anschk = 'Y' \r\n" + 
 				"   and b_secret = 'N' \r\n" + 
 				"   and rownum <= 20 \r\n" + 
-				" order by b_view";
+				" order by b_view desc";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
