@@ -21,7 +21,7 @@
 %>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script language="JavaScript" src="uploadProduct.js" charset="utf-8"></script>
 <style type="text/css">
@@ -48,14 +48,7 @@
 			<table>
 				<form name="up_prodc" action="uploadProduct_ok.jsp" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="product_number" value="<%= product_number %>">
-					<tr class="product_img">
-						<td>
-							상품 이미지 등록
-						</td>
-						<td>
-							<input type="file" name="product_img">
-						</td>
-					</tr>
+					
 					<tr class="product_category">
 					<!--  	<label class="gender_label">성별 카테고리</label>&nbsp;
 						<select name="category_code_gender" >
@@ -114,6 +107,15 @@
 						</td>
 						<td>
 						<textarea rows="2" cols="60" name="product_desc"></textarea>
+						</td>
+					</tr>
+					<br>
+					<tr class="product_img">
+						<td>
+							상품 이미지 등록
+						</td>
+						<td>
+							<input type="file" name="product_img">
 						</td>
 					</tr>
 					<br>

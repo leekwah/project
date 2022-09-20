@@ -34,8 +34,8 @@
 			file = multi.getFilesystemName(str);
 			
 			if(file != null) {
-		oriFile = multi.getOriginalFileName(str);
-		fileSize = file.getBytes().length;
+				oriFile = multi.getOriginalFileName(str);
+				fileSize = file.getBytes().length;
 			}
 			
 			InetAddress address = InetAddress.getLocalHost();
@@ -49,19 +49,19 @@
 			product.setProduct_date(new Timestamp(System.currentTimeMillis()));
 			
 			if(file != null) {
-		product.setStored_file_name(file);
-		product.setFile_size(fileSize);
-		product.setOrgin_file_name(oriFile);
-		product.setCreate_date(new Timestamp(System.currentTimeMillis()));
+				product.setStored_file_name(file);
+				product.setFile_size(fileSize);
+				product.setOrgin_file_name(oriFile);
+				product.setCreate_date(new Timestamp(System.currentTimeMillis()));
 			}
 			
 			ProductDBBean updb = ProductDBBean.getInstance();
 			int re = updb.insertUploadProduct(product);
 			
 			if(re == 1){
-		response.sendRedirect("myUploadProduct_List.jsp");
+				response.sendRedirect("myUploadProduct_List.jsp");
 			}else{
-		response.sendRedirect("uploadProduct.html");
+				response.sendRedirect("uploadProduct.jsp");
 			}
 	%>
 </body>
