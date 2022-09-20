@@ -1,5 +1,10 @@
 package login;
 
+<<<<<<< HEAD
+=======
+import java.sql.Timestamp;
+
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 public class UserBean {
 	private String user_id;
 	private String user_pwd;
@@ -10,6 +15,7 @@ public class UserBean {
 	private String user_grade;
 	private int userPurchase;
 	
+<<<<<<< HEAD
 	public UserBean() {}
 	public UserBean(String user_id,
 					String user_pwd,
@@ -18,6 +24,11 @@ public class UserBean {
 					String user_phone,
 					String user_addr,
 					String user_grade) {
+=======
+	public UserBean() { }
+	public UserBean(String user_id, String user_pwd, String user_name, String user_email, String user_phone,
+			String user_addr, String user_grade) {
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 		this.user_id = user_id;
 		this.user_pwd = user_pwd;
 		this.user_name = user_name;
@@ -27,6 +38,10 @@ public class UserBean {
 		this.user_grade = user_grade;
 	}
 	public UserBean(String user_id) { this.user_id = user_id; }
+<<<<<<< HEAD
+=======
+	
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public String getUser_grade() { return user_grade; }
 	public void setUser_grade(String user_grade) { this.user_grade = user_grade; }
 	public String getUser_id() { return user_id; }

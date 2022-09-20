@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
+<<<<<<< HEAD
     <entry loc="C:\Program Files\Java\jdk-11.0.16" stamp="1656401439000"/>
+=======
+    <entry loc="/Users/kwah/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.aarch64_11.0.16.v20220805-0923" stamp="1659954299615"/>
+    <entry loc="/Users/kwah/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.aarch64_11.0.16.v20220805-0923/jre" stamp="1659954299615"/>
+    <entry loc="/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home" stamp="1661167062129"/>
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 </dirs>

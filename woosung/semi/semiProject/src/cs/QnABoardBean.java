@@ -21,6 +21,30 @@ public class QnABoardBean {
 	private String b_rfname;
 	private String b_anschk;
 	
+<<<<<<< HEAD
+=======
+	static private int b_nm;
+	
+	
+	public static int getB_nm() {
+		return b_nm;
+	}
+
+	public static void setB_nm(int b_nm) {
+		QnABoardBean.b_nm = b_nm;
+	}
+
+	private String u_grade; // 회원 등급
+	
+	public String getU_grade() {
+		return u_grade;
+	}
+
+	public void setU_grade(String u_grade) {
+		this.u_grade = u_grade;
+	}
+	
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	private int count; // 전체 글 개수
 	
 	public int getCount() {

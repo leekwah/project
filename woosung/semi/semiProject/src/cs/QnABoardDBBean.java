@@ -32,10 +32,18 @@ public class QnABoardDBBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+<<<<<<< HEAD
 		int id = qBoard.getB_id();
 		int ref = qBoard.getB_ref();
 		int step = qBoard.getB_step();
 		int level = qBoard.getB_level();
+=======
+		int bid = qBoard.getB_id();
+		int ref = qBoard.getB_ref();
+		int step = qBoard.getB_step();
+		int level = qBoard.getB_level();
+		String ugrade = qBoard.getU_grade();
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -47,7 +55,11 @@ public class QnABoardDBBean {
 				number = 1;
 			}
 			
+<<<<<<< HEAD
 			if (id != 0) {
+=======
+			if (bid != 0) {
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 				sql = "UPDATE qna_board SET B_STEP = B_STEP+1 WHERE B_REF = ? AND B_STEP > ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, ref);
@@ -77,11 +89,26 @@ public class QnABoardDBBean {
 			pstmt.setInt(12, step);
 			pstmt.setInt(13, level);
 			pstmt.setString(14, qBoard.getB_fname());
+<<<<<<< HEAD
 			pstmt.setInt(15, qBoard.getB_fsize()); // 파일 크기
 			pstmt.setString(16, qBoard.getB_rfname()); // 파일 이름
 			pstmt.setString(17, qBoard.getB_anschk()); // 파일 이름
 			pstmt.executeUpdate();
 			
+=======
+			pstmt.setInt(15, qBoard.getB_fsize());
+			pstmt.setString(16, qBoard.getB_rfname());
+			pstmt.setString(17, "N");
+			pstmt.executeUpdate();
+			
+			if(ref != number) {
+				sql = "UPDATE qna_board SET B_ANSCHK = 'Y' WHERE B_REF=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, qBoard.getB_ref());
+				pstmt.executeUpdate();
+			}
+			
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			re=1;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -110,12 +137,15 @@ public class QnABoardDBBean {
 				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" + 
 				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" + 
 				" WHERE rnum >= ? AND rnum <= ?";		// 페이지에 글을 몇 개 보여주는지 제한하는 쿼리
+<<<<<<< HEAD
 		/*
 		 * String sql ="SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
 		 * ",B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
 		 * ",B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n"
 		 * +" FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP";
 		 */
+=======
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -284,6 +314,10 @@ public class QnABoardDBBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+<<<<<<< HEAD
+=======
+		QnABoardBean qboard = new QnABoardBean();
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -313,6 +347,44 @@ public class QnABoardDBBean {
 		}
 		return re;
 	}
+<<<<<<< HEAD
+=======
+	public int getReplyCount(QnABoardBean qbb) throws Exception {
+		String sql = "SELECT COUNT(*) FROM qna_board WHERE B_ANSCHK = 'N'";
+		int re=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				re = rs.getInt(1); // 글 갯수
+			} else {
+				re = 0; // 글 없음
+			}
+		}catch (SQLException ex) {
+			System.out.print("조회 실패");
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return re;
+	}
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	
 	public int deleteBoard(String b_pwd, int b_id) throws Exception {
 		String sql = "SELECT B_PWD FROM qna_board WHERE B_ID = ?"; // 게시글에 맞는 비밀번호 조회
@@ -330,7 +402,11 @@ public class QnABoardDBBean {
 			if (rs.next()) {
 				String db_pwd = rs.getString("B_PWD"); // 속성값에 조회한 비밀번호 입력
 				if (db_pwd.equals(b_pwd)) {
+<<<<<<< HEAD
 					sql = "DELETE FROM qna_board WHERE B_ID = ?";
+=======
+					sql = "DELETE FROM qna_board WHERE B_REF = ?"; // 입력받은 게시판 번호에 달린 답글도 삭제하기 위한 쿼리문
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 					pstmt = conn.prepareStatement(sql);
 					pstmt.setInt(1, b_id);
 					pstmt.executeUpdate();
@@ -410,4 +486,69 @@ public class QnABoardDBBean {
 		}
 		return re;
 	}
+<<<<<<< HEAD
+=======
+	public ArrayList<QnABoardBean> adminListBoard(int startRow, int pageSize) throws Exception {
+		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
+				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
+				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
+				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" + 
+				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" + 
+				" WHERE rnum >= ? AND rnum <= ? AND B_ANSCHK = 'N'";		// 답글이 없는 글만 불러오는 쿼리
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+				
+		ArrayList<QnABoardBean> adminList = new ArrayList<QnABoardBean>();
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, startRow+pageSize-1);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				QnABoardBean qbb = new QnABoardBean();
+				qbb.setB_id(rs.getInt("B_ID"));
+				qbb.setU_id(rs.getString("U_ID"));
+				qbb.setB_category(rs.getString("B_CATEGORY"));
+				qbb.setB_view(rs.getInt("B_VIEW"));
+				qbb.setB_title(rs.getString("B_TITLE"));
+				qbb.setB_content(rs.getString("B_CONTENT"));
+				qbb.setB_ip(rs.getString("B_IP"));
+				qbb.setB_pwd(rs.getString("B_PWD"));
+				qbb.setB_date(rs.getTimestamp("B_DATE"));
+				qbb.setB_secret(rs.getString("B_SECRET"));
+				qbb.setB_ref(rs.getInt("B_REF"));
+				qbb.setB_step(rs.getInt("B_STEP"));
+				qbb.setB_level(rs.getInt("B_LEVEL"));
+				qbb.setB_fname(rs.getString("B_FNAME"));
+				qbb.setB_fsize(rs.getInt("B_FSIZE"));
+				qbb.setB_rfname(rs.getString("B_RFNAME"));
+				qbb.setB_anschk(rs.getString("B_ANSCHK"));
+				
+				adminList.add(qbb);
+			}
+			
+		} catch (SQLException ex) {
+			System.out.print("조회 실패");
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return adminList;
+	}
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 }

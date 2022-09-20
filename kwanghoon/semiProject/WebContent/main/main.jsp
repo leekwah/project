@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="java.util.ArrayList"%>
 <%@page import="goods.GoodsBean"%>
 <%@page import="goods.GoodsDBBean"%>
@@ -309,5 +310,22 @@ request.setCharacterEncoding("UTF-8");
 			<jsp:include page="mainFooter.jsp"></jsp:include>
 			 
       <div><!-- body_div -->    
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>main</title>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<%@ include file="header.jsp" %>
+이것 저것 저것 이것
+<%@ include file="footer.jsp" %>
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 </body>
 </html>

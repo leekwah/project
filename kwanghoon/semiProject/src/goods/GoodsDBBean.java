@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package goods;
 
@@ -1735,5 +1736,10 @@ public class GoodsDBBean {
 		
 		
 		
+=======
+package goods;
+
+public class GoodsDBBean {
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 
 }

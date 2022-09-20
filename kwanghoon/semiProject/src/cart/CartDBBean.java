@@ -11,19 +11,31 @@ import javax.sql.DataSource;
 public class CartDBBean {
 	private static CartDBBean instance = new CartDBBean();
 	
+<<<<<<< HEAD
 	// cartDBBean ��ü �����ϴ� �޼��� - 0418 ����
+=======
+	// cartDBBean 객체 생성하는 메서드
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public static CartDBBean getInstance() {
 		return instance;
 	}
 	
+<<<<<<< HEAD
 	// db�� �����ϴ� �޼��� - 0418 ����
+=======
+	// db와 연결하는 메서드
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public Connection getConnection() throws Exception {
 		Connection conn = null;
 		conn = ((DataSource)(new InitialContext().lookup("java:comp/env/jdbc/oracle"))).getConnection();
 		return conn;
 	}
 	
+<<<<<<< HEAD
 	// ��ٱ��ϸ� db�� �����ϴ� �޼��� - 0418 ����
+=======
+	// 장바구니를 db에 저장하는 메서드
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public int insertCart(String user_id, int product_number, int product_count) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -36,7 +48,11 @@ public class CartDBBean {
 		try {
 			conn = getConnection();
 			
+<<<<<<< HEAD
 			// cart_number�� �����ϱ� ���� -0418 ����
+=======
+			// cart_number를 세팅하기 위해 -0418 근지
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			query = "select max(cart_number) from cart";
 			pstmt = conn.prepareStatement(query);
 			
@@ -48,14 +64,22 @@ public class CartDBBean {
 				number=1;
 			}
 			
+<<<<<<< HEAD
 			// product_count�� ����+ī�忡 ��� -0418 ����
+=======
+			// product_count를 세팅 + 카드에 담기 -0418 근지
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			query = "select product_count from cart where user_id=? and product_number=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, user_id);
 			pstmt.setInt(2, product_number);
 			rs = pstmt.executeQuery();
 			
+<<<<<<< HEAD
 			if (rs.next()) {	// ������ �߰��� �� -0418����
+=======
+			if (rs.next()) {	// 개수만 추가될 때 Update문 사용 
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 				count = rs.getInt(1)+product_count;
 				
 				query = "update cart set product_count=? where user_id=? and product_number=?";
@@ -67,7 +91,11 @@ public class CartDBBean {
 				re = pstmt.executeUpdate();
 				re = 1;
 				
+<<<<<<< HEAD
 			} else {	//  �� ��ǰ�� �߰��� ���� �� -0418����
+=======
+			} else {	//  새 상품을 추가한 것일 때 Insert문 사용 
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 				query = "insert into cart"
 						+ "(cart_number, user_id, product_number, product_count)"
 						+ "values(?,?,?,?)";
@@ -81,9 +109,15 @@ public class CartDBBean {
 				re = 1;
 			}
 			
+<<<<<<< HEAD
 			System.out.println("�߰� ����");
 		} catch(Exception e) {
 			System.out.println("�߰� ����");
+=======
+			System.out.println("추가 성공");
+		} catch(Exception e) {
+			System.out.println("추가 실패");
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			e.printStackTrace();
 		} finally {
 			if(rs!=null) rs.close();
@@ -93,7 +127,11 @@ public class CartDBBean {
 		return re;
 	}
 	
+<<<<<<< HEAD
 	// user_id�� ��ġ�ϴ� cart�� ������ ������ �޼��� - 0418 ����
+=======
+	// user_id와 일치하는 cart의 정보를 얻어오는 메서드 - 0418 근지
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public ArrayList<CartBean> getCart(String user_id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -127,7 +165,11 @@ public class CartDBBean {
 		return cartArr;
 	}
 	
+<<<<<<< HEAD
 	// cart_number ���� �����ϴ� �޼��� - 0418 ����
+=======
+	// cart_number 열을 삭제하는 메서드 - 0418 근지
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public int deleteCart(int cart_number) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -141,9 +183,15 @@ public class CartDBBean {
 			re = pstmt.executeUpdate();
 			re = 1;
 			
+<<<<<<< HEAD
 			System.out.println("���� ����");
 		} catch(Exception e) {
 			System.out.println("���� ����");
+=======
+			System.out.println("삭제 성공");
+		} catch(Exception e) {
+			System.out.println("삭제 실패");
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			e.printStackTrace();
 		} finally {
 			if(pstmt!=null) pstmt.close();
@@ -152,7 +200,11 @@ public class CartDBBean {
 		return re;
 	}
 	
+<<<<<<< HEAD
 	// cart_number �� ���� ������ �����ϴ� �޼��� - 0419 ����
+=======
+	// cart_number 열 구매 개수를 수정하는 메서드 - 0419 근지
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public int editCart(int cart_number, int product_count) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -167,9 +219,15 @@ public class CartDBBean {
 			re = pstmt.executeUpdate();
 			re = 1;
 			
+<<<<<<< HEAD
 			System.out.println("���� ����");
 		} catch(Exception e) {
 			System.out.println("���� ����");
+=======
+			System.out.println("수정 성공");
+		} catch(Exception e) {
+			System.out.println("수정 실패");
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			e.printStackTrace();
 		} finally {
 			if(pstmt!=null) pstmt.close();
@@ -178,7 +236,11 @@ public class CartDBBean {
 		return re;
 	}
 	
+<<<<<<< HEAD
 	// �������� Ȯ���� ��ٱ��� �߰� ���� ���θ� Ȯ���ϴ� �޼���(��ٱ��Ͽ� �߰��� ��) - 0420 ����
+=======
+	// 재고수량을 확인해 장바구니 추가 가능 여부를 확인하는 메서드(장바구니에 추가할 때)
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public int checkStock(int product_number, int product_count, String user_id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -190,7 +252,11 @@ public class CartDBBean {
 		
 		try {
 			conn = getConnection();
+<<<<<<< HEAD
 			// �ش� ���̵� ��ٱ��Ͽ� �ش� ������ ��Ƴ��� �� ������ cnt�� ���� - 0420 ����
+=======
+			// 해당 아이디가 장바구니에 해당 물건을 담아놓은 총 개수를 cnt에 담음
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			query = "select sum(product_count) from cart where product_number=? and user_id=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, product_number);
@@ -203,7 +269,11 @@ public class CartDBBean {
 				cnt = product_count;
 			}
 			
+<<<<<<< HEAD
 			// �ش� ��ǰ ��� Ȯ�� - 0420 ����
+=======
+			// 해당 상품 재고를 확인
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			query = "select product_stock from product where product_number=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, product_number);
@@ -229,7 +299,11 @@ public class CartDBBean {
 		return re;
 	}
 	
+<<<<<<< HEAD
 	// �������� Ȯ���� ��ٱ��� �߰� ���� ���θ� Ȯ���ϴ� �޼���(��ٱ��Ͽ���  ������ ��) - 0420 ����
+=======
+	// 재고수량을 확인해 장바구니 추가 가능 여부를 확인하는 메서드(장바구니에서  수정할 때)
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public int checkStockEdit(int product_number, int product_count) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -242,7 +316,11 @@ public class CartDBBean {
 		try {
 			conn = getConnection();
 			
+<<<<<<< HEAD
 			// �ش� ��ǰ ��� Ȯ�� - 0420 ����
+=======
+			// 해당 상품 재고를 확인
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 			query = "select product_stock from product where product_number=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, product_number);
@@ -268,7 +346,11 @@ public class CartDBBean {
 		return re;
 	}
 	
+<<<<<<< HEAD
 	// cart_number�� ��ġ�ϴ� cart�� ������ ������ �޼��� - 0418 ����
+=======
+	// cart_number와 일치하는 cart의 정보를 얻어오는 메서드
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 	public CartBean getCart_one(int cart_number) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -1,5 +1,6 @@
 package goods;
 
+<<<<<<< HEAD
 import java.sql.Timestamp;
 
 public class GoodsBean {
@@ -184,4 +185,8 @@ public class GoodsBean {
 	}
 	
      
+=======
+public class GoodsBean {
+
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.131+C:\green\kwanghoon\.metadata\.plugins\org.eclipse.jdt.core
 737672456.index
 4152160843.index
@@ -41,3 +42,12 @@ INDEX VERSION 1.131+C:\green\kwanghoon\.metadata\.plugins\org.eclipse.jdt.core
 2458471622.index
 3660783370.index
 3270615803.index
+=======
+INDEX VERSION 1.131+/Users/kwah/Desktop/semi_project/kwanghoon/.metadata/.plugins/org.eclipse.jdt.core
+1586795087.index
+1253767630.index
+818251928.index
+1865797976.index
+3792603891.index
+2423582744.index
+>>>>>>> a5a5679681f14cd843596c2c67a61d5d4b237f04
