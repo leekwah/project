@@ -77,7 +77,7 @@
 					<td height="50" colspan="4" align="center">
 						<input type="button" value="글수정" onclick="onclick_ok()">&nbsp;
 						<input type="reset" value="다시작성">
-						<input type="button" value="글목록" onclick="location.href='adminIndex.jsp?pages=showNotice&pageNum=<%= pageNum %>'">
+						<input type="button" value="글목록" onclick="location.href='adminIndex.jsp?pages=showNotice&pageNum=<%= pageNum %>&n_num=<%=n_num%>'">
 					</td>	
 				</tr>
 			</table>
