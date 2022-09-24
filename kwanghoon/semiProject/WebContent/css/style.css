@@ -1,13 +1,51 @@
-    /* ####################################################
-    :: Template Name: Essence - Fashion Ecommerce Template
-    :: Author: Colorlib
-    :: Author URL: https://colorlib.com
-    :: Description: Essence is smart & elegant fashion e-commerce Template. It's suitable for all e-commerce business platform.
-    :: Version: 1.0.0
-    :: Created: April 27, 2018
-    :: Last Updated: May 2, 2018
-    #################################################### */
+a, a:visited {text-decoration : none;}
 
-    /* ---------------------------------------
-    ##### - PLACE YOUR CUSTOM CSS HERE - #####
-    --------------------------------------- */
+h1 { font-size: 30px; }
+header {
+    display: flex; margin-bottom: 30px;
+    background-color: black;
+    color: white;
+}
+nav { margin: 10px auto; }
+nav ul li {
+    display: inline-block;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+}
+nav ul {
+    display: block;
+    margin: 0 auto;
+}
+.main_title { margin: 10px 15px; 
+
+}
+.member {
+    display: block;
+    clear: both;
+    margin: 0 15px;
+}
+
+.login_btn {
+    padding: 10px 30px;
+    border: 1px solid black;
+}
+.login_btn:hover {
+	cursor: pointer
+}
+.member ul li {
+    display: inline-block;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 0;
+    text-align: center;
+    line-height: 30px;
+}
+
+.member a {
+    color: black;
+}

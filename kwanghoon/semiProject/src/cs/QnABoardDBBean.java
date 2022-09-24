@@ -47,7 +47,11 @@ public class QnABoardDBBean {
 			} else {
 				number = 1;
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			if (bid != 0) {
 				sql = "UPDATE qna_board SET B_STEP = B_STEP+1 WHERE B_REF = ? AND B_STEP > ?";
 				pstmt = conn.prepareStatement(sql);
@@ -67,7 +71,7 @@ public class QnABoardDBBean {
 			pstmt.setInt(1, number);
 			pstmt.setString(2, qBoard.getU_id());
 			pstmt.setString(3, qBoard.getB_category());
-			pstmt.setInt(4, qBoard.getB_view());	
+			pstmt.setInt(4, qBoard.getB_view());
 			pstmt.setString(5, qBoard.getB_title());
 			pstmt.setString(6, qBoard.getB_content());
 			pstmt.setString(7, qBoard.getB_ip());
@@ -82,14 +86,22 @@ public class QnABoardDBBean {
 			pstmt.setString(16, qBoard.getB_rfname());
 			pstmt.setString(17, "N");
 			pstmt.executeUpdate();
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			if(ref != number) {
 				sql = "UPDATE qna_board SET B_ANSCHK = 'Y' WHERE B_REF=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, qBoard.getB_ref());
 				pstmt.executeUpdate();
 			}
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			re=1;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -112,6 +124,7 @@ public class QnABoardDBBean {
 	}
 
 	public ArrayList<QnABoardBean> listBoard(int startRow, int pageSize) throws Exception {
+<<<<<<< HEAD
 		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
 				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
 				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
@@ -119,10 +132,20 @@ public class QnABoardDBBean {
 				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" + 
 				" WHERE rnum >= ? AND rnum <= ?";		// ÆäÀÌÁö¿¡ ±ÛÀ» ¸î °³ º¸¿©ÁÖ´ÂÁö Á¦ÇÑÇÏ´Â Äõ¸®
 		
+=======
+		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
+				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
+				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" +
+				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" +
+				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" +
+				" WHERE rnum >= ? AND rnum <= ?";
+		// 09-18 ìš°ì„± ê¸€ì„ ëª‡ ê°œ ë³´ì—¬ì¤„ ê±´ì§€ ì •í•˜ëŠ” SQL êµ¬ë¬¸
+
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-				
+
 		ArrayList<QnABoardBean> list = new ArrayList<QnABoardBean>();
 		try {
 			conn = getConnection();
@@ -149,12 +172,16 @@ public class QnABoardDBBean {
 				qbb.setB_fsize(rs.getInt("B_FSIZE"));
 				qbb.setB_rfname(rs.getString("B_RFNAME"));
 				qbb.setB_anschk(rs.getString("B_ANSCHK"));
-				
+
 				list.add(qbb);
 			}
-			
+
 		} catch (SQLException ex) {
+<<<<<<< HEAD
 			System.out.print("Á¶È¸ ½ÇÆÐ");
+=======
+			System.out.print("listBoard Fail");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -180,7 +207,7 @@ public class QnABoardDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		QnABoardBean qbb = null;
-		
+
 		try {
 			if (hitAdd == true) {
 				sql = "UPDATE QNA_BOARD SET B_VIEW=B_VIEW+1 WHERE B_ID = ?";
@@ -192,10 +219,10 @@ public class QnABoardDBBean {
 			} else {
 				conn = getConnection();
 			}
-			
-			sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
-					",B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
-					",B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
+
+			sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
+					",B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
+					",B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" +
 					"  FROM QNA_BOARD WHERE B_ID = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, b_id);
@@ -222,7 +249,11 @@ public class QnABoardDBBean {
 				qbb.setB_anschk(rs.getString("B_ANSCHK"));
 			}
 		} catch (SQLException ex) {
+<<<<<<< HEAD
 			System.out.print("Á¶È¸ ½ÇÆÐ");
+=======
+			System.out.print("getBoard Fail");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -260,7 +291,11 @@ public class QnABoardDBBean {
 				bb.setB_rfname(rs.getString("B_RFNAME"));
 			}
 		} catch (SQLException ex) {
+<<<<<<< HEAD
 			System.out.print("Á¶È¸ ½ÇÆÐ");
+=======
+			System.out.print("getFileName Fail");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -279,7 +314,7 @@ public class QnABoardDBBean {
 		}
 		return bb;
 	}
-	
+
 	public int getCount(QnABoardBean qbb) throws Exception {
 		String sql = "SELECT COUNT(*) FROM qna_board";
 		int re=0;
@@ -290,8 +325,10 @@ public class QnABoardDBBean {
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,qboard.getB_anschk());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
+<<<<<<< HEAD
 					re = rs.getInt(1); // ±Û °¹¼ö
 			} else {
 					re = 0; // ±Û ¾øÀ½
@@ -333,6 +370,14 @@ public class QnABoardDBBean {
 			}
 		}catch (SQLException ex) {
 			System.out.print("Á¶È¸ ½ÇÆÐ");
+=======
+				re = rs.getInt(1); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			} else {
+				re = 0; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			}
+		}catch (SQLException ex) {
+			System.out.print("getCount Fail");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -351,7 +396,42 @@ public class QnABoardDBBean {
 		}
 		return re;
 	}
-	
+	public int getReplyCount(QnABoardBean qbb) throws Exception {
+		String sql = "SELECT COUNT(*) FROM qna_board WHERE B_ANSCHK = 'N'";
+		int re=0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				re = rs.getInt(1); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			} else {
+				re = 0; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			}
+		}catch (SQLException ex) {
+			System.out.print("getReplyCount Fail");
+			ex.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return re;
+	}
+
 	public int deleteBoard(String b_pwd, int b_id) throws Exception {
 		String sql = "SELECT B_PWD FROM qna_board WHERE B_ID = ?"; // °Ô½Ã±Û¿¡ ¸Â´Â ºñ¹Ð¹øÈ£ Á¶È¸
 		int re = -1;
@@ -380,7 +460,11 @@ public class QnABoardDBBean {
 				re = -1;
 			}
 		} catch (SQLException ex) {
+<<<<<<< HEAD
 			System.out.print("»èÁ¦ ½ÇÆÐ");
+=======
+			System.out.print("deleteBoard Fail");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -429,7 +513,11 @@ public class QnABoardDBBean {
 				re = -1; // Á¶È¸ ½ÇÆÐ
 			}
 		}catch (SQLException ex) {
+<<<<<<< HEAD
 			System.out.print("¼öÁ¤ ½ÇÆÐ");
+=======
+			System.out.print("editBoard Fail");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {
@@ -449,6 +537,7 @@ public class QnABoardDBBean {
 		return re;
 	}
 	public ArrayList<QnABoardBean> adminListBoard(int startRow, int pageSize) throws Exception {
+<<<<<<< HEAD
 		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" + 
 				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" + 
 				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" + 
@@ -460,6 +549,19 @@ public class QnABoardDBBean {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 				
+=======
+		String sql = "SELECT B_ID, U_ID, B_CATEGORY, B_VIEW, B_TITLE, B_CONTENT\r\n" +
+				"     , B_IP, B_PWD, B_DATE, B_SECRET, B_REF, B_STEP, B_LEVEL\r\n" +
+				"     , B_FNAME, B_FSIZE, B_RFNAME, B_ANSCHK\r\n" +
+				"  FROM (SELECT ROWNUM AS rnum, A.* \r\n" +
+				"          FROM (SELECT * FROM QNA_BOARD ORDER BY B_REF DESC, B_STEP) A)\r\n" +
+				" WHERE rnum >= ? AND rnum <= ? AND B_ANSCHK = 'N'";		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 		ArrayList<QnABoardBean> adminList = new ArrayList<QnABoardBean>();
 		try {
 			conn = getConnection();
@@ -486,12 +588,21 @@ public class QnABoardDBBean {
 				qbb.setB_fsize(rs.getInt("B_FSIZE"));
 				qbb.setB_rfname(rs.getString("B_RFNAME"));
 				qbb.setB_anschk(rs.getString("B_ANSCHK"));
+<<<<<<< HEAD
 				
 				adminList.add(qbb);
 			}
 			
 		} catch (SQLException ex) {
 			System.out.print("Á¶È¸ ½ÇÆÐ");
+=======
+
+				adminList.add(qbb);
+			}
+
+		} catch (SQLException ex) {
+			System.out.print("ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½");
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11
 			ex.printStackTrace();
 		} finally {
 			try {

@@ -11,7 +11,13 @@
 	QnABoardDBBean qdb = QnABoardDBBean.getInstance();
 	QnABoardBean qbb = qdb.getBoard(b_id, false);
 	String fName = qbb.getB_fname();
+<<<<<<< HEAD:kwanghoon/semiProject/WebContent/cs/qna/delete_ok.jsp
 	String fPath = "D:/woosung/semi/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
+=======
+	// String fPath = "D:/woosung/semi/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload/";
+	// String fPath = "C:/Users/lkwng/Desktop/green/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
+	String fPath = "/Users/kwah/Desktop/semi_project/kwanghoon/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
+>>>>>>> b22d46c6612903351459196e2ec30dda63f34c11:kwanghoon/semiProject/WebContent/cs/delete_ok.jsp
 	
 	int re = qdb.deleteBoard(pwd, b_id); 
 	
