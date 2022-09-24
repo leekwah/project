@@ -54,7 +54,7 @@
           </a>
         </li>
     </ul>
-    <%
+        <%
 		if(session.getAttribute("Member") == null){ // 회원이 아닌 경우
 	%>
 		<a href="main.jsp?pages=../user_log/login" class="btn mb-2 btn-primary btn-lg btn-block" role="button"><i class="fe fe-log-in fe-16"></i> 로그인</a>

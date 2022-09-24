@@ -18,10 +18,16 @@
             <span class="ml-3 item-text">홈</span>
           </a>
         </li>
-           <li class="nav-item w-100">
+        <li class="nav-item w-100">
           <a class="nav-link" href="main.jsp?pages=../buy/buy_body">
             <i class="fe fe-clipboard fe-16"></i>
             <span class="ml-3 item-text">구매폼</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a class="nav-link" href="main.jsp?pages=../order/order_body">
+            <i class="fe fe-truck fe-16"></i>
+            <span class="ml-3 item-text">주문 조회</span>
           </a>
         </li>
         <li class="nav-item dropdown">
@@ -31,11 +37,11 @@
           </a>
           <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
             <li class="nav-item">
-              <a class="nav-link pl-3" href="../adminIndex.jsp?pages=productReg"><span class="ml-1 item-text">카테고리</span>
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list.jsp?pages=productReg"><span class="ml-1 item-text">상품리스트</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pl-3" href="../adminIndex.jsp?pages=productList"><span class="ml-1 item-text">상품 정보 조회</span></a>
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_detail"><span class="ml-1 item-text">상품 디테일</span></a>
             </li>
           </ul>
         </li>
@@ -45,10 +51,9 @@
             <span class="ml-3 item-text">고객센터</span>
           </a>
           <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-            <a class="nav-link pl-3" href="main.jsp?pages=../cs/cs_main_u"><span class="ml-1">고객센터</span></a>
-            <a class="nav-link pl-3" href="main.jsp?pages=../adnubcs/notice/noticeList_u"><span class="ml-1">공지사항</span></a>
+            <a class="nav-link pl-3" href="main.jsp?pages=../cs/notice/noticeList_u"><span class="ml-1">공지사항</span></a>
             <a class="nav-link pl-3" href="main.jsp?pages=../cs/faq/faq_main"><span class="ml-1">FAQ</span></a>
-            <a class="nav-link pl-3" href="main.jsp?pages=../cs//listNotice"><span class="ml-1">1:1 문의 (Q&A)</span></a>
+            <a class="nav-link pl-3" href="main.jsp?pages=../cs/notice/listNotice_u"><span class="ml-1">1:1 문의 (Q&A)</span></a>
           </ul>
         </li>
     </ul>

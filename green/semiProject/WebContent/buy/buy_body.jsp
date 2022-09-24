@@ -91,6 +91,7 @@
 					  </tr>
 					</tbody>
 				 </table>
+				 <hr class="">
 	             <form class="needs-validation" novalidate>
 	               <div class="form-row">
 	                 <div class="col-md-4 mb-3">
@@ -98,30 +99,31 @@
 	                   <input type="text" class="form-control" id="validationCustom3" placeholder="-" value="<%= name %>" required>
 	                   <div class="invalid-feedback"> 수령인을 입력해주세요. </div>
 	                 </div>
+	                 <div class="col-md-8 mb-3">
+	                   <label for="exampleInputEmail2">이메일</label>
+	                   <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp1" placeholder="-" value="<%= email %>" required>
+	                   <div class="invalid-feedback"> 이메일주소를 입력해주세요. </div>
+	                 </div>
 	               </div> <!-- /.form-row -->
 	               <div class="form-row">
-	                 <div class="col-md-2 mb-3">
+	                 <div class="col-md-4 mb-3">
 	                   <label for="custom-phone">연락처</label>
 	                   <input class="form-control input-phoneus" id="custom-phone" maxlength="14" placeholder="-" value="<%= phone1 %>" required>
 	                   <div class="invalid-feedback"> 연락처를 입력해주세요. </div>
 	                 </div>
-	                 <div class="col-md-3 mb-3">
+	                 <div class="col-md-4 mb-3">
 	                   <label for="custom-phone">&nbsp;</label>
 	                   <input class="form-control input-phoneus" id="custom-phone" maxlength="14" placeholder="-" value="<%= phone2 %>" required>
 	                   <div class="invalid-feedback"> 연락처를 입력해주세요. </div>
 	                 </div>
-	                 <div class="col-md-3 mb-3">
+	                 <div class="col-md-4 mb-3">
 	                   <label for="custom-phone">&nbsp;</label>
 	                   <input class="form-control input-phoneus" id="custom-phone" maxlength="14" placeholder="-" value="<%= phone3 %>" required>
 	                   <div class="invalid-feedback"> 연락처를 입력해주세요. </div>
 	                 </div>
                    </div>
 	               <div class="form-row">
-	                 <div class="col-md-8 mb-3">
-	                   <label for="exampleInputEmail2">이메일</label>
-	                   <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp1" placeholder="-" value="<%= email %>" required>
-	                   <div class="invalid-feedback"> 이메일주소를 입력해주세요. </div>
-	                 </div>
+	                 
 	               </div> <!-- /.form-row -->
 	               <div class="form-row">
 	                 <div class="col-md-4 mb-3">

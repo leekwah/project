@@ -4,13 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	/* String pageChange = request.getParameter("page");
-	if(pageChange == null){
-		pageChange = "admin_body.jsp";
-	} */
-
-	OrderManageDBBean omdb = OrderManageDBBean.getInstance();
-	
 	int o_rank = 0;
 	int o_dNum, p_num, p_count, p_price;
 	String o_num, o_dStat, refund, pageNum;
@@ -20,29 +13,14 @@
 	} else {
 		pageNum = request.getParameter("pageNum");
 	}
+	OrderManageDBBean omdb = OrderManageDBBean.getInstance();
 	ArrayList<OrderManageBean> list = omdb.orderList(pageNum,"Y");
 %>
 <!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/simplebar.css">
-    <link rel="stylesheet" href="../css/feather.css">
-    <link rel="stylesheet" href="../css/select2.css">
-    <link rel="stylesheet" href="../css/dropzone.css">
-    <link rel="stylesheet" href="../css/uppy.min.css">
-    <link rel="stylesheet" href="../css/jquery.steps.css">
-    <link rel="stylesheet" href="../css/jquery.timepicker.css">
-    <link rel="stylesheet" href="../css/quill.snow.css">
-    <link rel="stylesheet" href="../css/daterangepicker.css">
-    <link rel="stylesheet" href="../css/app-light.css" id="lightTheme" disabled>
-    <link rel="stylesheet" href="../css/app-dark.css" id="darkTheme">
   </head>
   <body class="vertical  dark  ">
     <div class="wrapper">
@@ -56,12 +34,6 @@
 	              <table class="table table-borderless table-hover">
 	                <thead>
 	                  <tr role="row">
-	                    <!-- <th>
-	                      <div class="custom-control custom-checkbox">
-	                        <input type="checkbox" class="custom-control-input" id="all">
-	                        <label class="custom-control-label" for="all"></label>
-	                      </div>
-	                    </th> -->
 	                    <th>주문 번호</th>
 	                    <th>제품 번호</th>
 	                    <th>수량</th>
@@ -84,12 +56,6 @@
 				
 		%>
 	                  <tr>
-	                    <!-- <td class="align-center">
-	                      <div class="custom-control custom-checkbox">
-	                        <input type="checkbox" class="custom-control-input">
-	                        <label class="custom-control-label"></label>
-	                      </div>
-	                    </td> -->
 						<td><%=o_num%></td>
 						<td>
 							<a href="#"><%=p_num%></a>

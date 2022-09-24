@@ -27,19 +27,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/simplebar.css">
-    <link rel="stylesheet" href="../css/feather.css">
-    <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="../css/daterangepicker.css">
-    <link rel="stylesheet" href="../css/app-light.css" id="lightTheme" disabled>
-    <link rel="stylesheet" href="../css/app-dark.css" id="darkTheme">
+    <title></title>
   </head>
   <body class="vertical  dark  ">
     <div class="wrapper">
@@ -72,8 +60,8 @@
                         <input type="text" id="example-palaceholder" class="form-control" name="b_title" value="[답변]<%= b_title %>" />
                       </div>
                       <div class="form-group mb-3">
-                        <label for="example-textarea">문의 답변</label>
-                        <textarea class="form-control" name="b_content" id="example-textarea" rows="10" placeholder="내용을 입력해주세요."></textarea>
+                      	<label for="example-textarea">답변 내용</label>
+                        <textarea class="form-control" name="b_content" id="example-textarea" rows="10"></textarea>
                       </div>
                       <div class="form-group mb-3">
                         <label for="customFile">사진 업로드</label>
@@ -98,7 +86,7 @@
             	</div>
                   </div>
                   	<div style="text-align:center">
-	                  <div class="btn-group" role="group" aria-label="Basic example">
+	                  <div aria-label="Basic example">
 	                    <input type="button" class="btn btn-primary" value="목록" onclick="location.href='adminIndex.jsp?pages=qnaList&pageNum=<%= pageNum %>'" />
 		                 <input type="reset" class="btn btn-primary" value="다시 작성" />
 		                 <input type="button" class="btn btn-primary" value="작성" onclick="check_ok()" />
@@ -111,45 +99,12 @@
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
     </div> <!-- .wrapper -->
+	<script src="../js/jquery.min.js">
 	<script src="../js/board.js"></script>
-	<script src="../js/jquery.min.js">></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/moment.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/simplebar.min.js"></script>
-    <script src='../js/daterangepicker.js'></script>
-    <script src='../js/jquery.stickOnScroll.js'></script>
-    <script src="../js/tinycolor-min.js"></script>
-    <script src="../js/config.js"></script>
-    <script src='../js/jquery.dataTables.min.js'></script>
-    <script src='../js/dataTables.bootstrap4.min.js'></script>
     <script type="text/javascript">
 		$(function(){
 			$("#b_category > option[value='<%= b_category %>']").prop("selected", true);
 		});
 	</script>
-    <script>
-      $('#dataTable-1').DataTable(
-      {
-        autoWidth: true,
-        "lengthMenu": [
-          [16, 32, 64, -1],
-          [16, 32, 64, "All"]
-        ]
-      });
-    </script>
-    <script src="../js/apps.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag()
-      {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-56159088-1');
-    </script>
   </body>
 </html>

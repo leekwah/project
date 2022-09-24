@@ -21,23 +21,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="favicon.ico">
-<title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
-<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/simplebar.css">
-<link rel="stylesheet" href="../css/feather.css">
-<link rel="stylesheet" href="../css/select2.css">
-<link rel="stylesheet" href="../css/dropzone.css">
-<link rel="stylesheet" href="../css/uppy.min.css">
-<link rel="stylesheet" href="../css/jquery.steps.css">
-<link rel="stylesheet" href="../css/jquery.timepicker.css">
-<link rel="stylesheet" href="../css/quill.snow.css">
-<link rel="stylesheet" href="../css/daterangepicker.css">
-<link rel="stylesheet" href="../css/app-light.css" id="lightTheme">
-<link rel="stylesheet" href="../css/app-dark.css" id="darkTheme" disabled>
+<title></title>
 <script language="JavaScript" src="js/uploadProduct.js" charset="utf-8"></script>
 </head>
 <body class="vertical  dark  ">
@@ -107,108 +91,8 @@
 	          </div> <!-- .row -->
 		</form>
      </div> <!-- .container-fluid -->
-	<!-- .wrapper -->
-    <script src="../js/jquery.min.js"></script>
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/moment.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/simplebar.min.js"></script>
-	<script src='../js/daterangepicker.js'></script>
-	<script src='../js/jquery.stickOnScroll.js'></script>
-	<script src="../js/tinycolor-min.js"></script>
-	<script src="../js/config.js"></script>
-	<script src="../js/d3.min.js"></script>
-	<script src="../js/gauge.min.js"></script>
-	<script src="../js/jquery.sparkline.min.js"></script>
-	<script src='../js/jquery.mask.min.js'></script>
-	<script src='../js/select2.min.js'></script>
-	<script src='../js/jquery.steps.min.js'></script>
-	<script src='../js/jquery.validate.min.js'></script>
-	<script src='../js/jquery.timepicker.js'></script>
-
-	<script>
-    // editor
-    var editor = document.getElementById('editor');
-    if (editor)
-    {
-      var toolbarOptions = [
-        [
-        {
-          'font': []
-        }],
-        [
-        {
-          'header': [1, 2, 3, 4, 5, 6, false]
-        }],
-        ['bold', 'italic', 'underline', 'strike'],
-        ['blockquote', 'code-block'],
-        [
-        {
-          'header': 1
-        },
-        {
-          'header': 2
-        }],
-        [
-        {
-          'list': 'ordered'
-        },
-        {
-          'list': 'bullet'
-        }],
-        [
-        {
-          'script': 'sub'
-        },
-        {
-          'script': 'super'
-        }],
-        [
-        {
-          'indent': '-1'
-        },
-        {
-          'indent': '+1'
-        }], // outdent/indent
-        [
-        {
-          'direction': 'rtl'
-        }], // text direction
-        [
-        {
-          'color': []
-        },
-        {
-          'background': []
-        }], // dropdown with defaults from theme
-        [
-        {
-          'align': []
-        }],
-        ['clean'] // remove formatting button
-      ];
-      var quill = new Quill(editor,
-      {
-        modules:
-        {
-          toolbar: toolbarOptions
-        },
-        theme: 'snow'
-      });
-    }
-    </script>
-  <!--   <script>
-      function setThumbnail(event) {
-        var reader = new FileReader();
-
-        reader.onload = function(event) {
-          var img = document.createElement("img");
-          img.setAttribute("src", event.target.result);
-          document.querySelector("#image_container").appendChild(img);
-        };
-        reader.readAsDataURL(event.target.files[0]);
-      }
-    </script> -->
+     
+    <script src="js/jquery.min.js"></script>
     <script type="text/javascript">
 	// 콘텐츠 수정 :: 사진 수정 시 이미지 미리보기
 	function readURL(input) {

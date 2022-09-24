@@ -1,3 +1,4 @@
+<%@page import="net.coobird.thumbnailator.Thumbnails"%>
 <%@page import="javax.media.jai.JAI"%>
 <%@page import="javax.media.jai.RenderedOp"%>
 <%@page import="javax.imageio.ImageIO"%>
@@ -54,27 +55,15 @@
 			pBean.setProduct_date(new Timestamp(System.currentTimeMillis()));
 			
 			if(file != null) {
+				File fileIO = new File(path,oriFile);
+			    Thumbnails.of(new File(path,oriFile)).forceSize(100, 100).toFile(new File(path,"/sm_"+file));
+				
 				pBean.setStored_file_name(file);
 				pBean.setFile_size(fileSize);
 				pBean.setOrgin_file_name(oriFile);
 				pBean.setStored_thumbnail("sm_"+file);
 				pBean.setCreate_date(new Timestamp(System.currentTimeMillis()));
 			}
-			
-		// 이 클래스에 변환할 이미지를 담습니다. ( 이미지는 ParameterBlock 통해서만 담을 수 있습니다. )
-			ParameterBlock pb = new ParameterBlock();
-		    pb.add(path+"/"+file);
-		    RenderedOp rOp = JAI.create("fileload", pb);
-		    BufferedImage bi = rOp.getAsBufferedImage();
-		 // 불러올 이미지를 BufferedImage에 담습니다.
-		 // thumb라는 이미지 버퍼를 생성합니다. 이미지 버퍼 사이즈는 100 * 100 으로 설정합니다.
-		    BufferedImage thumb = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-		 // thumb라는 이미지 버퍼에 원본 이미지를 정해진 버퍼 사이즈인 100 * 100 사이즈에 담아 그립니다.
-		    Graphics2D g = thumb.createGraphics();
-		    g.drawImage(bi, 0, 0, 100, 100, null);
-		 // 출력할 위치와 파일 이름을 설정한 후 썸네일 이미지를 생성합니다. ( 확장자는 jpg입니다. )
-		    File fileIO = new File(path+"/sm_"+file);
-		    ImageIO.write(thumb, "jpg", fileIO);
 			
 			ProductDBBean updb = ProductDBBean.getInstance();
 			int re = updb.updateProduct(pBean);

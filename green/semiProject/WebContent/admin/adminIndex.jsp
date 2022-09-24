@@ -1,24 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
 <%
+	request.setCharacterEncoding("UTF-8");
+
+	String id = (String)session.getAttribute("id");
+	String name = (String)session.getAttribute("name");
 	String pages = "";
 	if(request.getParameter("pages")!=null){
 		pages = request.getParameter("pages");		
 	} else{
 		pages = "admin_body";
 	}
-%>
+%> 
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Admin Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/simplebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/feather.css">
     <link rel="stylesheet" href="../css/select2.css">
     <link rel="stylesheet" href="../css/dropzone.css">
@@ -27,6 +31,7 @@
     <link rel="stylesheet" href="../css/jquery.timepicker.css">
     <link rel="stylesheet" href="../css/quill.snow.css">
     <link rel="stylesheet" href="../css/daterangepicker.css">
+    <link rel="stylesheet" href="../css/app-light.css" id="lightTheme" disabled>
     <link rel="stylesheet" href="../css/app-dark.css" id="darkTheme?a=b">
   </head>
   <body class="vertical  dark  ">
@@ -36,17 +41,41 @@
 	          <i class="fe fe-menu navbar-toggler-icon"></i>
 	        </button>
 	        <ul class="nav">
-	          <li class="nav-item dropdown">
-	            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	              <span class="avatar avatar-sm mt-2">
-	              </span>
-	            </a>
-	            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-	              <a class="dropdown-item" href="#">Profile</a>
-	              <a class="dropdown-item" href="#">Settings</a>
-	            </div>
-	          </li>
-	        </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar avatar-sm mt-2">
+              <%
+              	if (name != null) {
+              %>
+              	<mark style="background-color:#1B68FE; color:#fff"><%= name %></mark>
+              <%
+              	}
+              %>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+  			<%
+				if(session.getAttribute("Member") == null){ // 회원이 아닌 경우
+			%>
+				<a class="dropdown-item" href="main.jsp?pages=../user_log/login">로그인</a>
+              <a class="dropdown-item" href="main.jsp?pages=../user_log/register">회원가입</a>
+			<%
+    			} else if(id.equals("admin")) {
+			%>
+				<a class="dropdown-item" href="../admin/adminIndex.jsp">관리페이지</a>
+				<a class="dropdown-item" href="main.jsp?pages=../user_log/mypage_user.jsp">마이페이지</a>
+              	<a class="dropdown-item" href="../user_log/logout.jsp">로그아웃</a>
+			<%
+				} else {
+			%>
+				<a class="dropdown-item" href="main.jsp?pages=../user_log/mypage_user.jsp">마이페이지</a>
+              	<a class="dropdown-item" href="../user_log/logout.jsp">로그아웃</a>
+			<%
+    			}
+			%>
+            </div>
+          </li>
+        </ul>
 	      </nav>
 	      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
         	<a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
@@ -55,7 +84,7 @@
         	<nav class="vertnav navbar navbar-light">
           <!-- nav bar -->
           <div class="w-100 mb-4 d-flex">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="../main/main.jsp">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="adminIndex.jsp">
               <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
                 <g>
                   <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
@@ -316,7 +345,7 @@
         });
       }
     </script>
-    <script src="js/apps.js"></script>
+    <script src="../js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
