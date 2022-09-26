@@ -7,8 +7,8 @@
 <%
 	OrderManageDBBean omdb = OrderManageDBBean.getInstance();
 	
-	int o_rank = 0;
-	int o_dNum, p_num, p_count, p_price;
+	long o_dNum;
+	int p_num, p_count, p_price;
 	String o_num, o_dStat, refund, stat, pageNum, shipment;
 	
 	if(request.getParameter("pageNum") == null){
@@ -36,9 +36,9 @@
               <table class="table table-borderless table-hover">
                 <thead>
                   <tr role="row">
-                    <th>주문 순서</th>
+                    <th>주문 상세 번호</th>
                     <th>주문 번호</th>
-                    <th>제품 번호</th>
+                    <th>상품 이름(번호)</th>
                     <th>수량</th>
                     <th>금액</th>
                     <th>주문 상태</th>
@@ -50,7 +50,6 @@
     <%
 		for(int i=0; i < list.size(); i++) {
 			OrderManageBean omb = list.get(i); // 배열에 넣은 역순으로 board 객체에 값을 넣어줌
-			o_rank++;
 			o_dNum = omb.getOrder_detail_number();
 			o_num = omb.getOrder_number();
 			p_num = omb.getProduct_number();
@@ -58,6 +57,10 @@
 			p_price = omb.getProduct_price();
 			o_dStat = omb.getOrder_detail_status();
 			refund = omb.getRefund_check();
+			
+			omb = omdb.getOrder(o_dNum);
+			String p_name = omb.getProduct_name();
+			
 			if(omb.getShipment() == null){
 				shipment = "-";
 			} else{
@@ -77,10 +80,10 @@
 			}
 	%>
                   <tr>
-                    <td><%=o_rank%></td>
+                    <td><%=o_dNum%></td>
 					<td><%=o_num%></td>
 					<td>
-						<a href="#"><%=p_num%></a>
+						<a href="#"><%= p_name %>(<%=p_num%>)</a>
 					</td>
 					<td><%= p_count %></td>
 					<td><%=p_price%></td>

@@ -15,14 +15,12 @@
 	if(re == 1){
 %>
 		<script>
-			alert("환불이 완료되었습니다.");
 			location.href= "adminIndex.jsp?pages=refund_list&pageNum=<%= pageNum %>";
 		</script>
 <%
 	} else {
 %>
 		<script>
-			alert("주문 수정에 실패했습니다.")
 			history.go(-1);
 		</script>
 <%

@@ -1,6 +1,4 @@
 <%@page import="net.coobird.thumbnailator.Thumbnails"%>
-<%@page import="javax.media.jai.JAI"%>
-<%@page import="javax.media.jai.RenderedOp"%>
 <%@page import="javax.imageio.ImageIO"%>
 <%@page import="java.io.File"%>
 <%@page import="java.awt.Graphics2D"%>

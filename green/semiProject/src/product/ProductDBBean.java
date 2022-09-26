@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -15,22 +13,22 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 /*
- * UploadProductBean의 매개변수는 upbd로 통일
- * UploadProudctDBBean의 매개변수는 updb로 통일
+ * UploadProductBean占쏙옙 占신곤옙占쏙옙占쏙옙占쏙옙 upbd占쏙옙 占쏙옙占쏙옙
+ * UploadProudctDBBean占쏙옙 占신곤옙占쏙옙占쏙옙占쏙옙 updb占쏙옙 占쏙옙占쏙옙
  * */
 
 public class ProductDBBean {
 	private static ProductDBBean instance = new ProductDBBean();
 	
-	// UploadProductDBBean 객체 생성
+	// UploadProductDBBean 占쏙옙체 占쏙옙占쏙옙
 	public static ProductDBBean getInstance() {
 		return instance;
 	}
 	
-	//db연결
+	//db占쏙옙占쏙옙
 	public static Connection getConnection() throws Exception {
-		// 쿼리작업 사용할 Connection객체 리턴하는 메소드
-		// 따로만든 이유 -> 여러번 사용하기 위해서
+		// 占쏙옙占쏙옙占쌜억옙 占쏙옙占쏙옙占� Connection占쏙옙체 占쏙옙占쏙옙占싹댐옙 占쌨소듸옙
+		// 占쏙옙占싸몌옙占쏙옙 占쏙옙占쏙옙 -> 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙歐占� 占쏙옙占쌔쇽옙
 
 		Context ctx = new InitialContext();
 		DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
@@ -102,7 +100,7 @@ public class ProductDBBean {
 			re=1;
 			
 		}catch(SQLException ex){
-			System.out.println("추가 실패");
+			System.out.println("占쌩곤옙 占쏙옙占쏙옙");
 			ex.printStackTrace();
 		}finally{
 			try{
@@ -143,7 +141,7 @@ public class ProductDBBean {
 			pageSet = stmt.executeQuery(sql2);
 			
 			if(pageSet.next()) {
-				dbCount = pageSet.getInt(1); // 총 글 갯수
+				dbCount = pageSet.getInt(1); // 占쏙옙 占쏙옙 占쏙옙占쏙옙
 				pageSet.close();
 			}
 			if (dbCount % ProductBean.pageSize == 0) {
@@ -183,7 +181,7 @@ public class ProductDBBean {
 				}
 			}
 		} catch (SQLException ex) {
-			System.out.println("조회 실패");
+			System.out.println("占쏙옙회 占쏙옙占쏙옙");
 			ex.printStackTrace();
 		}finally{
 			try{
@@ -221,7 +219,6 @@ public class ProductDBBean {
 				upbd.setFile_size(rs.getInt("file_size"));
 				upbd.setCreate_date(rs.getTimestamp("create_date"));
 			}
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -243,7 +240,7 @@ public class ProductDBBean {
 			conn = getConnection();
 			
 			if (odercount == true) {
-				sql="UPDATE PRODUCT SET product_ordered_count=product_ordered_count+1 WHERE product_number=?";
+				sql="UPDATE PRODUCT SET product_ordered_count=product_ordered_count+1 from WHERE product_number=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, pnumber);
 				pstmt.executeUpdate();
@@ -276,7 +273,7 @@ public class ProductDBBean {
 				upbd.setProduct_desc(rs.getString(8));
 			}
 		}catch(SQLException ex){
-			System.out.println("조회 실패");
+			System.out.println("占쏙옙회 占쏙옙占쏙옙");
 			ex.printStackTrace();
 		}finally{
 			try{
@@ -313,7 +310,7 @@ public class ProductDBBean {
 			pstmt.setString(5, upbd.getProduct_desc());
 			pstmt.setInt(6, upbd.getProduct_number());
 			pstmt.executeUpdate();
-			// 상품 수정 시 사진이 바뀔 수 있어 쿼리문 추가
+			// 占쏙옙품 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙占쏙옙 占쌕뀐옙 占쏙옙 占쌍억옙 占쏙옙占쏙옙占쏙옙 占쌩곤옙
 			sql = "UPDATE product_imagefile SET ORGIN_FILE_NAME=?,STORED_FILE_NAME=?\r\n" + 
 					"     , STORED_THUMBNAIL=?, FILE_SIZE=?, CREATE_DATE=SYSDATE\r\n" + 
 					"  WHERE PRODUCT_NUMBER=?";
@@ -328,7 +325,7 @@ public class ProductDBBean {
 			re=1;
 			
 		}catch(SQLException ex){
-			System.out.println("수정 실패");
+			System.out.println("占쏙옙占쏙옙 占쏙옙占쏙옙");
 			ex.printStackTrace();
 		}finally{
 			try{
@@ -361,9 +358,9 @@ public class ProductDBBean {
 			pstmt.setInt(1, product_number);
 			pstmt.executeUpdate();
 			re=1;
-			System.out.println("삭제 성공");
+			System.out.println("占쏙옙占쏙옙 占쏙옙占쏙옙");
 		}catch(SQLException ex){
-			System.out.println("삭제 실패");
+			System.out.println("占쏙옙占쏙옙 占쏙옙占쏙옙");
 			ex.printStackTrace();
 		}finally{
 			try{
@@ -441,4 +438,5 @@ public class ProductDBBean {
 		}
 		return upbd;
 	}
+	
 }

@@ -16,11 +16,10 @@
     <link rel="stylesheet" href="../css/feather.css">
     <link rel="stylesheet" href="../css/daterangepicker.css">
     <link rel="stylesheet" href="../css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="../css/app-dark.css" id="darkTheme" disabled>
   </head>
   <style>
    .login{font-size: 25px;}
-   .found-id{color: yellow; font-weight: bold; font-size: 35px;}
+   .found-id{font-weight: bold; font-size: 35px;}
    input#btnLogin{background-color: #1B68FF; border-color: #1B68FF; border-radius: 3px; width: 30%; height: 40px; font-size: 20px; color: white;}
    input#btnback{background-color: #1B68FF; border-color: #1B68FF; border-radius: 3px; width: 25%; height: 40px; font-size: 15px; color: white;}
    input#btnjoin{background-color: #1B68FF; border-color: #1B68FF; border-radius: 3px; width: 25%; height: 40px; font-size: 15px; color: white;}
@@ -40,7 +39,6 @@
 	//int result = pw_check.pwCheckMember(ramPhon, id, name, email);
 	int result = pw_check.pwCheckMember(ramPhon, id, name, email);
 %>
-<%= email %>
   <body class="light ">
     <div class="wrapper vh-100">
       <div class="row align-items-center h-100">
@@ -60,10 +58,10 @@
           <h1 class="h6 mb-3">Find ID</h1>
           <div class="form-group">
             <a class="login">회원님의 임시 비밀번호는</a>
-            <div class ="found-id"><%= ramdomNum %> + 본인 휴대폰 뒷자리 4자</div>
+            <div class ="found-id"><mark><strong><%= ramdomNum %> + 본인 휴대폰 뒷자리 4자</strong></mark></div>
             <a class="login">입니다.</a>
           </div>        
-          <input type="button" id="btnLogin" value="Login" onClick ="javascript:window.location='login.jsp'"/>
+          <input type="button" id="btnLogin" value="Login" onClick ="javascript:window.location='main.jsp?pages=../user_log/login'"/>
 <%
  		 } else {
 %>
@@ -73,13 +71,14 @@
 	    </div>
 	    <div class = "found-login">
  		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" value="회원가입" onClick="javascript:window.location='register.jsp'"/>
+ 		    <input type="button" id="btnback" value="로그인" onClick="javascript:window.location='main.jsp?pages=../user_log/login'"/>
+ 		    <input type="button" id="btnjoin" value="회원가입" onClick="javascript:window.location='main.jsp?pages=../user_log/register'"/>
        	</div>
        </div>
 <%
   }
 %> 
-          <p class="mt-5 mb-3 text-muted">© 2022</p>
+          <p class="mt-5 mb-3 text-muted">© 2022 GREENSHOP</p>
         </form>
       </div>
     </div>

@@ -1,6 +1,4 @@
 <%@page import="net.coobird.thumbnailator.Thumbnails"%>
-<%@page import="javax.media.jai.JAI"%>
-<%@page import="javax.media.jai.RenderedOp"%>
 <%@page import="javax.imageio.ImageIO"%>
 <%@page import="java.io.File"%>
 <%@page import="java.awt.Graphics2D"%>
@@ -25,9 +23,11 @@
 </head>
 <body>
 	<%
+		System.out.println("safsdafdssdf");
 		ProductBean pBean = new ProductBean();
 		//String imgFolder = "C:/study/space_jsp/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/img";
-		String path = request.getRealPath("img");
+		String path = request.getSession().getServletContext().getRealPath("\\img");
+		//String path = request.getRealPath("img");
 		int size = 1024*1024*10; // 10MB로 크기 제한
 		int fileSize = 0;
 		String file = "";

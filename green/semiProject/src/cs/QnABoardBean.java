@@ -23,6 +23,10 @@ public class QnABoardBean {
 	
 	static private int b_nm;
 	
+	//ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½
+	private int allNoAns;
+	private int todayNoAns;
+	
 	
 	public static int pageSize=10;
 	public static int pageCount=1;
@@ -32,10 +36,10 @@ public class QnABoardBean {
 	public static String pageNumber(int limit) {
 		String str = "";
 		int temp = (pageNum-1)%limit;
-		int startPage = pageNum - temp; // ½ÃÀÛ ÆäÀÌÁö > ÇÑ¹ø¿¡ º¸¿©Áö´Â ÆäÀÌÁö ¹øÈ£ÀÇ Ã³À½ ¼ýÀÚ
+		int startPage = pageNum - temp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ > ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
-		if ((startPage - limit) > 0) { // ½ÃÀÛ ÆäÀÌÁö°¡
-			str = "<li class=\"page-item\"><a class=\"page-link\" href = 'adminIndex.jsp?pageNum="+(startPage-1)+"&pages=qnaList'>ÀÌÀü</a></li>";
+		if ((startPage - limit) > 0) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			str = "<li class=\"page-item\"><a class=\"page-link\" href = 'adminIndex.jsp?pageNum="+(startPage-1)+"&pages=qnaList'>ï¿½ï¿½ï¿½ï¿½</a></li>";
 		}
 		for (int i = startPage; i < (startPage+limit) ; i++) {
 			str+="<li class=\"page-item\"><a class=\"page-link\" href='adminIndex.jsp?pageNum="+i+"&pages=qnaList'>"+i+"</a></li>";
@@ -44,17 +48,17 @@ public class QnABoardBean {
 			}
 		}
 		if ((startPage + limit) <= pageCount) {
-			str += "<li class=\"page-item\"><a class=\"page-link\" href = 'adminIndex.jsp?pageNum="+(startPage+limit)+"&pages=qnaList'>´ÙÀ½</a></li>";
+			str += "<li class=\"page-item\"><a class=\"page-link\" href = 'adminIndex.jsp?pageNum="+(startPage+limit)+"&pages=qnaList'>ï¿½ï¿½ï¿½ï¿½</a></li>";
 		}
 		return str;
 	}
 	public static String userPageNumber(int limit) {
 		String str = "";
 		int temp = (pageNum-1)%limit;
-		int startPage = pageNum - temp; // ½ÃÀÛ ÆäÀÌÁö > ÇÑ¹ø¿¡ º¸¿©Áö´Â ÆäÀÌÁö ¹øÈ£ÀÇ Ã³À½ ¼ýÀÚ
+		int startPage = pageNum - temp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ > ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
-		if ((startPage - limit) > 0) { // ½ÃÀÛ ÆäÀÌÁö°¡
-			str = "<li class=\"page-item\"><a class=\"page-link\" href = 'qnaList_u.jsp?pageNum="+(startPage-1)+"'>ÀÌÀü</a></li>";
+		if ((startPage - limit) > 0) { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			str = "<li class=\"page-item\"><a class=\"page-link\" href = 'qnaList_u.jsp?pageNum="+(startPage-1)+"'>ï¿½ï¿½ï¿½ï¿½</a></li>";
 		}
 		for (int i = startPage; i < (startPage+limit) ; i++) {
 			str+="<li class=\"page-item\"><a class=\"page-link\" href='qnaList_u.jsp?pageNum="+i+"'>"+i+"</a></li>";
@@ -63,12 +67,24 @@ public class QnABoardBean {
 			}
 		}
 		if ((startPage + limit) <= pageCount) {
-			str += "<li class=\"page-item\"><a class=\"page-link\" href = 'qnaList_u.jsp?pageNum="+(startPage+limit)+"'>´ÙÀ½</a></li>";
+			str += "<li class=\"page-item\"><a class=\"page-link\" href = 'qnaList_u.jsp?pageNum="+(startPage+limit)+"'>ï¿½ï¿½ï¿½ï¿½</a></li>";
 		}
 		return str;
 	}
 	
 	
+	public int getAllNoAns() {
+		return allNoAns;
+	}
+	public void setAllNoAns(int allNoAns) {
+		this.allNoAns = allNoAns;
+	}
+	public int getTodayNoAns() {
+		return todayNoAns;
+	}
+	public void setTodayNoAns(int todayNoAns) {
+		this.todayNoAns = todayNoAns;
+	}
 	public static int getB_nm() {
 		return b_nm;
 	}
@@ -77,7 +93,7 @@ public class QnABoardBean {
 		QnABoardBean.b_nm = b_nm;
 	}
 
-	private String u_grade; // È¸¿ø µî±Þ
+	private String u_grade; // È¸ï¿½ï¿½ ï¿½ï¿½ï¿½
 	
 	public String getU_grade() {
 		return u_grade;
@@ -87,7 +103,7 @@ public class QnABoardBean {
 		this.u_grade = u_grade;
 	}
 	
-	private int count; // ÀüÃ¼ ±Û °³¼ö
+	private int count; // ï¿½ï¿½Ã¼ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	public int getCount() {
 		return count;

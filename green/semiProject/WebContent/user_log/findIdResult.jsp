@@ -2,6 +2,16 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
 <%@ page import="member.MemberDBBean"%>
+ <%
+	request.setCharacterEncoding("UTF-8");
+	String name = request.getParameter("user_name");
+	String phone1 = request.getParameter("user_phone1");
+	String phone2 = request.getParameter("user_phone2");
+	String phone3 = request.getParameter("user_phone3");
+	
+    MemberDBBean find = new MemberDBBean();
+ 	String user_id = find.findId(name, phone1, phone2, phone3); //아이디를 디비에서 가져옴..실패시 널
+%>
 <!doctype html>
 <html lang="ko">
   <head>
@@ -19,22 +29,12 @@
   </head>
   <style>
    .login{font-size: 25px;}
-   .found-id{color: yellow; font-weight: bold; font-size: 35px;}
+   .found-id{font-weight: bold; font-size: 35px;}
    input#btnLogin{background-color: #1B68FF; border-color: #1B68FF; border-radius: 3px; width: 30%; height: 40px; font-size: 20px; color: white;}
    input#btnback{background-color: #1B68FF; border-color: #1B68FF; border-radius: 3px; width: 25%; height: 40px; font-size: 15px; color: white;}
    input#btnjoin{background-color: #1B68FF; border-color: #1B68FF; border-radius: 3px; width: 25%; height: 40px; font-size: 15px; color: white;}
   </style>
-  <%
-	request.setCharacterEncoding("UTF-8");
-	String name = request.getParameter("user_name");
-	String phone1 = request.getParameter("user_phone1");
-	String phone2 = request.getParameter("user_phone2");
-	String phone3 = request.getParameter("user_phone3");
-	
-    MemberDBBean find = new MemberDBBean();
- 	String user_id = find.findId(name, phone1, phone2, phone3); //아이디를 디비에서 가져옴..실패시 널
-    
-%>
+ 
   <body class="light ">
     <div class="wrapper vh-100">
       <div class="row align-items-center h-100">
@@ -54,10 +54,10 @@
           <h1 class="h6 mb-3">Find ID</h1>
           <div class="form-group">
             <a class="login">회원님의 ID는</a>
-            <div class ="found-id"><%= user_id%></div>
+            <div class ="found-id"><mark><strong><%= user_id%></strong></mark></div>
             <a class="login">입니다.</a>
           </div>        
-          <input type="button" id="btnLogin" value="Login" onClick ="javascript:window.location='login.jsp'"/>
+          <input type="button" id="btnLogin" value="Login" onClick ="javascript:window.location='main.jsp?pages=../user_log/login'"/>
 <%
  		 } else {
 %>

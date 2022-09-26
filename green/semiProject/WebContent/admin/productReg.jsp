@@ -22,11 +22,11 @@
 <head>
 <meta charset="utf-8">
 <title></title>
-<script language="JavaScript" src="js/uploadProduct.js" charset="utf-8"></script>
+<script language="JavaScript" src="../js/uploadProduct.js?112" charset="utf-8"></script>
 </head>
 <body class="vertical  dark  ">
 	<div class="wrapper">
-		<form method="post" name="reg_frm" action="productReg_ok.jsp" enctype="multipart/form-data">
+		<form method="post" name="reg_frm" action="adminIndex.jsp?pages=productReg_ok" enctype="multipart/form-data">
 	        <div class="container-fluid">
 	          <div class="row justify-content-center">
 	            <div class="col-12">
@@ -92,7 +92,7 @@
 		</form>
      </div> <!-- .container-fluid -->
      
-    <script src="js/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
     <script type="text/javascript">
 	// 콘텐츠 수정 :: 사진 수정 시 이미지 미리보기
 	function readURL(input) {

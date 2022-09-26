@@ -11,7 +11,7 @@
 	QnABoardDBBean qdb = QnABoardDBBean.getInstance();
 	QnABoardBean qbb = qdb.getBoard(b_id, false);
 	String fName = qbb.getB_fname();
-	String fPath = "D:/woosung/semi/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
+	String fPath = "D:/semi/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/semiProject/upload";
 	
 	int re = qdb.deleteBoard(pwd, b_id); 
 	
@@ -24,7 +24,7 @@
 %>
 		<script>
 			alert("글이 삭제되었습니다.");
-			location.href= "qnaList_u.jsp?pageNum=<%= pageNum %>";
+			location.href= "main.jsp?pages=qnaList_u&pageNum=<%= pageNum %>";
 		</script>
 <%
 	} else if(re == 0) {

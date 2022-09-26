@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 public class ProductBean {
 	
 	//product table
-	
 	private int product_number;
 	private String category_code;
 	private String product_name;
@@ -23,22 +22,21 @@ public class ProductBean {
 	private int file_size;
 	private Timestamp create_date;
 	
-	//ìƒí’ˆ ê°œìˆ˜ ê´€ë ¨ ì†ì„±
 	private int count;
 	private int noStock;
 	
-	//í˜ì´ì§• ë³€ìˆ˜
-	public static int pageSize = 10; //í•œíŒ¨ì´ì§€ì— ë³´ì—¬ì¤„ ê¸€ ê°¯ìˆ˜
-	public static int pageCount = 1; //ì´ í˜ì´ì§€ ê°¯ìˆ˜
-	public static int pageNum = 1; //ì´ í˜ì´ì§€ ê°¯ìˆ˜
-	//í˜ì´ì§€ ë©”ì†Œë“œ
+	//ÆäÀÌÂ¡ º¯¼ö
+	public static int pageSize = 10; //ÇÑÆĞÀÌÁö¿¡ º¸¿©ÁÙ ±Û °¹¼ö
+	public static int pageCount = 1; //ÃÑ ÆäÀÌÁö °¹¼ö
+	public static int pageNum = 1; //ÃÑ ÆäÀÌÁö °¹¼ö
+	//ÆäÀÌÁö ¸Ş¼Òµå
 	
 	/*
-	 * ì‘ ì„± ì : ì´ë¯¼í•˜
-	 * ì‘ì—…ì¼ì : 2022.09.22
-	 * ì‘ì—…ë‚´ìš© : ìˆ˜ì • => [ë‹¤ìŒ] aíƒœê·¸ë¥¼ ìƒì„±í•  ë•Œ ì¡°ê±´ì ˆ startPage - limit <= pageCountë¥¼
-	 *             => startPage + limit <= pageCountë¡œ ë³€ê²½
-	 * ì¶”ê°€ì‘ì—… : ìˆ˜ì • => aíƒœê·¸ë¥¼ ê¾¸ë¯¸ê¸° ìœ„í•´ì„œ class ì¶”ê°€
+	 * ÀÛ ¼º ÀÚ : ÀÌ¹ÎÇÏ
+	 * ÀÛ¾÷ÀÏÀÚ : 2022.09.22
+	 * ÀÛ¾÷³»¿ë : ¼öÁ¤ => [´ÙÀ½] aÅÂ±×¸¦ »ı¼ºÇÒ ¶§ Á¶°ÇÀı startPage - limit <= pageCount¸¦
+	 *             => startPage + limit <= pageCount·Î º¯°æ
+	 * Ãß°¡ÀÛ¾÷ : ¼öÁ¤ => aÅÂ±×¸¦ ²Ù¹Ì±â À§ÇØ¼­ class Ãß°¡
 	 * */
 	public static String pageNumber(int limit) {
 		String str = "";
@@ -46,10 +44,10 @@ public class ProductBean {
 		int startPage = pageNum - temp;
 		
 		if(startPage - limit > 0) {
-			str = "<a class=\"page-link\" href='list.jsp?pageNum="+(startPage-1)+"'>[ì´ì „]</a>&nbsp;&nbsp;";
+			str = "<a class=\"page-link\" href='list.jsp?pageNum="+(startPage-1)+"'>[ÀÌÀü]</a>&nbsp;&nbsp;";
 		}
 		
-		for (int i = startPage; i < (startPage+limit); i++) {//ì•ˆìª½ í˜ì´ì§€ ë²ˆí˜¸
+		for (int i = startPage; i < (startPage+limit); i++) {//¾ÈÂÊ ÆäÀÌÁö ¹øÈ£
 			if(i==pageNum) {
 				str += "["+i+"]&nbsp;&nbsp;";
 			}else {
@@ -58,20 +56,20 @@ public class ProductBean {
 			if(i>= pageCount) break;
 		}
 		if(startPage + limit <= pageCount) {
-			str += "<a class=\"page-link\" href = 'list.jsp?pageNum="+(startPage+limit)+"'>[ë‹¤ìŒ]</a>";
+			str += "<a class=\"page-link\" href = 'list.jsp?pageNum="+(startPage+limit)+"'>[´ÙÀ½]</a>";
 		}
 		return str;
 	}
 	
 	/*
-	 * ì‘ ì—… ì : ì´ë¯¼í•˜
-	 * ì‘ì—…ì¼ì : 2022.09.22
-	 * ì‘ì—…ë‚´ìš© : ì¶”ê°€ => url ì„ ìˆ˜ì •í•  ì¼ì´ ì¡´ì¬í•  ê²½ìš° ì´ ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•¨. => ì˜¤ë²„ë¡œë”©
+	 * ÀÛ ¾÷ ÀÚ : ÀÌ¹ÎÇÏ
+	 * ÀÛ¾÷ÀÏÀÚ : 2022.09.22
+	 * ÀÛ¾÷³»¿ë : Ãß°¡ => url À» ¼öÁ¤ÇÒ ÀÏÀÌ Á¸ÀçÇÒ °æ¿ì ÀÌ ¸Ş¼Òµå¸¦ »ç¿ëÇÔ. => ¿À¹ö·Îµù
 	 * */
 	/*
-	 * ìˆ˜ ì • ì : í™©ìš°ì„±
-	 * ì‘ì—…ì¼ì : 2022.09.22
-	 * ì‘ì—…ë‚´ìš© : ë²„íŠ¼ ë””ìì¸ì„ ìœ„í•œ ìˆ˜ì •
+	 * ¼ö Á¤ ÀÚ : È²¿ì¼º
+	 * ÀÛ¾÷ÀÏÀÚ : 2022.09.22
+	 * ÀÛ¾÷³»¿ë : ¹öÆ° µğÀÚÀÎÀ» À§ÇÑ ¼öÁ¤
 	 * */
 	
 	public static String pageNumber(int limit, String url) {
@@ -80,21 +78,20 @@ public class ProductBean {
 		int startPage = pageNum - temp;
 		
 		if(startPage - limit > 0) {
-			str ="<li class=\"page-item\"><a class=\"page-link\" href ='"+url+".jsp?pageNum="+(startPage-limit)+"&pages=productList'>ì´ì „</a></li>";
+			str ="<li class=\"page-item\"><a class=\"page-link\" href ='"+url+".jsp?pageNum="+(startPage-limit)+"&pages=productList'>ÀÌÀü</a></li>";
 		}
-		for (int i = startPage; i < (startPage+limit); i++) {//ì•ˆìª½ í˜ì´ì§€ ë²ˆí˜¸
+		for (int i = startPage; i < (startPage+limit); i++) {//¾ÈÂÊ ÆäÀÌÁö ¹øÈ£
 			str+="<li class=\"page-item\"><a class=\"page-link\" href='"+url+".jsp?pageNum="+i+"&pages=productList'>"+i+"</a></li>";
 			if (i >= pageCount) { 
 				break;
 			}
 		}
 		if ((startPage + limit) <= pageCount) {
-			str += "<li class=\"page-item\"><a class=\"page-link\" href = '"+url+".jsp?pageNum="+(startPage+limit)+"&pages=productList'>ë‹¤ìŒ</a></li>";
+			str += "<li class=\"page-item\"><a class=\"page-link\" href = '"+url+".jsp?pageNum="+(startPage+limit)+"&pages=productList'>´ÙÀ½</a></li>";
 		}
 		return str;
 	}
-	//í˜ì´ì§• ë³€ìˆ˜ ë
-	
+	//ÆäÀÌÂ¡ º¯¼ö ³¡
 	
 	
 	public int getFile_number() {
@@ -104,15 +101,16 @@ public class ProductBean {
 		return count;
 	}
 
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	public int getNoStock() {
 		return noStock;
 	}
+
 	public void setNoStock(int noStock) {
 		this.noStock = noStock;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
 	}
 
 	public void setFile_number(int file_number) {

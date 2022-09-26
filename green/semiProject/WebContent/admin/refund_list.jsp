@@ -5,7 +5,8 @@
     pageEncoding="UTF-8"%>
 <%
 	int o_rank = 0;
-	int o_dNum, p_num, p_count, p_price;
+	int p_num, p_count, p_price;
+	long o_dNum;
 	String o_num, o_dStat, refund, pageNum;
 	
 	if(request.getParameter("pageNum") == null){
@@ -21,6 +22,7 @@
   <head>
     <meta charset="utf-8">
     <title>document</title>
+    <script type="text/javascript" src="../js/admin.js"></script>
   </head>
   <body class="vertical  dark  ">
     <div class="wrapper">
@@ -35,7 +37,7 @@
 	                <thead>
 	                  <tr role="row">
 	                    <th>주문 번호</th>
-	                    <th>제품 번호</th>
+	                    <th>상품 이름(번호)</th>
 	                    <th>수량</th>
 	                    <th>금액</th>
 	                    <th>주문 상태</th>
@@ -54,17 +56,20 @@
 				o_dStat = omb.getOrder_detail_status();
 				refund = omb.getRefund_check();
 				
+				omb = omdb.getOrder(o_dNum);
+				String p_name = omb.getProduct_name();
 		%>
 	                  <tr>
 						<td><%=o_num%></td>
 						<td>
-							<a href="#"><%=p_num%></a>
+						<a href="#"><%= p_name %>(<%=p_num%>)</a>
 						</td>
 						<td><%= p_count %></td>
 						<td><%=p_price%></td>
 						<td><%=o_dStat%></td>
 						<td>
-							<a href="refund_ok.jsp?pageNum=<%= pageNum %>&orderNum=<%= o_num%>">승인</a>
+							<input class="btn mb-2" type="hidden" id="refund" value="refund_ok.jsp?pageNum=<%= pageNum %>&orderNum=<%= o_num%>" />
+                       		<a class="btn mb-2" href="#" onclick="refundCheck()">승인</a>
 						</td>
 		<%			
 			}

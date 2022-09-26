@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class OrderManageBean {
 	private String order_number;
-	private int order_detail_number;
+	private long order_detail_number;
 	private String product_name;
 	private int product_number;
 	private int product_count;
@@ -12,6 +12,7 @@ public class OrderManageBean {
 	private String order_detail_status;
 	private String refund_check;
 	private String shipment;
+	private String requested;
 	
 	private String user_id;
 	private Timestamp order_date;
@@ -51,15 +52,22 @@ public class OrderManageBean {
 		}
 		//����¡ ���� ��
 	
+	
 		
-	public String getReceiver_phone1() {
-		return receiver_phone1;
+	public String getRequested() {
+		return requested;
+	}
+	public void setRequested(String requested) {
+		this.requested = requested;
 	}
 	public String getShipment() {
 		return shipment;
 	}
 	public void setShipment(String shipment) {
 		this.shipment = shipment;
+	}
+	public String getReceiver_phone1() {
+		return receiver_phone1;
 	}
 	public void setReceiver_phone1(String receiver_phone1) {
 		this.receiver_phone1 = receiver_phone1;
@@ -126,10 +134,10 @@ public class OrderManageBean {
 	public void setOrder_number(String order_number) {
 		this.order_number = order_number;
 	}
-	public int getOrder_detail_number() {
+	public long getOrder_detail_number() {
 		return order_detail_number;
 	}
-	public void setOrder_detail_number(int order_detail_number) {
+	public void setOrder_detail_number(long order_detail_number) {
 		this.order_detail_number = order_detail_number;
 	}
 	public String getProduct_name() {

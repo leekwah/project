@@ -13,7 +13,7 @@
 	String n_title="";
 	NoticeDBBean noticeDB = NoticeDBBean.getInstance();
 	NoticeBean notice = null;
-
+	
 	String pageNum=null;
 	if(request.getParameter("pageNum")==null){
 		pageNum="1";
@@ -21,7 +21,7 @@
 		pageNum=request.getParameter("pageNum");		
 	}
 	if(request.getParameter("n_user_id")!=null){
-		n_user_id=request.getParameter("n_user_id");
+		n_user_id=(String)session.getAttribute("name");
 	} else{
 		n_user_id="";
 		response.sendRedirect("adminIndex.jsp?pages=noticeList&pageNum="+pageNum);

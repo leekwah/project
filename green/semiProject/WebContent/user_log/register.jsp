@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!doctype html>
 <html lang="ko">
   <head>
@@ -7,14 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
     <title>회원가입</title>
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/simplebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/feather.css">
     <link rel="stylesheet" href="../css/daterangepicker.css">
     <link rel="stylesheet" href="../css/app-light.css" id="lightTheme">
   </head>
-<style>
+  <style>
     .form-group1 {width: 50%; margin-bottom: 15px;}
     .form-row1 {margin-right: -5px;  }
     .form-row1 ul {list-style: none; display: flex; justify-content: flex;}
@@ -86,7 +90,6 @@
     }
 </script>
   <body class="light ">
-    <div class="wrapper vh-100">
       <div class="row align-items-center h-100">
         <form class="col-lg-6 col-md-8 col-10 mx-auto" name="reg_frm" action="main.jsp?pages=../user_log/registerOk" method="post">
           <div class="mx-auto text-center my-4">
@@ -99,67 +102,58 @@
                 </g>
               </svg>
             </a>
-            <h2 class="my-3">Register</h2>
+            <h2 class="my-3">회원가입</h2>
           </div>
-          <div class="form-group1">
-            <label for="ID">ID</label>
-            <input type="text" class="form-control" id="id" name="user_id">
-            <span id="msg"></span>
-          </div>
-          <div class="row mb-4">
-            <div class="col-md-6">
+          <div class="row mb-12">
+            <div class="col-md-12">
               <div class="form-group">
-                <label for="inputPassword5">New Password</label>
-                <input type="password" class="form-control" id="inputPassword5" name="user_pwd">
+                <label for="ID"><strong>ID</strong></label>
+	            <input type="text" class="form-control" id="ID" name="user_id" placeholder="4자리 이상 입력해주세요.">
+              </div>
+              <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputPassword5"><strong>비밀번호</strong></label>
+                <input type="password" class="form-control" id="inputPassword5" name="user_pwd"  placeholder="4자리 이상 입력해주세요.">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword6"><strong>비밀번호 확인</strong></label>
+                <input type="password" class="form-control" id="inputPassword6" name="user_pwdch"  placeholder="비밀번호와 같은 값을 입력하세요.">
+              </div>
               </div>
               <div class="form-group">
-                <label for="inputPassword6">Confirm Password</label>
-                <input type="password" class="form-control" id="inputPassword6" name="user_pwdch">
+                <label for="inputPassword6"><strong>이름</strong></label>
+                <input type="text" class="form-control" name="user_name"  placeholder="예) 홍길동">
               </div>
             </div>
-            <div class="col-md-6">
-              <p class="mb-2">Password requirements</p>
-              <p class="small text-muted mb-2"> To create a new password, you have to meet all of the following requirements: </p>
-              <ul class="small text-muted pl-4 mb-0">
-                <li> Minimum 8 character </li>
-                <li>At least one special character</li>
-                <li>At least one number</li>
-                <li>Can’t be the same as a previous password </li>
-              </ul>
-            </div>
           </div>
-          
           <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="firstname">Name</label>
-              <input type="text" id="firstname" class="form-control" name="user_name">
-            </div>
+	          <div class="col-md-2 mb-3">
+	            <label for="phone1"><strong>전화번호</strong></label>
+	            <input type="text" class="form-control" id="validationCustom01" name="user_phone1" maxlength="3" required placeholder="ex) 010">
+	          </div>
+	          <div class="col-md-2 mb-3">
+	            <label for="phone2"> &nbsp;   &nbsp;   &nbsp; </label>
+	            <input type="text" class="form-control" id="validationCustom02" name="user_phone2" maxlength="4" required placeholder="1234">
+	          </div>
+	          <div class="col-md-2 mb-3">
+	            <label for="phone3"> &nbsp;   &nbsp;   &nbsp; </label>
+	            <input type="text" class="form-control" id="validationCustom02" name="user_phone3" maxlength="4" required placeholder="5678">
+	          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail4"><strong>이메일</strong></label>
+            <input type="email" class="form-control" id="inputEmail4" name="user_email" placeholder="example@example.com">
+          </div>
           </div>
           <div class="form-row1">
-            <label for="phone1">Phone</label>
-            <label for="phone2"></label>
-            <label for="phone3"></label>
-              <ul>
-                <li>
-                  <input type="text" id="phone1" class="form-control" name ="user_phone1" maxlength="3">
-                </li>
-                <li>
-                  <input type="text" id="phone2" class="form-control" name="user_phone2" maxlength="4">
-                </li>
-                <li>
-                  <input type="text" id="phone3" class="form-control" name="user_phone3" maxlength="4">
-                </li>
-              </ul>
-          </div>
-          <div class="form-group">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" name="user_email">
-          </div>
-          <div class="form-row1">
-            <label for="sample4_postcode">Address</label>
+            <label for="sample4_postcode"><strong>주소</strong></label>
             <br>
-            <input type="text" class="form-control" name="user_pcode" id="sample4_postcode" placeholder="우편번호">
-            <input id="juso" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2" name="user_pcode" id="sample4_postcode"  placeholder="우편번호" >
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" onclick="sample4_execDaumPostcode()" id="juso">우편번호 찾기</button>
+              </div>
+            </div>
+           
             <input type="text" class="form-control" name="user_raddr" id="sample4_roadAddress" placeholder="도로명주소">
             <input type="hidden" name="user_jibun" id="sample4_jibunAddress" placeholder="지번주소">
             <span id="guide" style="color:#999;display:none"></span>
@@ -167,46 +161,12 @@
             <input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
           </div>
           <hr class="my-4">
-          <button class="btn btn-lg btn-primary btn-block" onclick="check_ok()">Sign up</button>
-          <p class="mt-5 mb-3 text-muted text-center">© 2022</p>
+          <button class="btn btn-lg btn-primary btn-block" onclick="check_ok()">가입완료</button>
+          <p class="mt-5 mb-3 text-muted text-center">© 2022 GREENSHOP</p>
         </form>
       </div>
-    </div>
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script>
-    	$('#ID').on("keyup",(function(){
-    		var $checkID = $("#id").val();
-    		var params = "?user_id="+$checkID;
-    		
-    		var $msg = $("#msg");
-    		
-    		if($checkID == ""){
-    			console.log("아이디 없음")
-    			return;
-    		}
-    		
-    		$.ajax({
-    			type : "post",
-    			url : "./checkid.jsp",
-    			data : {"id": $checkID},
-    			dataType : "html",
-    			async : true,
-    			success : function(data){
-    				console.log("data : "+data)
-    				if (data.trim() =="true") {
-						$msg.html("<h4>아이디가 이미 존재합니다</h4>");
-					}else{
-						$msg.html("<h4>사용가능한 아이디 입니다</h4>")
-					}
-    			},
-    			error : function(){
-    				alert("서버요청 실패");
-    			}
-    		})
-    	})
-    </script>
+    <script src="../js/jquery.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/moment.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>

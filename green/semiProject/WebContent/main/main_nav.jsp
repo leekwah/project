@@ -37,25 +37,50 @@
           </a>
           <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
             <li class="nav-item">
-              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list.jsp?pages=productReg"><span class="ml-1 item-text">상품리스트</span>
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list"><span class="ml-1 item-text">티셔츠</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_detail"><span class="ml-1 item-text">상품 디테일</span></a>
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list"><span class="ml-1 item-text">후드티</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list"><span class="ml-1 item-text">니트/스웨터</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list"><span class="ml-1 item-text">셔츠/남방</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list"><span class="ml-1 item-text">바지</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pl-3" href="main.jsp?pages=../product/product_list"><span class="ml-1 item-text">청바지</span>
+              </a>
             </li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-            <i class="fe fe-user fe-16"></i>
+        <li class="nav-item w-100">
+          <a class="nav-link" href="main.jsp?pages=../order/order_body">
+            <i class="fe fe-truck fe-16" style="color:red"></i>
+            <span class="ml-3 item-text">장바구니</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a class="nav-link" href="main.jsp?pages=../product/likeList">
+            <i class="fe fe-heart fe-16"></i>
+            <span class="ml-3 item-text">나의 찜 목록</span>
+          </a>
+        </li>
+        <li class="nav-item w-100">
+          <a class="nav-link" href="main.jsp?pages=../cs/cs_main">
+            <i class="fe fe-headphones fe-16"></i>
             <span class="ml-3 item-text">고객센터</span>
           </a>
-          <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-            <a class="nav-link pl-3" href="main.jsp?pages=../cs/notice/noticeList_u"><span class="ml-1">공지사항</span></a>
-            <a class="nav-link pl-3" href="main.jsp?pages=../cs/faq/faq_main"><span class="ml-1">FAQ</span></a>
-            <a class="nav-link pl-3" href="main.jsp?pages=../cs/notice/listNotice_u"><span class="ml-1">1:1 문의 (Q&A)</span></a>
-          </ul>
         </li>
+        
     </ul>
     
 	<%
@@ -66,14 +91,14 @@
 	<%
     	} else if(id.equals("admin")) {
 	%>
-		<p>안녕하세요 <%= id %> 님</p>
+		<p><strong>안녕하세요 <%= id %> 님</strong></p>
 		<a href="../admin/adminIndex.jsp" class="btn mb-2 btn-warning btn-lg btn-block" role="button"><i class="fe fe-log-in fe-16"></i> 관리페이지</a>
 	    <a href="../user_log/logout.jsp" class="btn mb-2 btn-secondary btn-lg btn-block" role="button"><i class="fe fe-log-out fe-16"></i> 로그아웃</a>
 	<%
 		} else {
 	%>
-		<p>안녕하세요 <%= id %> 님</p>
-	    <a href="main.jsp?pages=../user_log/mypage_admin" class="btn mb-2 btn-primary btn-lg btn-block" role="button"><i class="fe fe-log-in fe-16"></i> 마이페이지</a>
+		<p><strong>안녕하세요 <%= id %>님</strong></p>
+	    <a href="main.jsp?pages=../user_log/mypage" class="btn mb-2 btn-primary btn-lg btn-block" role="button"><i class="fe fe-log-in fe-16"></i> 마이페이지</a>
 	    <a href="../user_log/logout.jsp" class="btn mb-2 btn-secondary btn-lg btn-block" role="button"><i class="fe fe-log-out fe-16"></i> 로그아웃</a>
     <%
     	}

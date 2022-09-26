@@ -42,9 +42,10 @@
                       <table class="table table-borderless table-hover">
                         <thead>
                           <tr>
-                            <th>제품 사진</th>
+                            <th>제품사진</th>
                             <th>제품이름</th>
                             <th>카테고리</th>
+                            <th>운송장번호</th>
                             <th class="w-25">전화번호</th>
                             <th class="w-25">제품 설명</th>
                             <th>주문날짜</th>
@@ -65,6 +66,9 @@
                             <td>
                               <p class="mb-0 text-muted">카테고리 가져오기</p>
                               <!-- 제품 카테고리 가져오기-->
+                            </td><td>
+                              <p class="mb-0 text-muted">운송장번호 가져오기</p>
+                              <!-- 운송장번호 가져오기 -->
                             </td>
                             <td>
                               <p class="mb-0 text-muted"><a href="#" class="text-muted">고객 전화번호 가져오기</a></p>
@@ -88,7 +92,7 @@
                         <ul class="pagination justify-content-center mb-0">
                           <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                           <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
                           <li class="page-item"><a class="page-link" href="#">3</a></li>
                           <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
@@ -101,38 +105,5 @@
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
     </div> <!-- .wrapper -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/moment.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/simplebar.min.js"></script>
-    <script src='../js/daterangepicker.js'></script>
-    <script src='../js/jquery.stickOnScroll.js'></script>
-    <script src="../js/tinycolor-min.js"></script>
-    <script src="../js/config.js"></script>
-    <script src='../js/jquery.dataTables.min.js'></script>
-    <script src='../js/dataTables.bootstrap4.min.js'></script>
-    <script>
-      $('#dataTable-1').DataTable(
-      {
-        autoWidth: true,
-        "lengthMenu": [
-          [16, 32, 64, -1],
-          [16, 32, 64, "All"]
-        ]
-      });
-    </script>
-    <script src="../js/apps.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag()
-      {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-56159088-1');
-    </script>
   </body>
 </html>

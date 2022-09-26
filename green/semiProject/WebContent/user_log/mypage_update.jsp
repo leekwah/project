@@ -22,14 +22,14 @@
 %>
 	<script>
 		alert("회원 정보가 수정되었습니다.");
-		document.location.href="../main/main_user.jsp";
+		document.location.href="main.jsp";
 	</script>
 <%
 	} else {
 %>
 	<script>
 		alert("수정이 실패되었습니다.");
-		document.location.href="mypage_user.jsp";
+		document.location.href="main.jsp?pages=../user_log/mypage";
 	</script>
 <%
 	}

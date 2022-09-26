@@ -1,33 +1,36 @@
 function check_ok() {
-	if(up_prodc.category_code.value.length == 0){
+	if(reg_frm.category_code.value.length == 0){
 		alert("카테고리를 지정해주세요.");
-		up_prodc.category_code.focus();
+		reg_frm.category_code.focus();
 		return;
 	}
 	
-	if(up_prodc.product_name.value.length == 0){
+	if(reg_frm.product_name.value.length == 0){
 		alert("상품이름을 써주세요.");
-		up_prodc.product_name.focus();
+		reg_frm.product_name.focus();
 		return;
 	}
 	
-	if(up_prodc.product_price.value.length == 0){
+	if(reg_frm.product_price.value.length == 0){
 		alert("상품가격을 써주세요.");
-		up_prodc.product_price.focus();
+		reg_frm.product_price.focus();
 		return;
 	}
 	
-	if(up_prodc.product_stock.value.length == 0){
+	if(reg_frm.product_stock.value.length == 0){
 		alert("재고수량을 써주세요.");
-		up_prodc.product_stock.focus();
+		reg_frm.product_stock.focus();
 		return;
 	}
 	
-	if(up_prodc.product_desc.value.length == 0){
+	/*if(reg_frm.product_desc.value.length == 0){
 		alert("상품설명을 써주세요.");
-		up_prodc.product_desc.focus();
+		reg_frm.product_desc.focus();
 		return;
-	}
+	}*/
+	const element = document.getElementsByClassName("ql-editor")[0];
 	
-	document.up_prodc.submit();
+	document.getElementById("content").value = element.innerHTML;
+	
+	document.reg_frm.submit();
 }

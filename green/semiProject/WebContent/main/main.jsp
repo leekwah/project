@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("UTF-8");
+
 	String id = (String)session.getAttribute("id");
 	String name = (String)session.getAttribute("name");
 	
@@ -31,6 +33,93 @@
     <link rel="stylesheet" href="../css/daterangepicker.css">
     <link rel="stylesheet" href="../css/app-light.css" id="lightTheme">
   </head>
+  <style type="text/css">
+   .main-content {
+   	position: relative;
+   }
+    .single-products-catagory {
+    float:left;
+    margin:0;
+    padding:0;
+    position:absolute;
+  z-index: 1;
+  width: 33.33333%;
+  position: relative;
+  top: 0; }
+<!--  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .single-products-catagory {
+      width: 50%; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-products-catagory {
+      width: 100%; } }
+  @media only screen and (max-width: 767px) {
+    .single-products-catagory {
+      width: 100%; } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .single-products-catagory {
+      width: 50%; } }-->
+  .single-products-catagory a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10; }
+    .single-products-catagory a::after {
+      -webkit-transition-duration: 250ms;
+      transition-duration: 250ms;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      content: '';
+      background-color: rgba(60, 60, 60, 0.7);
+      z-index: 1;
+      opacity: 0;
+      visibility: visible; }
+    .single-products-catagory a img {
+      width: 100%; }
+  .single-products-catagory .hover-content {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 10; }
+   @media only screen and (max-width: 767px) {
+      .single-products-catagory .hover-content {
+        top: 30px;
+        left: 30px; } }
+    .single-products-catagory .hover-content .line {
+      width: 80px;
+      height: 3px;
+      background-color: #fbb710;
+      display: none;
+      margin-bottom: 15px; }
+    .single-products-catagory .hover-content p {
+      font-size: 16px;
+      color: #6d6d6d;
+      line-height: 1;
+      margin-bottom: 5px;
+      -webkit-transition-duration: 250ms;
+      transition-duration: 250ms; 
+      display: none;
+      }
+    .single-products-catagory .hover-content h4 {
+      margin-bottom: 0;
+      -webkit-transition-duration: 250ms;
+      transition-duration: 250ms;
+      display: none;
+      }
+  .single-products-catagory:hover .hover-content .line {
+  	display: block;
+  }
+  .single-products-catagory:hover a::after, .single-products-catagory:focus a::after {
+    opacity: 1;
+    visibility: visible; }
+  .single-products-catagory:hover .hover-content p,
+  .single-products-catagory:hover .hover-content h4, .single-products-catagory:focus .hover-content p,
+  .single-products-catagory:focus .hover-content h4 {
+    color: #fff; display: block;}
+   </style>
   <body class="vertical  light  ">
     <div class="wrapper">
       <nav class="topnav navbar navbar-light">
@@ -51,11 +140,11 @@
              <%
              	}else if (id.equals("admin")) {
              %>
-              		<mark style="background-color:#eea303; color:#fff"><%= name %>님 (<%= id %>)</mark>
+              		<mark style="background-color:#eea303; color:#fff"><%= name %><strong style="color:#fff">님</strong> (<%= id %>)</mark>
              <%
              	} else {
              %>
-              		<mark style="background-color:#1B68FE; color:#fff"><%= name %>님 (<%= id %>)</mark>
+              		<mark style="background-color:#1B68FE; color:#fff"><%= name %><strong style="color:#fff">님</strong> (<%= id %>)</mark>
              <%	
              	}
              %>

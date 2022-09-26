@@ -1,7 +1,23 @@
+<%@page import="product.ProductBean"%>
+<%@page import="product.ProductDBBean"%>
 <%@page import="member.MemberBean"%>
 <%@page import="member.MemberDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	int product_number = Integer.parseInt(request.getParameter("product_number"));
+	ProductDBBean product = ProductDBBean.getInstance();
+	ProductBean get = product.getproduct(product_number, false);
+	
+	ProductBean img = product.getImg(product_number);
+	
+	String p_name = get.getProduct_name();
+	int p_price = get.getProduct_price();
+	int img_number = img.getFile_number();
+	String p_desc = get.getProduct_desc();
+	
+	String file_name = img.getStored_file_name();
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,8 +26,11 @@
 <meta name="author" content="">
 <link rel="icon" href="favicon.ico">
 <title>상품 상세페이지</title>
-<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- Simple bar CSS -->
 <link rel="stylesheet" href="../css/simplebar.css">
+<!-- Fonts CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- Icons CSS -->
 <link rel="stylesheet" href="../css/feather.css">
 <link rel="stylesheet" href="../css/select2.css">
 <link rel="stylesheet" href="../css/dropzone.css">
@@ -19,7 +38,9 @@
 <link rel="stylesheet" href="../css/jquery.steps.css">
 <link rel="stylesheet" href="../css/jquery.timepicker.css">
 <link rel="stylesheet" href="../css/quill.snow.css">
+<!-- Date Range Picker CSS -->
 <link rel="stylesheet" href="../css/daterangepicker.css">
+<!-- App CSS -->
 <link rel="stylesheet" href="../css/app-light.css" id="lightTheme">
 <style type="text/css">
 	*{
@@ -40,31 +61,36 @@
 	         <div class="row justify-content-center">
 	           <div class="col-12 col-lg-10 col-xl-8">
 	             <div class="my-4">
-	               <form>
+	               <form >
 	                 <div class="row mt-5 align-items-center">
-                       <img src="../assets/avatars/example.jpg" alt="..." class="col-md-8">
+                       <img src="${pageContext.request.contextPath}/img/<%=file_name%>" alt="..." class="col-md-8">
 	                   <div class="col-md-4">
 	                       <div class="col">
-							 <h2 class="mb-2">상품명 1</h2>
+							 <h2 class="mb-2"><%= p_name%></h2>
 							 <hr>
 							 <div>
-	                         	<h4 class="mb-3">총 상품금액 : total price원</h4>
+	                         	<h4 class="mb-3">상품금액 : <%= p_price %></h4>
 	                         </div>
 							 <hr>
 	                         <div style="height: 200;">
-		                         <p class="text-muted"> 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 상품설명1 </p>
+		                         <p class="text-muted">상품 설명 : <%= p_desc %></p>
 	                         </div>
 	                         <div style="text-align: center;">
 	                         	수량&nbsp;&nbsp;&nbsp;&nbsp; 
-	                         	<input type="number" step="1" min="1" max="10" value="1">
+	                         	<input type="number" step="1" min="1" max="10" value="1" name="number">
 	                         </div>
+							 <div class="btn-box w-100 mt-1 mb-1">
+								<a href="main.jsp?pages=../product/likeButton&product_number=<%= product_number %>" target="_blank" class="btn mb-2 btn-primary btn-lg btn-block">
+									<i class="fe fe-shopping-cart fe-12 mx-2"></i><span class="small">LIKE</span>
+								</a>
+							 </div>
 							 <div class="btn-box w-100 mt-1 mb-1">
 								<a href="#" target="_blank" class="btn mb-2 btn-primary btn-lg btn-block">
 									<i class="fe fe-shopping-cart fe-12 mx-2"></i><span class="small">장바구니</span>
 								</a>
 							 </div>
 							 <div class="btn-box w-100 mb-1">
-								<a href="buy_body.jsp" target="_blank" class="btn mb-2 btn-secondary btn-lg btn-block">
+								<a href="main.jsp?pages=../buy/buy_body" target="_blank" class="btn mb-2 btn-secondary btn-lg btn-block">
 									<i class="fe fe-credit-card fe-12 mx-2"></i><span class="small">구매</span>
 								</a>	
 							 </div>
@@ -201,8 +227,8 @@
 	    </div>
 	  </div>
 	</main> <!-- main -->
-    <!-- .wrapper -->
-	<script src="../js/popper.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
     <script src="../js/moment.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/simplebar.min.js"></script>
@@ -210,40 +236,17 @@
     <script src='../js/jquery.stickOnScroll.js'></script>
     <script src="../js/tinycolor-min.js"></script>
     <script src="../js/config.js"></script>
-    <script src="../js/d3.min.js"></script>
-    <script src="../js/topojson.min.js"></script>
-    <script src="../js/datamaps.all.min.js"></script>
-    <script src="../js/datamaps-zoomto.js"></script>
-    <script src="../js/datamaps.custom.js"></script>
-    <script src="../js/Chart.min.js"></script>
+    <script src="../js/apps.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
-      /* defind global options */
-      Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
-      Chart.defaults.global.defaultFontColor = colors.mutedColor;
+      window.dataLayer = window.dataLayer || [];
+      function gtag()
+      {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-56159088-1');
     </script>
-    <script src="../js/gauge.min.js"></script>
-    <script src="../js/jquery.sparkline.min.js"></script>
-    <script src="../js/apexcharts.min.js"></script>
-    <script src="../js/apexcharts.custom.js"></script>
-    <script src='../js/jquery.mask.min.js'></script>
-    <script src='../js/select2.min.js'></script>
-    <script src='../js/jquery.steps.min.js'></script>
-    <script src='../js/jquery.validate.min.js'></script>
-    <script src='../js/jquery.timepicker.js'></script>
-    <script src='../js/dropzone.min.js'></script>
-    <script src='../js/uppy.min.js'></script>
-    <script src='../js/quill.min.js'></script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-		gtag('config', 'UA-56159088-1');
-		
-	</script>
 </body>
 </html>

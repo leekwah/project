@@ -2,7 +2,7 @@
 <%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<jsp:useBean class="cs.QnABoardBean" id="qboard"/>
+<jsp:useBean class="cs.QnABoardBean" id="qboard"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>

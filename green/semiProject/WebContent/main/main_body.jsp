@@ -1,39 +1,70 @@
-<%@page import="product.ProductDBBean"%>
 <%@page import="product.ProductBean"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="product.ProductDBBean"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<%
+	ProductDBBean updb = ProductDBBean.getInstance();
 
+	ArrayList<ProductBean> productList = updb.productList("1");
+	int product_number[] = new int[productList.size()];
+	String product_name[] = new String[productList.size()];
+	int product_price[] = new int[productList.size()];
+	String stored_file_name[] = new String[productList.size()];
+	String product_desc[] = new String[productList.size()];
+	for (int i = 0; i < productList.size(); i++) {
+		ProductBean upbd = productList.get(i);
+
+	product_number[i] = upbd.getProduct_number();
+	product_name[i] = upbd.getProduct_name().toString();
+	product_price[i] = upbd.getProduct_price();
+	product_desc[i] = updb.getproduct(product_number[i], false).getProduct_desc();
+	stored_file_name[i] = updb.getImg(product_number[i]).getStored_file_name();
+
+}
+%>
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<link rel="stylesheet" href="css/core-style.css">
-<!-- Title  -->
-<title>Amado - Furniture Ecommerce Template | Home</title>
-
-<style type="text/css">
-	.clearfix img {
-		width: 633px;
-		height: 488px;
-	}
-</style>
+<title>index_body</title>
 </head>
-
 <body>
-	<!-- Product Catagories Area Start -->
-	<div class="products-catagories-area clearfix">
+	<div class="container-fluid">
+	  <div class="row justify-content-center">
+	      <div class="row">
+	      	<div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+            	<div class="products-catagories-area clearfix">
 		<div class="amado-pro-catagory clearfix">
 			<!-- Single Catagory -->
+		<%
+			for(int i=0; i < productList.size(); i++) {
+		%>
+			<div class="single-products-catagory clearfix">
+				<a href="main.jsp?pages=../product/product_detail&product_number=<%=product_number[i]%>"><img src="${pageContext.request.contextPath}/img/<%=stored_file_name[i]%>" style="width: 583px; height: 633px"> <!-- Hover Content -->
+					<div class="hover-content">
+						<div class="line"></div>
+						<!-- &#8361; 원 특수문자 표시 -->
+						<p>
+							&#8361;
+							<%=product_price[i]%></p>
+						<h4><%=product_name[i]%></h4>
+					</div>
+				</a>
+			</div>
+		<%
+			}
+		%>
 		</div>
 	</div>
-
-	<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-	
-
+	</div>
+	</div>
+	        <!-- Striped rows -->
+	      </div> <!-- .row-->
+	    </div> <!-- .col-12 -->
+	  </div> <!-- .row -->
+	</div> <!-- .container-fluid -->
 </body>
-
 </html>

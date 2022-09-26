@@ -41,15 +41,8 @@
                   <div class="card shadow">
                     <div class="card-body">
                       <div class="form-group mb-3">
-                        <label for="custom-select">문의 유형</label>
-                        <select name="b_category" class="custom-select" id="b_category">
-	                        <option value="회원정보">회원정보</option>
-	                        <option value="상품문의">상품문의</option>
-	                        <option value="주문/결제">주문/결제</option>
-	                        <option value="배송">배송</option>
-	                        <option value="교환/취소">교환/취소</option>
-	                        <option value="서비스">서비스</option>
-                        </select>
+                        <label for="b_category">문의 유형</label>
+                        <input type="text" name="b_category" class="form-control" value="<%= b_category %>" readonly />
                       </div>
                       <div class="form-group mb-3">
                         <label for="simpleinput">글번호</label>
@@ -99,7 +92,7 @@
           </div> <!-- .row -->
         </div> <!-- .container-fluid -->
     </div> <!-- .wrapper -->
-	<script src="../js/jquery.min.js">
+	<script src="../js/jquery.min.js"></script>
 	<script src="../js/board.js"></script>
     <script type="text/javascript">
 		$(function(){

@@ -29,7 +29,7 @@
 <head>
 <meta charset="utf-8">
 <title></title>
-<script language="JavaScript" src="../js/uploadProduct.js" charset="utf-8"></script>
+<script language="JavaScript" src="../js/uploadProduct.js?123" charset="utf-8"></script>
 </head>
 <body class="vertical  dark  ">
 	<div class="wrapper">

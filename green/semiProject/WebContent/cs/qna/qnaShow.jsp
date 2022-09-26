@@ -125,16 +125,16 @@
                         <div style="text-align:center;">
 	                        <input class="btn btn-primary" type="button" value="목록" onclick="location.href='qnaList_u.jsp?pageNum=<%= pageNum %>'" />
 							<% 
-								if(qbb.getU_id().equals(session.getAttribute("id"))){
+								if(qbb.getU_id().equals(session.getAttribute("id"))||session.getAttribute("grade")=="관리자") {
 							%>
-							<input class="btn btn-primary" type="button" value="수정" onclick="location.href='qnaEdit.jsp?b_id=<%= qbb.getB_id() %>&pageNum=<%= pageNum %>&b_category=<%= category %>'" />
+							<input class="btn btn-primary" type="button" value="삭제" onclick="location.href='qnaDelete.jsp?b_id=<%= qbb.getB_id() %>&pageNum=<%= pageNum %>'" />
 							<% 
 								}
 							%>
 							<% 
-								if(qbb.getU_id().equals(session.getAttribute("id"))||session.getAttribute("grade")=="관리자") {
+								if(qbb.getU_id().equals(session.getAttribute("id"))){
 							%>
-							<input class="btn btn-primary" type="button" value="삭제" onclick="location.href='qnaDelete.jsp?b_id=<%= qbb.getB_id() %>&pageNum=<%= pageNum %>'" />
+							<input class="btn btn-primary" type="button" value="수정" onclick="location.href='qnaEdit.jsp?b_id=<%= qbb.getB_id() %>&pageNum=<%= pageNum %>&b_category=<%= category %>'" />
 							<% 
 								}
 							%>
