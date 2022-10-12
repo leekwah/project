@@ -9,8 +9,9 @@ public class HomeController {
     public String home(){
         return "index";
     }
-    @RequestMapping("/hello")
-    public String hello(){
-        return "hello";
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
 }
