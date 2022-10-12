@@ -1,0 +1,6 @@
+<%
+	session.invalidate();
+	response.sendRedirect("../main/main.jsp");
+	response.sendRedirect("main.jsp?pages=../main/main");
+	
+%>
