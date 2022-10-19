@@ -20,6 +20,7 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="Interface" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
@@ -52,8 +53,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook",
-    "project.structure.last.edited": "Artifacts",
+    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/resources/css",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.16015625",
     "project.structure.side.proportion": "0.19739293",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
@@ -72,9 +73,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\lkwng\Documents\GitHub\spring\greenbook\src\main\webapp\WEB-INF\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/img" />
       <recent name="C:\Users\lkwng\Documents\GitHub\spring\greenbook\src\main\resources" />
       <recent name="C:\Users\lkwng\Documents\GitHub\spring\greenbook\src\main\webapp\WEB-INF\views" />
     </key>
@@ -179,8 +184,16 @@
       <updated>1666094470738</updated>
       <workItem from="1666094471565" duration="4754000" />
       <workItem from="1666164594236" duration="790000" />
-      <workItem from="1666165506542" duration="429000" />
+      <workItem from="1666165506542" duration="3863000" />
     </task>
+    <task id="LOCAL-00001" summary="commit">
+      <created>1666165959588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666165959588</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,5 +215,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="commit" />
+    <MESSAGE value="로그인 등록" />
+    <option name="LAST_COMMIT_MESSAGE" value="로그인 등록" />
   </component>
 </project>

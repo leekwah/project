@@ -10,19 +10,25 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-
     <!-- Enables the Spring MVC @Controller programming model -->
-    <mvc:annotation-driven/> <!-- Annotation 활성화 -->
 
-    <context:component-scan base-package="com.project.greenbook"/> <!-- Component Package 지정 -->
+    <!-- Annotation 활성화 -->
+    <mvc:annotation-driven/>
+
+    <!-- Component Package 지정 -->
+    <context:component-scan base-package="com.project.greenbook"/>
+
+    <!-- 정적 리소스 경로 설정 -->
+    <mvc:resources mapping="/**" location="/resources/"/>
 
     <!-- View Resolver 세팅 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+
 
     <beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!-- MySQL 버전에 따라 driverClassName의 value값이 달라짐 아래 코드는 Mysql 8기준 -->
@@ -42,6 +48,5 @@
     <beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
     </beans:bean>
-
 
 </beans>

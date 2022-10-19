@@ -8,5 +8,6 @@
 </head>
 <body>
 <h2>${content}</h2>
+<img src="img/logo.png"/>
 </body>
 </html>
