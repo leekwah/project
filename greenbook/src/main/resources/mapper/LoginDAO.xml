@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 DAO가 있는 위치를 지정한다. -->
+<mapper namespace="com.project.greenbook.dao.LoginDAO">
+    <!-- id에는 메서드 명을 넣는다. -->
+    <select id="list" resultType="com.project.greenbook.dto.LoginDTO">
+        SELECT category, title, author, price FROM book
+    </select>
+
+    <select id="login" resultType="com.project.greenbook.dto.LoginDTO" parameterType="hashmap">
+        SELECT COUNT(*)
+        FROM USER
+        WHERE ID = #{id}
+        AND PASSWORD = #{password}
+    </select>
+
+
+    <!-- parameterType에 hashmap이라고 지정한다. 이후에 변수에는 #{param1}과 같은 형식이 아닌 변수 명을 적는다. -->
+    <insert id="write" parameterType="hashmap">
+        INSERT INTO book(category, title, author, price) VALUES (#{category}, #{title}, #{author}, #{price})
+    </insert>
+
+    <select id="contentView" resultType="com.project.greenbook.dto.LoginDTO">
+        SELECT category, title, author, price FROM book WHERE category = #{category}
+    </select>
+
+</mapper>

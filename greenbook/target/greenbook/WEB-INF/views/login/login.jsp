@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: kwah
-  Date: 2022/10/19
-  Time: 5:31 PM
+  Date: 2022/10/20
+  Time: 6:09 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,10 +11,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <title>login</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <title>로그인</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -67,31 +66,34 @@
             -webkit-overflow-scrolling: touch;
         }
     </style>
-    <link href="/css/signin.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/login.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    <main class="form-signin w-100 m-auto">
-        <form method="post" action="login_yn">
-            <img class="mb-4" src="/img/logo.png" alt="" height="75">
-            <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" placeholder="아이디" name="user_id">
-                <label for="floatingInput">아이디</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호" name="user_pw" >
-                <label for="floatingPassword">비밀번호</label>
-            </div>
+<main class="form-signin w-100 m-auto">
+    <form method="post" action="loginOk">
+        <img class="mb-4" src="img/logo.png" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
-        </form>
-    </main>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="아이디">
+            <label for="floatingInput">아이디</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호">
+            <label for="floatingPassword">비밀번호</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-success" type="submit">로그인</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        <a href="register">가입</a>
+    </form>
+</main>
 </body>
 </html>
