@@ -4,7 +4,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace에는 DAO가 있는 위치를 지정한다. -->
-<mapper namespace="com.project.greenbook.dao.LoginDAO">
+<mapper namespace="com.project.greenbook.dao.MemDAO">
     <!-- id에는 메서드 명을 넣는다. -->
     <!--
     <select id="list" resultType="com.project.greenbook.dto.LoginDTO">
@@ -23,15 +23,19 @@
     </select>
 -->
 
+    <select id="loginYn" resultType="com.project.greenbook.dto.MemDTO">
+        SELECT mem_pwd FROM member WHERE mem_id = #{mem_id}
+    </select>
+
+    <select id="list" resultType="com.project.greenbook.dto.MemDTO">
+        SELECT mem_pwd FROM member WHERE mem_id = #{mem_id}
+    </select>
+
     <!-- parameterType에 hashmap이라고 지정한다. 이후에 변수에는 #{param1}과 같은 형식이 아닌 변수 명을 적는다. -->
     <insert id="register" parameterType="hashmap">
-        INSERT INTO `user` (user_id, user_pwd, user_name, user_phone1, user_phone2, user_phone3, user_email, user_postcode, user_address, user_extraAddress, user_detailAddress) VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_phone1}, #{user_phone2}, #{user_phone3}, #{user_email}, #{user_postcode}, #{user_address}, #{user_extraAddress}, #{user_detailAddress});
+        INSERT INTO `member` (mem_id, mem_pwd, mem_name, mem_phone1, mem_phone2, mem_phone3, mem_email, mem_postcode, mem_address, mem_extraAddress, mem_detailAddress) VALUES (#{mem_id}, #{mem_pwd}, #{mem_name}, #{mem_phone1}, #{mem_phone2}, #{mem_phone3}, #{mem_email}, #{mem_postcode}, #{mem_address}, #{mem_extraAddress}, #{mem_detailAddress});
     </insert>
-    <select id="who" resultType="com.project.greenbook.dto.LoginDTO" parameterType="hashmap">
-        SELECT user_id, user_pwd
-        FROM USER
-        WHERE ID = #{user_id}
-        AND PASSWORD = #{user_pwd}
-    </select>
+
+
 
 </mapper>

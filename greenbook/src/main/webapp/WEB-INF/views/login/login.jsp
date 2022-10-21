@@ -5,7 +5,8 @@
   Time: 6:09 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -72,16 +73,16 @@
 <body class="text-center">
 
 <main class="form-signin w-100 m-auto">
-    <form method="post" action="loginOk">
+    <form method="post" action="login_yn">
         <img class="mb-4" src="img/logo.png" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" name="user_id" id="floatingInput" placeholder="아이디">
+            <input type="text" class="form-control" name="mem_id" id="floatingInput" placeholder="아이디">
             <label for="floatingInput">아이디</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" name="user_pwd" id="floatingPassword" placeholder="비밀번호">
+            <input type="password" class="form-control" name="mem_pwd" id="floatingPassword" placeholder="비밀번호">
             <label for="floatingPassword">비밀번호</label>
         </div>
 

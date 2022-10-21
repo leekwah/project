@@ -1,11 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kwah
-  Date: 2022/10/20
-  Time: 5:40 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -79,13 +72,13 @@
 
         <div class="row g-5">
             <div class="col-md-12 col-lg-12">
-                <form class="needs-validation" novalidate action="registerOk" method="post">
+                <form class="needs-validation" novalidate action="register_ok" method="post">
                     <div class="row g-3">
                         <h4>기본 정보</h4>
                         <div class="col-sm-6">
-                            <label for="user_id" class="form-label">아이디</label>
+                            <label for="mem_id" class="form-label">아이디</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 적어주세요." required>
+                                <input type="text" class="form-control" name="mem_id" id="mem_id" placeholder="아이디를 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적절한 아이디입니다.
                                 </div>
@@ -93,9 +86,9 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="user_name" class="form-label">이름</label>
+                            <label for="mem_name" class="form-label">이름</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="mem_name" id="mem_name" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적절한 이름입니다.
                                 </div>
@@ -103,9 +96,9 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="user_pwd" class="form-label">비밀번호</label>
+                            <label for="mem_pwd" class="form-label">비밀번호</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="user_pwd" id="user_pwd" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="mem_pwd" id="mem_pwd" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적합한 비밀번호입니다.
                                 </div>
@@ -113,9 +106,9 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="user_pwdchk" class="form-label">비밀번호 확인</label>
+                            <label for="mem_pwdchk" class="form-label">비밀번호 확인</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="user_pwdchk" id="user_pwdchk" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="mem_pwdchk" id="mem_pwdchk" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     비밀번호가 동일하지 않습니다.
                                 </div>
@@ -123,28 +116,28 @@
                         </div>
 
                         <div class="col-4">
-                            <label for="user_phone1" class="form-label">전화번호</label>
+                            <label for="mem_phone1" class="form-label">전화번호</label>
                             <div class="input-group has-validation">
-                                <input type="tel" class="form-control" maxlength="3" name="user_phone1" id="user_phone1" required>
+                                <input type="tel" class="form-control" maxlength="3" name="mem_phone1" id="mem_phone1" required>
                             </div>
                         </div>
                         <div class="col-4">
-                            <label for="user_phone2" class="form-label"> &nbsp; </label>
+                            <label for="mem_phone2" class="form-label"> &nbsp; </label>
                             <div class="input-group has-validation">
-                                <input type="tel" class="form-control" maxlength="4" name="user_phone2" id="user_phone2" required>
+                                <input type="tel" class="form-control" maxlength="4" name="mem_phone2" id="mem_phone2" required>
                             </div>
                         </div>
                         <div class="col-4">
-                            <label for="user_phone3" class="form-label"> &nbsp; </label>
+                            <label for="mem_phone3" class="form-label"> &nbsp; </label>
                             <div class="input-group has-validation">
-                                <input type="tel" class="form-control" maxlength="4" name="user_phone3" id="user_phone3" required>
+                                <input type="tel" class="form-control" maxlength="4" name="mem_phone3" id="mem_phone3" required>
                             </div>
                         </div>
 
 
                         <div class="col-12">
-                            <label for="user_email" class="form-label">이메일</label>
-                            <input type="email" class="form-control" name="user_email" id="user_email" placeholder="이메일을 적어주세요." required>
+                            <label for="mem_email" class="form-label">이메일</label>
+                            <input type="email" class="form-control" name="mem_email" id="mem_email" placeholder="이메일을 적어주세요." required>
                             <div class="invalid-feedback">
                                 이메일을 형식에 맞게 적어주세요.
                             </div>
@@ -152,8 +145,8 @@
 
                         <!-- <input type="text" id="postcode" placeholder="우편번호"> -->
                         <div class="col-md-6">
-                            <label for="user_postcode" class="form-label">우편번호</label>
-                            <input type="text" class="form-control" name="user_postcode" id="user_postcode" placeholder="우편번호" readonly required>
+                            <label for="mem_postcode" class="form-label">우편번호</label>
+                            <input type="text" class="form-control" name="mem_postcode" id="mem_postcode" placeholder="우편번호" readonly required>
                             <div class="invalid-feedback">
                                 우편번호는 필수입니다.
                             </div>
@@ -172,8 +165,8 @@
 
                         <!-- <input type="text" id="address" placeholder="주소"><br> -->
                         <div class="col-md-12">
-                            <label for="user_address" class="form-label">주소</label>
-                            <input type="text" class="form-control" name="user_address" id="user_address" placeholder="주소" readonly required>
+                            <label for="mem_address" class="form-label">주소</label>
+                            <input type="text" class="form-control" name="mem_address" id="mem_address" placeholder="주소" readonly required>
                             <div class="invalid-feedback">
                                 Please enter your shipping address.
                             </div>
@@ -181,14 +174,14 @@
 
                         <!-- <input type="text" id="address" placeholder="주소"><br> -->
                         <div class="col-md-6">
-                            <label for="user_extraAddress" class="form-label">참고항목</label>
-                            <input type="text" class="form-control" name="user_extraAddress" id="user_extraAddress"  placeholder="참고항목" readonly>
+                            <label for="mem_extraAddress" class="form-label">참고항목</label>
+                            <input type="text" class="form-control" name="mem_extraAddress" id="mem_extraAddress"  placeholder="참고항목" readonly>
                         </div>
 
                         <!-- <input type="text" id="address" placeholder="주소"><br> -->
                         <div class="col-md-6">
-                            <label for="user_detailAddress" class="form-label">상세주소 <span class="text-muted">(Optional)</span></label>
-                            <input type="text" class="form-control" name="user_detailAddress" id="user_detailAddress">
+                            <label for="mem_detailAddress" class="form-label">상세주소 <span class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" name="mem_detailAddress" id="mem_detailAddress">
                         </div>
                     </div>
             <div class="col-12">
@@ -256,17 +249,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("user_extraAddress").value = extraAddr;
+                    document.getElementById("mem_extraAddress").value = extraAddr;
 
                 } else {
-                    document.getElementById("user_extraAddress").value = '';
+                    document.getElementById("mem_extraAddress").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('user_postcode').value = data.zonecode;
-                document.getElementById("user_address").value = addr;
+                document.getElementById('mem_postcode').value = data.zonecode;
+                document.getElementById("mem_address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("user_detailAddress").focus();
+                document.getElementById("mem_detailAddress").focus();
 
                 // iframe을 넣은 element를 안보이게 한다.
                 // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
