@@ -1,5 +1,7 @@
 package com.project.greenbook.service;
 
-public interface LoginService {
+import java.util.HashMap;
 
+public interface LoginService {
+    public void register (HashMap<String, String> param);
 }

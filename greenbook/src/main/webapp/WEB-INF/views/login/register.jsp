@@ -85,7 +85,7 @@
                         <div class="col-sm-6">
                             <label for="user_id" class="form-label">아이디</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="user_id" placeholder="아이디를 적어주세요." required>
+                                <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디를 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적절한 아이디입니다.
                                 </div>
@@ -95,7 +95,7 @@
                         <div class="col-sm-6">
                             <label for="user_name" class="form-label">이름</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="user_name" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적절한 이름입니다.
                                 </div>
@@ -105,7 +105,7 @@
                         <div class="col-sm-6">
                             <label for="user_pwd" class="form-label">비밀번호</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="user_pwd" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="user_pwd" id="user_pwd" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적합한 비밀번호입니다.
                                 </div>
@@ -115,60 +115,36 @@
                         <div class="col-sm-6">
                             <label for="user_pwdchk" class="form-label">비밀번호 확인</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="user_pwdchk" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="user_pwdchk" id="user_pwdchk" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     비밀번호가 동일하지 않습니다.
                                 </div>
                             </div>
                         </div>
 
-
                         <div class="col-4">
-                            <label for="user_tel1" class="form-label">전화번호</label>
+                            <label for="user_phone1" class="form-label">전화번호</label>
                             <div class="input-group has-validation">
-                                <!-- <input type="tel" class="form-control" id="user_nickname" required> -->
-                                <select class="form-select" id="user_tel1" required>
-                                    <option value="">선택</option>
-                                    <option>010</option>
-                                    <option>02</option>
-                                    <option>031</option>
-                                    <option>032</option>
-                                    <option>033</option>
-                                    <option>041</option>
-                                    <option>042</option>
-                                    <option>043</option>
-                                    <option>044</option>
-                                    <option>051</option>
-                                    <option>052</option>
-                                    <option>053</option>
-                                    <option>054</option>
-                                    <option>055</option>
-                                    <option>061</option>
-                                    <option>062</option>
-                                    <option>063</option>
-                                    <option>064</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div class="col-4">
-                            <label for="user_tel2" class="form-label"> &nbsp; </label>
-                            <div class="input-group has-validation">
-                                <input type="tel" class="form-control" maxlength="4" id="user_tel2" required>
+                                <input type="tel" class="form-control" maxlength="3" name="user_phone1" id="user_phone1" required>
                             </div>
                         </div>
                         <div class="col-4">
-                            <label for="user_tel3" class="form-label"> &nbsp; </label>
+                            <label for="user_phone2" class="form-label"> &nbsp; </label>
                             <div class="input-group has-validation">
-                                <input type="tel" class="form-control" maxlength="4" id="user_tel3" required>
+                                <input type="tel" class="form-control" maxlength="4" name="user_phone2" id="user_phone2" required>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label for="user_phone3" class="form-label"> &nbsp; </label>
+                            <div class="input-group has-validation">
+                                <input type="tel" class="form-control" maxlength="4" name="user_phone3" id="user_phone3" required>
                             </div>
                         </div>
 
 
                         <div class="col-12">
                             <label for="user_email" class="form-label">이메일</label>
-                            <input type="email" class="form-control" id="user_email" placeholder="이메일을 적어주세요." required>
+                            <input type="email" class="form-control" name="user_email" id="user_email" placeholder="이메일을 적어주세요." required>
                             <div class="invalid-feedback">
                                 이메일을 형식에 맞게 적어주세요.
                             </div>
@@ -176,8 +152,8 @@
 
                         <!-- <input type="text" id="postcode" placeholder="우편번호"> -->
                         <div class="col-md-6">
-                            <label for="postcode" class="form-label">우편번호</label>
-                            <input type="text" class="form-control" id="postcode" placeholder="우편번호" readonly required>
+                            <label for="user_postcode" class="form-label">우편번호</label>
+                            <input type="text" class="form-control" name="user_postcode" id="user_postcode" placeholder="우편번호" readonly required>
                             <div class="invalid-feedback">
                                 우편번호는 필수입니다.
                             </div>
@@ -196,8 +172,8 @@
 
                         <!-- <input type="text" id="address" placeholder="주소"><br> -->
                         <div class="col-md-12">
-                            <label for="address" class="form-label">주소</label>
-                            <input type="text" class="form-control" id="address" placeholder="주소" readonly required>
+                            <label for="user_address" class="form-label">주소</label>
+                            <input type="text" class="form-control" name="user_address" id="user_address" placeholder="주소" readonly required>
                             <div class="invalid-feedback">
                                 Please enter your shipping address.
                             </div>
@@ -205,21 +181,16 @@
 
                         <!-- <input type="text" id="address" placeholder="주소"><br> -->
                         <div class="col-md-6">
-                            <label for="extraAddress" class="form-label">참고항목</label>
-                            <input type="text" class="form-control" id="extraAddress"  placeholder="참고항목" readonly>
+                            <label for="user_extraAddress" class="form-label">참고항목</label>
+                            <input type="text" class="form-control" name="user_extraAddress" id="user_extraAddress"  placeholder="참고항목" readonly>
                         </div>
 
                         <!-- <input type="text" id="address" placeholder="주소"><br> -->
                         <div class="col-md-6">
-                            <label for="detailAddress" class="form-label">상세주소 <span class="text-muted">(Optional)</span></label>
-                            <input type="text" class="form-control" id="detailAddress">
+                            <label for="user_detailAddress" class="form-label">상세주소 <span class="text-muted">(Optional)</span></label>
+                            <input type="text" class="form-control" name="user_detailAddress" id="user_detailAddress">
                         </div>
-
-
                     </div>
-
-
-
             <div class="col-12">
                 <button class="w-100 btn btn-success btn-lg" type="submit">회원가입 진행</button>
             </div>
@@ -285,17 +256,17 @@
                         extraAddr = ' (' + extraAddr + ')';
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("extraAddress").value = extraAddr;
+                    document.getElementById("user_extraAddress").value = extraAddr;
 
                 } else {
-                    document.getElementById("extraAddress").value = '';
+                    document.getElementById("user_extraAddress").value = '';
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('postcode').value = data.zonecode;
-                document.getElementById("address").value = addr;
+                document.getElementById('user_postcode').value = data.zonecode;
+                document.getElementById("user_address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("detailAddress").focus();
+                document.getElementById("user_detailAddress").focus();
 
                 // iframe을 넣은 element를 안보이게 한다.
                 // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)

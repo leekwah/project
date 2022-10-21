@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.43">
-    <root id="1"/>
+    <root id="1">
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>8.0.31</ServerVersion>
+    </root>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
     </collation>
@@ -949,21 +953,65 @@
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <column id="302" parent="301" name="category">
+    <table id="302" parent="288" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <column id="303" parent="301" name="title">
       <DataType>varchar(100)|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="303" parent="301" name="title">
-      <DataType>varchar(100)|0s</DataType>
+    <column id="304" parent="301" name="price">
+      <DataType>bigint|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="304" parent="301" name="author">
+    <column id="305" parent="301" name="author">
       <DataType>varchar(100)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="305" parent="301" name="price">
-      <DataType>bigint|0s</DataType>
+    <column id="306" parent="302" name="user_id">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="307" parent="302" name="user_pwd">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="308" parent="302" name="user_name">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="309" parent="302" name="user_phone1">
+      <DataType>int|0s</DataType>
       <Position>4</Position>
+    </column>
+    <column id="310" parent="302" name="user_phone2">
+      <DataType>int|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="311" parent="302" name="user_phone3">
+      <DataType>int|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="312" parent="302" name="user_email">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="313" parent="302" name="user_postcode">
+      <DataType>int|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <column id="314" parent="302" name="user_address">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>9</Position>
+    </column>
+    <column id="315" parent="302" name="user_extraAddress">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>10</Position>
+    </column>
+    <column id="316" parent="302" name="user_detailAddress">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>11</Position>
     </column>
   </database-model>
 </dataSource>

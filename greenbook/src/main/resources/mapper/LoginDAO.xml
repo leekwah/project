@@ -6,6 +6,7 @@
 <!-- namespace에는 DAO가 있는 위치를 지정한다. -->
 <mapper namespace="com.project.greenbook.dao.LoginDAO">
     <!-- id에는 메서드 명을 넣는다. -->
+    <!--
     <select id="list" resultType="com.project.greenbook.dto.LoginDTO">
         SELECT category, title, author, price FROM book
     </select>
@@ -17,14 +18,20 @@
         AND PASSWORD = #{password}
     </select>
 
-
-    <!-- parameterType에 hashmap이라고 지정한다. 이후에 변수에는 #{param1}과 같은 형식이 아닌 변수 명을 적는다. -->
-    <insert id="write" parameterType="hashmap">
-        INSERT INTO book(category, title, author, price) VALUES (#{category}, #{title}, #{author}, #{price})
-    </insert>
-
     <select id="contentView" resultType="com.project.greenbook.dto.LoginDTO">
         SELECT category, title, author, price FROM book WHERE category = #{category}
+    </select>
+-->
+
+    <!-- parameterType에 hashmap이라고 지정한다. 이후에 변수에는 #{param1}과 같은 형식이 아닌 변수 명을 적는다. -->
+    <insert id="register" parameterType="hashmap">
+        INSERT INTO `user` (user_id, user_pwd, user_name, user_phone1, user_phone2, user_phone3, user_email, user_postcode, user_address, user_extraAddress, user_detailAddress) VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_phone1}, #{user_phone2}, #{user_phone3}, #{user_email}, #{user_postcode}, #{user_address}, #{user_extraAddress}, #{user_detailAddress});
+    </insert>
+    <select id="who" resultType="com.project.greenbook.dto.LoginDTO" parameterType="hashmap">
+        SELECT user_id, user_pwd
+        FROM USER
+        WHERE ID = #{user_id}
+        AND PASSWORD = #{user_pwd}
     </select>
 
 </mapper>

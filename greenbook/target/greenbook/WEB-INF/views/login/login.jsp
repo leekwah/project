@@ -77,11 +77,11 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="아이디">
+            <input type="text" class="form-control" name="user_id" id="floatingInput" placeholder="아이디">
             <label for="floatingInput">아이디</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호">
+            <input type="password" class="form-control" name="user_pwd" id="floatingPassword" placeholder="비밀번호">
             <label for="floatingPassword">비밀번호</label>
         </div>
 

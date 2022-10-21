@@ -10,26 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b639c701-86e4-449f-8efd-fb0d47d13de3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/register.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/greenbook.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login/login_ok.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/signin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/controller/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/controller/BookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/login/login_ok.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/resources/css/signin.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +20,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -216,7 +197,8 @@
       <workItem from="1666164594236" duration="790000" />
       <workItem from="1666165506542" duration="792000" />
       <workItem from="1666255171842" duration="1968000" />
-      <workItem from="1666258050423" duration="1479000" />
+      <workItem from="1666258050423" duration="2107000" />
+      <workItem from="1666284289055" duration="2981000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1666165959588</created>
@@ -225,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666165959588</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="로그인 화면 생성">
+      <created>1666274167970</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666274167970</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +237,7 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="로그인 화면 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="로그인 화면 생성" />
   </component>
 </project>
