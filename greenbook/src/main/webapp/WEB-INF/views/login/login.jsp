@@ -75,10 +75,10 @@
 <main class="form-signin w-100 m-auto">
     <form method="post" action="login_yn">
         <img class="mb-4" src="img/logo.png" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" name="mem_id" id="floatingInput" placeholder="아이디">
+            <input type="text" class="form-control" name="mem_id" id="floatingInput" placeholder="아이디" autofocus>
             <label for="floatingInput">아이디</label>
         </div>
         <div class="form-floating">
@@ -92,7 +92,7 @@
             </label>
         </div>
         <button class="w-100 btn btn-lg btn-success" type="submit">로그인</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        <p class="mt-5 mb-3 text-muted">&copy; GREENBOOK</p>
         <a href="register">가입</a>
     </form>
 </main>

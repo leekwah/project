@@ -78,7 +78,7 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" name="mem_id" id="floatingInput" placeholder="아이디">
+            <input type="text" class="form-control" name="mem_id" id="floatingInput" placeholder="아이디" autofocus>
             <label for="floatingInput">아이디</label>
         </div>
         <div class="form-floating">

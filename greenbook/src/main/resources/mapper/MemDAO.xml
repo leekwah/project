@@ -24,11 +24,11 @@
 -->
 
     <select id="loginYn" resultType="com.project.greenbook.dto.MemDTO">
-        SELECT mem_pwd FROM member WHERE mem_id = #{mem_id}
+        SELECT mem_pwd FROM member
     </select>
 
     <select id="list" resultType="com.project.greenbook.dto.MemDTO">
-        SELECT mem_pwd FROM member WHERE mem_id = #{mem_id}
+        SELECT mem_pwd FROM member
     </select>
 
     <!-- parameterType에 hashmap이라고 지정한다. 이후에 변수에는 #{param1}과 같은 형식이 아닌 변수 명을 적는다. -->
