@@ -2,52 +2,43 @@ package com.project.greenbook.controller;
 
 import com.project.greenbook.dto.MemberDTO;
 import com.project.greenbook.service.MemberService;
-import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import javax.servlet.http.HttpSession;
 
 @Controller
-@Log4j
+@RequestMapping("/member/*")
 public class MemberController {
     @Autowired
     private MemberService memberService;
-
-    @RequestMapping("/list")
-    public String list(Model model) {
-        log.info("MemberController.list() start");
-
-        ArrayList<MemberDTO> memberList = memberService.list();
-        model.addAttribute("memberList", memberList);
-
-        log.info("MemberController.list() end");
-        return "list";
-
-    }
-
-    @RequestMapping("/login")
+    @RequestMapping("login.do")
     public String login() {
         return "member/login";
     }
 
-    @RequestMapping("/register")
-    public String register() {
-        return "member/register";
+    @RequestMapping("loginCheck.do")
+    public ModelAndView loginCheck(@ModelAttribute MemberDTO dto, HttpSession session) {
+        String name = memberService.loginCheck(dto, session);
+        ModelAndView mav = new ModelAndView();
+
+        if (name != null) { // 로그인 성공 시
+            mav.setViewName("home"); // 뷰의 이름을 "home"으로 설정
+        } else { // 로그인 실패 시
+            mav.setViewName("member/login");
+            mav.addObject("message", "error");
+        }
+        return mav;
     }
 
-    @RequestMapping("/register_Yn")
-    public String registerYn(@RequestParam HashMap<String, String> param) {
-        log.info("MemberController.registerYn() start");
-
-        memberService.register(param);
-
-        log.info("MemberController.registerYn() end");
-        return "redirect:login";
+    @RequestMapping("logout.do")
+    public ModelAndView logout(HttpSession session, ModelAndView mav) {
+        memberService.logout(session);
+        mav.setViewName("member/login");
+        mav.addObject("message", "logout");
+        return mav;
     }
-
 }

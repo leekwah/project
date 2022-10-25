@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 DAO가 있는 위치를 지정한다. -->
+<mapper namespace="member">
+    <!-- id에는 메서드 명을 넣는다. -->
+    <select id="loginCheck" resultType="String">
+        SELECT member_name
+        FROM member
+        WHERE member_id = #{member_id}
+        AND member_pwd = #{member_pwd}
+    </select>
+</mapper>

@@ -14,8 +14,8 @@
 <body class="text-center">
 
 <main class="form-signin w-100 m-auto">
-    <form method="post" action="/signUp">
-    <img class="mb-4" src="img/logo.png" alt="" width="72" height="72">
+    <form method="post" action="login_yn">
+        <img class="mb-4" src="img/logo.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">

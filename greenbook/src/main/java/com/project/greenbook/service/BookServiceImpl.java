@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@Service
+@Service("bookService")
 public class BookServiceImpl implements BookService {
     @Autowired
     private SqlSession sqlSession;

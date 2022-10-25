@@ -15,7 +15,7 @@ import java.util.HashMap;
 @Controller
 public class BookController {
     @Autowired
-    private BookService service;
+    private BookService bookService;
 
     /*
     @RequestMapping("/list")
@@ -42,7 +42,7 @@ public class BookController {
     public String write(@RequestParam HashMap<String, String> param) {
         System.out.println("BookController.write() start");
 
-        service.write(param);
+        bookService.write(param);
 
         System.out.println("BookController.write() end");
         return "redirect:list"; // list로 가려면, redirect를 통해서 가야한다.

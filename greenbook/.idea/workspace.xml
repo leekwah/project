@@ -19,8 +19,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
+        <option value="HTML File" />
+        <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JavaScript File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -40,6 +44,7 @@
   <component name="ProjectId" id="2GJ6ikBhviOf70UzAOWOq0Io3hA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,15 +53,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/resources/mapper",
+    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/WEB-INF/views/member",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.16015625",
     "project.structure.side.proportion": "0.19739293",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "spring",
     "spring.configuration.checksum": "54e29dfc52b1d42c996b334c87b332aa"
   },
   "keyToStringList": {
@@ -71,14 +77,19 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.project.greenbook.dao" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
       <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="C:\Users\lkwng\Documents\GitHub\spring\greenbook\src\main\webapp\WEB-INF\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/img" />
       <recent name="C:\Users\lkwng\Documents\GitHub\spring\greenbook\src\main\resources" />
       <recent name="C:\Users\lkwng\Documents\GitHub\spring\greenbook\src\main\webapp\WEB-INF\views" />
@@ -185,7 +196,7 @@
       <workItem from="1666094471565" duration="4754000" />
       <workItem from="1666164594236" duration="790000" />
       <workItem from="1666165506542" duration="792000" />
-      <workItem from="1666620194851" duration="1124000" />
+      <workItem from="1666620194851" duration="11384000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1666165959588</created>
@@ -194,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666165959588</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="mypage 추가">
+      <created>1666621353191</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666621353192</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +235,11 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="mypage 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="mypage 추가" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
