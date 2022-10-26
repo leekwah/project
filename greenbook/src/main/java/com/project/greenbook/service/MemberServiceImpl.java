@@ -2,30 +2,44 @@ package com.project.greenbook.service;
 
 import com.project.greenbook.dao.MemberDAO;
 import com.project.greenbook.dto.MemberDTO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @Service
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
     @Autowired
-    private MemberDAO memberDAO;
+    private SqlSession sqlSession;
+
 
     @Override
-    public String loginCheck(MemberDTO dto, HttpSession session) {
-        String name = memberDAO.loginCheck(dto);
+    public ArrayList<MemberDTO> loginCheck(HashMap<String, String> param) {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        ArrayList<MemberDTO> dtos = dao.loginCheck(param);
 
-        if (name != null) { // 세션 변수 저장
-            session.setAttribute("member_id", dto.getMember_id());
-            session.setAttribute("member_name", name);
-        }
-
-        return name;
+        return dtos;
     }
 
     @Override
     public void logout(HttpSession session) {
         session.invalidate(); // 세션 초기화
     }
+
+    @Override
+    public void signUp(HashMap<String, String> param) {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        dao.signUp(param);
+    }
+
+    @Override
+    public void signIn(HashMap<String, String> param) {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        dao.signIn(param);
+    }
+
+
 }

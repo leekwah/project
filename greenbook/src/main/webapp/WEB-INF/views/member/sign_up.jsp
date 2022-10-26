@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kwah
-  Date: 2022/10/24
-  Time: 5:33 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="ko">
@@ -66,7 +59,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/register.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 
@@ -79,7 +72,7 @@
 
         <div class="row g-5">
             <div class="col-md-12 col-lg-12">
-                <form class="needs-validation" novalidate action="register_ok" method="post">
+                <form class="needs-validation" novalidate action="signUpOk" method="post">
                     <div class="row g-3">
                         <h4>기본 정보</h4>
                         <div class="col-sm-6">
@@ -105,7 +98,7 @@
                         <div class="col-sm-6">
                             <label for="member_pwd" class="form-label">비밀번호</label>
                             <div class="input-group has-validation">
-                                <input type="password" class="form-control" name="member_pwd" id="member_pwd" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="member_pwd" id="member_pwd" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     부적합한 비밀번호입니다.
                                 </div>
@@ -115,7 +108,7 @@
                         <div class="col-sm-6">
                             <label for="member_pwd_cnf" class="form-label">비밀번호 확인</label>
                             <div class="input-group has-validation">
-                                <input type="password" class="form-control" name="member_pwd_cnf" id="member_pwd_cnf" placeholder="이름을 적어주세요." required>
+                                <input type="text" class="form-control" name="member_pwd_cnf" id="member_pwd_cnf" placeholder="이름을 적어주세요." required>
                                 <div class="invalid-feedback">
                                     비밀번호가 동일하지 않습니다.
                                 </div>
@@ -277,7 +270,7 @@
         element_wrap.style.display = 'block';
     }
 </script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/register.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/register.js"></script>
 </body>
 </html>

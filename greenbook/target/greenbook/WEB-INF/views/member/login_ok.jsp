@@ -1,16 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kwah
-  Date: 2022/10/24
-  Time: 11:25 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>login ok</title>
 </head>
 <body>
-login_ok
+<h2>${member_name}님 안녕?</h2>
+<a href="/logout">로그아웃</a>
 </body>
 </html>

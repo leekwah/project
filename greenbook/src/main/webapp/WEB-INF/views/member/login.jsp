@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -8,14 +8,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
-    <script src="js/login.js"></script>
+    <script src="js/jquery.js"></script>
 </head>
-
 <body class="text-center">
 
 <main class="form-signin w-100 m-auto">
-    <form method="post" action="/signUp">
-    <img class="mb-4" src="img/logo.png" alt="" width="72" height="72">
+    <form method="post" action="loginCheck">
+        <img class="mb-4" src="img/logo.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
         <div class="form-floating">
@@ -32,18 +31,12 @@
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="w-100 btn btn-lg btn-success" type="submit" id="btnLogin">로그인</button>
+        <button class="w-100 btn btn-lg btn-success" type="submit">로그인</button>
         <p class="mt-5 mb-3 text-muted">&copy; GREENBOOK</p>
-        <a href="register">가입</a>
-        <c:if test="${message == 'error'}">
-        <div style="color:red;"> 아이디 또는 비밀번호가 일치하지 않습니다.
-        </div>
-        </c:if>
-        <c:if test="${message == 'logout'}">
-            <div style="color:red;"> 로그아웃되었습니다.
-            </div>
-        </c:if>
+        <a href="signUp">가입</a>
     </form>
 </main>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.js"></script>
 </body>
 </html>

@@ -47,16 +47,4 @@ public class BookController {
         System.out.println("BookController.write() end");
         return "redirect:list"; // list로 가려면, redirect를 통해서 가야한다.
     }
-
-
-    @RequestMapping("/")
-    public ModelAndView index() {
-
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("title", "Spring Test");
-        mav.addObject("content", "EL TEST");
-        mav.setViewName("index");
-
-        return mav;
-    }
 }

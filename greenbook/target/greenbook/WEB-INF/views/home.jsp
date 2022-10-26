@@ -29,7 +29,7 @@
   })
 </script>
 <body>
-<form name='homeForm' method="post" action="/member/login">
+<form name='homeForm' method="post" action="login">
   <c:if test="${member == null}">
     <div>
       <label for="userId"></label>
