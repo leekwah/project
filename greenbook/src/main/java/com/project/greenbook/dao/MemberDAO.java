@@ -9,5 +9,7 @@ public interface MemberDAO {
     public ArrayList<MemberDTO> loginCheck(HashMap<String, String> param);
     public void signUp(HashMap<String, String> param);
     public void signIn(HashMap<String, String> param);
+    public int overlay(String id);
 
+    public int emoverlay(String email);
 }

@@ -10,8 +10,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b639c701-86e4-449f-8efd-fb0d47d13de3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/findId.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/findPw.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/logincheck.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/singup_ok.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/singUpOk.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ba2d973c-497d-445c-a1c0-a1df455ea4f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ba2d973c-497d-445c-a1c0-a1df455ea4f1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greenbook.iml" beforeDir="false" afterPath="$PROJECT_DIR$/greenbook.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/dao/MemberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/dao/MemberDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/dto/MemberDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/dto/MemberDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/greenbook/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/greenbook/service/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/MemberDAO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MemberDAO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login_ok.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/sign_up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/sing_up_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/singUpOk.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/dao/MemberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/dao/MemberDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/dto/MemberDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/dto/MemberDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/project/greenbook/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/project/greenbook/service/MemberServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/MemberDAO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/MemberDAO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/dao/MemberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/dao/MemberDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/dto/MemberDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/dto/MemberDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/service/MemberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/com/project/greenbook/service/MemberServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/mapper/MemberDAO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/mapper/MemberDAO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/login_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/login_ok.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/mypage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/sign_up.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/sing_up_ok.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +55,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="spring-beans.schema" />
         <option value="HTML File" />
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="JavaScript File" />
-        <option value="Class" />
+        <option value="Interface" />
         <option value="Jsp File" />
+        <option value="Class" />
+        <option value="spring-beans.schema" />
       </list>
     </option>
   </component>
@@ -61,7 +95,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/WEB-INF/views/member",
+    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/resources/css",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.16015625",
     "project.structure.side.proportion": "0.19739293",
@@ -84,21 +118,21 @@
       <recent name="com.project.greenbook.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/resources/img" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/resources/css/member" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.65">
+  <component name="RunManager">
     <configuration name="Tomcat 9.0.65" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.65" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -187,50 +221,6 @@
         </option>
       </method>
     </configuration>
-    <configuration name="login.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.65" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/WEB-INF/views/member/login.jsp" />
-      <deployment>
-        <artifact name="greenbook:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/greenbook_war_exploded" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="eeeb763a-a8c5-4e85-a1d7-51ad35ecb7ca" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="greenbook:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Tomcat Server.login.jsp" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -246,7 +236,10 @@
       <workItem from="1666620194851" duration="11530000" />
       <workItem from="1666694206217" duration="28000" />
       <workItem from="1666694268186" duration="156000" />
-      <workItem from="1666761380561" duration="10967000" />
+      <workItem from="1666761380561" duration="12517000" />
+      <workItem from="1666845421092" duration="1649000" />
+      <workItem from="1666849356869" duration="4474000" />
+      <workItem from="1666854973107" duration="5984000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1666165959588</created>
@@ -276,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666694273020</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="로그인시 나오는 EL 설정">
+      <created>1666781355208</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666781355208</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +301,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="mypage 추가" />
     <MESSAGE value="클래스 재정립" />
-    <option name="LAST_COMMIT_MESSAGE" value="클래스 재정립" />
+    <MESSAGE value="로그인시 나오는 EL 설정" />
+    <option name="LAST_COMMIT_MESSAGE" value="로그인시 나오는 EL 설정" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

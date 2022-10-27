@@ -1023,157 +1023,437 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <collation id="287" parent="1" name="utf8mb4_zh_0900_as_cs">
       <Charset>utf8mb4</Charset>
     </collation>
-    <schema id="288" parent="1" name="green">
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </schema>
-    <schema id="289" parent="1" name="information_schema">
-      <CollationName>utf8mb3_general_ci</CollationName>
-    </schema>
-    <schema id="290" parent="1" name="mysql">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="291" parent="1" name="performance_schema">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="292" parent="1" name="sakila">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="293" parent="1" name="sys">
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
-    </schema>
-    <schema id="294" parent="1" name="firstproject">
+    <schema id="288" parent="1" name="firstproject">
       <Current>1</Current>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <user id="295" parent="1" name="mysql.infoschema">
+    <schema id="289" parent="1" name="green">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="290" parent="1" name="information_schema">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="291" parent="1" name="mysql">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="292" parent="1" name="performance_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="293" parent="1" name="sakila">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="294" parent="1" name="sys">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <user id="295" parent="1" name="green"/>
+    <user id="296" parent="1" name="kwah">
+      <Plugin>caching_sha2_password</Plugin>
+    </user>
+    <user id="297" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="296" parent="1" name="mysql.session">
+    <user id="298" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="297" parent="1" name="mysql.sys">
+    <user id="299" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="298" parent="1" name="kwah">
-      <Plugin>caching_sha2_password</Plugin>
-    </user>
-    <user id="299" parent="1" name="root">
+    <user id="300" parent="1" name="root">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="300" parent="1" name="green"/>
     <table id="301" parent="288" name="book">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="302" parent="288" name="member">
+    <table id="302" parent="288" name="book_img">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <table id="303" parent="288" name="user">
+    <table id="303" parent="288" name="cart">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_general_ci</CollationName>
     </table>
-    <column id="304" parent="301" name="title">
-      <DataType>varchar(100)|0s</DataType>
-      <Position>1</Position>
-    </column>
-    <column id="305" parent="301" name="price">
+    <table id="304" parent="289" name="book">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="305" parent="289" name="book_img">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="306" parent="289" name="book_info">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="307" parent="289" name="cart">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="308" parent="289" name="member">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <table id="309" parent="289" name="user">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </table>
+    <column id="310" parent="301" name="book_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>bigint|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <column id="306" parent="301" name="author">
-      <DataType>varchar(100)|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <column id="307" parent="302" name="member_id">
-      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="308" parent="302" name="member_pwd">
-      <DataType>varchar(40)|0s</DataType>
+    <column id="311" parent="301" name="title">
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="309" parent="302" name="member_name">
-      <DataType>varchar(16)|0s</DataType>
+    <column id="312" parent="301" name="category">
+      <DataType>varchar(200)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="310" parent="302" name="member_phone">
-      <DataType>varchar(16)|0s</DataType>
+    <column id="313" parent="301" name="price">
+      <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="311" parent="302" name="member_email">
+    <column id="314" parent="301" name="inser_date">
+      <DataType>datetime|0s</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <index id="315" parent="301" name="PRIMARY">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="316" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="317" parent="302" name="book_id">
+      <DataType>int|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="318" parent="302" name="origin_file_name">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="319" parent="302" name="stored_file_name">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="320" parent="302" name="stored_thumbnail">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="321" parent="302" name="file_size">
+      <DataType>int|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="322" parent="302" name="book_img_FK">
+      <ColNames>book_id</ColNames>
+      <RefColNames>book_id</RefColNames>
+      <RefTableName>book_info</RefTableName>
+      <RefTableParentName>green</RefTableParentName>
+    </foreign-key>
+    <index id="323" parent="302" name="book_img_FK">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="324" parent="303" name="book_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="325" parent="303" name="book_price">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="326" parent="303" name="book_title">
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="327" parent="303" name="book_author">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="328" parent="303" name="book_publisher">
       <DataType>varchar(50)|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="312" parent="302" name="member_postcode">
+    <column id="329" parent="303" name="book_description">
+      <DataType>varchar(3000)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="330" parent="303" name="book_count">
+      <DataType>int|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="331" parent="303" name="id">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="332" parent="303" name="cart">
+      <ColNames>book_id</ColNames>
+      <RefColNames>book_id</RefColNames>
+      <RefTableName>book_info</RefTableName>
+      <RefTableParentName>green</RefTableParentName>
+    </foreign-key>
+    <index id="333" parent="303" name="cart">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="334" parent="304" name="title">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="335" parent="304" name="price">
+      <DataType>bigint|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="336" parent="304" name="author">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="337" parent="305" name="book_id">
+      <DataType>int|0s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="338" parent="305" name="origin_file_name">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="339" parent="305" name="stored_file_name">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="340" parent="305" name="stored_thumbnail">
+      <DataType>varchar(100)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="341" parent="305" name="file_size">
+      <DataType>int|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="342" parent="305" name="book_img_FK">
+      <ColNames>book_id</ColNames>
+      <RefColNames>book_id</RefColNames>
+      <RefTableName>book_info</RefTableName>
+    </foreign-key>
+    <index id="343" parent="305" name="book_img_FK">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="344" parent="306" name="book_id">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="345" parent="306" name="book_title">
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="346" parent="306" name="large_category">
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="347" parent="306" name="small_category">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="348" parent="306" name="book_price">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="349" parent="306" name="book_author">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="350" parent="306" name="book_publisher">
+      <DataType>varchar(50)|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="351" parent="306" name="publication_date">
+      <DataType>date|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <column id="352" parent="306" name="book_description">
+      <DataType>varchar(3000)|0s</DataType>
+      <Position>9</Position>
+    </column>
+    <column id="353" parent="306" name="book_stock">
+      <DataType>int|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+      <Position>10</Position>
+    </column>
+    <column id="354" parent="306" name="new_book">
+      <DataType>tinyint(1)|0s</DataType>
+      <Position>11</Position>
+    </column>
+    <index id="355" parent="306" name="PRIMARY">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="356" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="357" parent="307" name="book_id">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="358" parent="307" name="book_price">
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="359" parent="307" name="book_title">
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="360" parent="307" name="book_author">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="361" parent="307" name="book_publisher">
+      <DataType>varchar(50)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="362" parent="307" name="book_description">
+      <DataType>varchar(3000)|0s</DataType>
+      <Position>6</Position>
+    </column>
+    <column id="363" parent="307" name="book_count">
+      <DataType>int|0s</DataType>
+      <Position>7</Position>
+    </column>
+    <column id="364" parent="307" name="id">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="365" parent="307" name="cart">
+      <ColNames>book_id</ColNames>
+      <RefColNames>book_id</RefColNames>
+      <RefTableName>book_info</RefTableName>
+    </foreign-key>
+    <index id="366" parent="307" name="cart">
+      <ColNames>book_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="367" parent="308" name="member_id">
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="368" parent="308" name="member_pwd">
+      <DataType>varchar(50)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="369" parent="308" name="member_name">
+      <DataType>varchar(30)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="370" parent="308" name="member_phone">
+      <DataType>varchar(20)|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="371" parent="308" name="member_email">
+      <DataType>varchar(50)|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="372" parent="308" name="member_postcode">
       <DataType>int|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="313" parent="302" name="member_address">
-      <DataType>varchar(100)|0s</DataType>
+    <column id="373" parent="308" name="member_address">
+      <DataType>varchar(50)|0s</DataType>
       <Position>7</Position>
     </column>
-    <column id="314" parent="302" name="member_extraAddress">
-      <DataType>varchar(100)|0s</DataType>
+    <column id="374" parent="308" name="member_detailAddress">
+      <DataType>varchar(50)|0s</DataType>
       <Position>8</Position>
     </column>
-    <column id="315" parent="302" name="member_detailAddress">
-      <DataType>varchar(100)|0s</DataType>
+    <column id="375" parent="308" name="member_extraAddress">
+      <DataType>varchar(50)|0s</DataType>
       <Position>9</Position>
     </column>
-    <column id="316" parent="303" name="user_no">
+    <index id="376" parent="308" name="PRIMARY">
+      <ColNames>member_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="377" parent="308" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="378" parent="309" name="user_no">
       <AutoIncrement>1</AutoIncrement>
       <Comment>사용자번호</Comment>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="317" parent="303" name="user_id">
+    <column id="379" parent="309" name="user_id">
       <Comment>아이디</Comment>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="318" parent="303" name="user_pw">
+    <column id="380" parent="309" name="user_pw">
       <Comment>비밀번호</Comment>
       <DataType>varchar(256)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="319" parent="303" name="user_name">
+    <column id="381" parent="309" name="user_name">
       <Comment>사용자명</Comment>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="320" parent="303" name="user_auth">
+    <column id="382" parent="309" name="user_auth">
       <Comment>권한</Comment>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="321" parent="303" name="append_date">
+    <column id="383" parent="309" name="append_date">
       <Comment>추가날짜</Comment>
       <DataType>datetime|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="322" parent="303" name="update_date">
+    <column id="384" parent="309" name="update_date">
       <Comment>수정날짜</Comment>
       <DataType>datetime|0s</DataType>
       <Position>7</Position>
     </column>
-    <index id="323" parent="303" name="PRIMARY">
+    <index id="385" parent="309" name="PRIMARY">
       <ColNames>user_no</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="324" parent="303" name="PRIMARY">
+    <key id="386" parent="309" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

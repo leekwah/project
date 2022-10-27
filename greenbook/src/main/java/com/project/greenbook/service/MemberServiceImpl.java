@@ -41,5 +41,23 @@ public class MemberServiceImpl implements MemberService {
         dao.signIn(param);
     }
 
+    // 아이디 중복 검사
+    @Override
+    public HashMap<String, Object> overlay(String id) {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        int use = dao.overlay(id);
+        map.put("use", use); //아이디가 존재하면 1, 없으면 0
+        return map;
+    }
 
+    // 이메일 중복 검사
+    @Override
+    public HashMap<String, Object> emoverlay(String email)  {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        int use2 = dao.emoverlay(email);
+        map.put("use2", use2); //이메일이 존재하면 1, 없으면 0
+        return map;
+    }
 }

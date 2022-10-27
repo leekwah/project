@@ -11,4 +11,8 @@ public interface MemberService {
     public void logout(HttpSession session);
     public void signUp(HashMap<String, String> param);
     public void signIn(HashMap<String, String> param);
+
+    public HashMap<String, Object> overlay(String id);
+
+    public HashMap<String, Object> emoverlay(String email);
 }
