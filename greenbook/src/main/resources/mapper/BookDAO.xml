@@ -106,10 +106,9 @@
 
     <!-- insert Start-->
     <insert id="register" parameterType="hashmap">
-        INSERT INTO book_info(book_title, large_category , small_category , book_price , book_author
-        , book_publisher , publication_date , book_description , book_stock , new_book
-        ) VALUES( #{bookTitle} , #{largeCategory} , #{smallCategory} , #{bookPrice} , #{bookAuthor}
-        , #{bookPublisher} , #{publicationDate} , #{bookDescription} , 0 , 1
+        INSERT INTO book_info
+        (book_title, large_category , small_category, book_price, book_author, book_publisher, publication_date , book_description , book_stock , new_book)
+        VALUES( #{bookTitle} , #{largeCategory} , #{smallCategory} , #{bookPrice} , #{bookAuthor}, #{bookPublisher} , #{publicationDate} , #{bookDescription} , 0 , 1
         );
     </insert>
 
