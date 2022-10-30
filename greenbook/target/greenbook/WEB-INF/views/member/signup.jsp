@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="member_extraAddress" id="member_extraAddress"  placeholder="상세주소" readonly>
+                            <input type="text" class="form-control" name="member_extraAddress" id="member_extraAddress"  placeholder="상세주소">
                         </div>
 
                         <div class="col-md-6">
