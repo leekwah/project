@@ -6,8 +6,10 @@
     <title>login ok</title>
 </head>
 <body>
-<h2>${member_id}님 안녕하세요</h2>
-<h3>${member_name}님</h3>
+<c:forEach var="info" items="${memberInfo}">
+<h2>${info.member_id}님 안녕하세요</h2>
+<h3>${info.member_name}님</h3>
+</c:forEach>
 <a href="/mypage">마이페이지</a>
 <a href="/withdrawal">회원탈퇴</a>
 <a href="/logout">로그아웃</a>

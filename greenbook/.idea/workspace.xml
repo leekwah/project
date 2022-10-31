@@ -11,9 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b639c701-86e4-449f-8efd-fb0d47d13de3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BookDAO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BookDAO.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/mapper/BookDAO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/classes/mapper/BookDAO.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/greenbook/WEB-INF/views/member/signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login_ok.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +25,9 @@
         <option value="AnnotationType" />
         <option value="JavaScript File" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
         <option value="spring-beans.schema" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -55,49 +53,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kwah/Documents/GitHub/greenbook/src/main/webapp&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.16015625&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.19739293&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;spring&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;54e29dfc52b1d42c996b334c87b332aa&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/WEB-INF/views/member",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.16015625",
+    "project.structure.side.proportion": "0.19739293",
+    "settings.editor.selected.configurable": "spring",
+    "spring.configuration.checksum": "54e29dfc52b1d42c996b334c87b332aa"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.project.greenbook.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/resources/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -209,7 +207,9 @@
       <workItem from="1666849356869" duration="4474000" />
       <workItem from="1666854973107" duration="6981000" />
       <workItem from="1666862890079" duration="7627000" />
-      <workItem from="1667136138495" duration="344000" />
+      <workItem from="1667136138495" duration="778000" />
+      <workItem from="1667139114288" duration="841000" />
+      <workItem from="1667192472111" duration="15936000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1666165959588</created>
@@ -260,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666957444674</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="js 포함">
+      <created>1667136616941</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667136616941</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +294,8 @@
     <MESSAGE value="클래스 재정립" />
     <MESSAGE value="로그인시 나오는 EL 설정" />
     <MESSAGE value="1차 통합" />
-    <option name="LAST_COMMIT_MESSAGE" value="1차 통합" />
+    <MESSAGE value="js 포함" />
+    <option name="LAST_COMMIT_MESSAGE" value="js 포함" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

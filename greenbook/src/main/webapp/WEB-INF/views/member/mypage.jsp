@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,11 +10,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<c:forEach var="info" items="${memberInfo}">
 <div class="container px-4 py-5" id="featured-3">
     <div class="card mb-5 bg-light">
         <div class="card-body">
+            <h2>마이페이지</h2>
 
-            <h2>Section title</h2>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -25,35 +27,37 @@
                     <tbody>
                     <tr>
                         <td class="w-25">아이디</td>
-                        <td>아이디표시</td>
+                        <td>${info.member_id}</td>
                     </tr>
                     <tr>
                         <td class="w-25">비밀번호</td>
-                        <td>placeholder</td>
+                        <td>*****</td>
                     </tr>
                     <tr>
                         <td class="w-25">닉네임</td>
-                        <td>data</td>
+                        <td>${info.member_name}</td>
                     </tr>
                     <tr>
                         <td class="w-25">이름</td>
-                        <td>information</td>
+                        <td>${info.member_name}</td>
                     </tr>
                     <tr>
-                        <td class="w-25">성별</td>
-                        <td>text</td>
+                        <td class="w-25">전화번호</td>
+                        <td>${info.member_phone}</td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">이메일</td>
+                        <td>${info.member_email}</td>
                     </tr>
                     <tr>
                         <td class="w-25">주소</td>
-                        <td>text</td>
+                        <td>${info.member_address} ${info.member_extraAddress} ${info.member_detailAddress}</td>
                     </tr>
                     <tr>
-                        <td class="w-25">성별</td>
-                        <td>text</td>
-                    </tr>
-                    <tr>
-                        <td class="w-25">성별</td>
-                        <td>text</td>
+                        <td colspan="2">
+                            <a href="/memberModify">수정하기</a>
+                            <a href="/loginOk">돌아가기</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -61,5 +65,6 @@
         </div>
     </div>
 </div>
+</c:forEach>
 </body>
 </html>

@@ -6,20 +6,20 @@
 <!-- namespace에는 DAO가 있는 위치를 지정한다. -->
 <mapper namespace="com.project.greenbook.dao.MemberDAO">
     <!-- id에는 메서드 명을 넣는다. -->
-    <select id="loginCheck" parameterType="hashmap" resultType="com.project.greenbook.dto.MemberDTO">
+    <select id="loginCheck" parameterType="HashMap" resultType="com.project.greenbook.dto.MemberDTO">
         SELECT *
         FROM member
         WHERE member_id = #{member_id}
     </select>
 
-    <insert id="signUp" parameterType="hashmap">
+    <insert id="signUp" parameterType="HashMap">
         INSERT INTO member
         (member_id, member_pwd, member_name, member_phone, member_email, member_postcode, member_address, member_extraAddress, member_detailAddress)
         VALUES
         (#{member_id}, #{member_pwd}, #{member_name}, #{member_phone}, #{member_email}, #{member_postcode}, #{member_address}, #{member_extraAddress}, #{member_detailAddress})
     </insert>
 
-    <select id="signIn" parameterType="hashmap" resultType="com.project.greenbook.dto.MemberDTO">
+    <select id="signIn" parameterType="HashMap" resultType="com.project.greenbook.dto.MemberDTO">
         SELECT *
         FROM member
         WHERE member_id = #{member_id}
@@ -39,5 +39,16 @@
         FROM member
         WHERE member_email = #{member_email}
     </select>
+
+    <update id="memberModify" parameterType="hashmap">
+        UPDATE member
+        SET
+        member_pwd = #{member_pwd}, member_name = #{member_name}, member_phone = #{member_phone}, member_email = #{member_email}, member_postcode = #{member_postcode}, member_address = #{member_address}, member_extraAddress = #{member_extraAddress}, member_detailAddress = #{member_detailAddress}
+    </update>
+
+    <delete id="withdrawal" parameterType="hashmap">
+        DELETE member
+        WHERE member_id = #{member_id}
+    </delete>
 
 </mapper>

@@ -15,7 +15,6 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private SqlSession sqlSession;
 
-
     @Override
     public ArrayList<MemberDTO> loginCheck(HashMap<String, String> param) {
         MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
@@ -60,4 +59,41 @@ public class MemberServiceImpl implements MemberService {
         map.put("use2", use2); //이메일이 존재하면 1, 없으면 0
         return map;
     }
+
+    @Override
+    public void memberModify(HashMap<String, String> param) {
+
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        dao.memberModify(param);
+
+    }
+
+    @Override
+    public void withdrawal(HashMap<String, String> param) {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        dao.withdrawal(param);
+    }
+//
+//    @Override
+//    public MemberDTO findId(HashMap<String, String> param) {
+//        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+//        dao.findId(param);
+//
+//        return null;
+//    }
+//
+//    @Override
+//    public int userCheck(HashMap<String, String> param) {
+//        int re = 0;
+//        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+//        String user = dao.toString();
+//
+//        if (user.equals(null)) {
+//            re = 0;
+//        } else {
+//            re = 1;
+//        }
+//        return re;
+//    }
+
 }
