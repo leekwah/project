@@ -11,7 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b639c701-86e4-449f-8efd-fb0d47d13de3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login_ok.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login_ok.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,32 +53,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/WEB-INF/views/member",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.16015625",
-    "project.structure.side.proportion": "0.19739293",
-    "settings.editor.selected.configurable": "spring",
-    "spring.configuration.checksum": "54e29dfc52b1d42c996b334c87b332aa"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kwah/Documents/GitHub/greenbook/src/main/webapp/WEB-INF/views/member&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.16015625&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.19739293&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;spring&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;54e29dfc52b1d42c996b334c87b332aa&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.project.greenbook.dao" />
@@ -209,7 +209,9 @@
       <workItem from="1666862890079" duration="7627000" />
       <workItem from="1667136138495" duration="778000" />
       <workItem from="1667139114288" duration="841000" />
-      <workItem from="1667192472111" duration="15936000" />
+      <workItem from="1667192472111" duration="16080000" />
+      <workItem from="1667222804282" duration="625000" />
+      <workItem from="1667225979618" duration="3049000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1666165959588</created>
@@ -267,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667136616941</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="세션 추가 및 마이페이지 수정">
+      <created>1667213752309</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667213752309</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +304,8 @@
     <MESSAGE value="로그인시 나오는 EL 설정" />
     <MESSAGE value="1차 통합" />
     <MESSAGE value="js 포함" />
-    <option name="LAST_COMMIT_MESSAGE" value="js 포함" />
+    <MESSAGE value="세션 추가 및 마이페이지 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="세션 추가 및 마이페이지 수정" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
