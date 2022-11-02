@@ -1,58 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kwah
-  Date: 2022/10/24
-  Time: 11:45 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <!-- 합쳐지고 최소화된 최신 CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <!-- 부가적인 테마 -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가입</title>
+  <script src="js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
-<a href="/board/list">게시판</a><br />
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#logoutBtn").on("click", function(){
-      location.href="member/logout";
-    })
-
-  })
-</script>
 <body>
-<form name='homeForm' method="post" action="login">
-  <c:if test="${member == null}">
-    <div>
-      <label for="userId"></label>
-      <input type="text" id="userId" name="userId">
-    </div>
-    <div>
-      <label for="userPass"></label>
-      <input type="password" id="userPass" name="userPass">
-    </div>
-    <div>
-      <button type="submit">로그인</button>
-      <button type="button">회원가입</button>
-    </div>
-  </c:if>
-  <c:if test="${member != null }">
-    <div>
-      <p>${member.userId}님 환영 합니다.</p>
-      <button id="logoutBtn" type="button">로그아웃</button>
-    </div>
-  </c:if>
-  <c:if test="${msg == false}">
-    <p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-  </c:if>
-</form>
+
 </body>
 </html>

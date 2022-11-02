@@ -13,6 +13,9 @@
 </head>
 <body>
 <footer>
+    <div>
+        <h1><a href="#none" target="_blank" onclick="openPop()">1:1 대화하기</a></h1>
+    </div>
     <div class="margin_con">
         <hr>
         <div id="layout_footer" class="layout_footer">
@@ -201,5 +204,11 @@
         </div>
     </div>
 </footer>
+
+<script type="text/javascript">
+    function openPop(){
+        var popup = window.open('/chat', '1:1대화', 'width=600px,height=600px,scrollbars=no');
+    }
+</script>
 </body>
 </html>

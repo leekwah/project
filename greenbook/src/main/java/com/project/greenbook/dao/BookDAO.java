@@ -9,11 +9,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface BookDAO {
-    public ArrayList<BookDTO> bestSeller();
-    public ArrayList<BookDTO> list();
+
+    public List bookId1();
+    public List bookId2();
+    public List bookId3();
+    public List bookId4();
+    public List bookId5();
     public int bookCount(HashMap<String, String> param);
+    public List bookIdList(HashMap<String, String> param);
     public List bookList(HashMap<String, String> param);
-    public BookDTO contentView(HashMap<String, String> param);
+    public List bestSeller();
     public void register(HashMap<String, String> param);
     public void registerImg(HashMap<String, String> param);
     public int getMaxId();

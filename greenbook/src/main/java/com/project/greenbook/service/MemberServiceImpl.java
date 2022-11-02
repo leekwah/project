@@ -15,6 +15,7 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private SqlSession sqlSession;
 
+
     @Override
     public ArrayList<MemberDTO> loginCheck(HashMap<String, String> param) {
         MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
@@ -35,65 +36,10 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void signIn(HashMap<String, String> param) {
+    public int idCheck(String member_id) throws Exception {
         MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-        dao.signIn(param);
+        return dao.idCheck(member_id);
     }
 
-    // 아이디 중복 검사
-    @Override
-    public HashMap<String, Object> overlay(String id) {
-        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        int use = dao.overlay(id);
-        map.put("use", use); //아이디가 존재하면 1, 없으면 0
-        return map;
-    }
-
-    // 이메일 중복 검사
-    @Override
-    public HashMap<String, Object> emoverlay(String email)  {
-        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        int use2 = dao.emoverlay(email);
-        map.put("use2", use2); //이메일이 존재하면 1, 없으면 0
-        return map;
-    }
-
-    @Override
-    public void memberModify(HashMap<String, String> param) {
-
-        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-        dao.memberModify(param);
-
-    }
-
-    @Override
-    public void withdrawal(HashMap<String, String> param) {
-        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-        dao.withdrawal(param);
-    }
-//
-//    @Override
-//    public MemberDTO findId(HashMap<String, String> param) {
-//        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-//        dao.findId(param);
-//
-//        return null;
-//    }
-//
-//    @Override
-//    public int userCheck(HashMap<String, String> param) {
-//        int re = 0;
-//        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-//        String user = dao.toString();
-//
-//        if (user.equals(null)) {
-//            re = 0;
-//        } else {
-//            re = 1;
-//        }
-//        return re;
-//    }
 
 }

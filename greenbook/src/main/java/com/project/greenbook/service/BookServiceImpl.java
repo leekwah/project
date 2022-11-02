@@ -1,7 +1,6 @@
 package com.project.greenbook.service;
 
 import com.project.greenbook.dao.BookDAO;
-import com.project.greenbook.dto.BookDTO;
 import com.project.greenbook.dto.BookImgDTO;
 import com.project.greenbook.dto.BookInfoDTO;
 import org.apache.ibatis.session.SqlSession;
@@ -25,26 +24,38 @@ public class BookServiceImpl implements BookService {
     private SqlSession sqlSession;
 
     @Override
-    public ArrayList<BookDTO> bestSeller() {
-        System.out.println("BookServiceImpl.bestSeller() start");
-
-        BookDAO dao = sqlSession.getMapper(BookDAO.class); // getMapper() 메서드를 사용해서, 호출한 뒤에, 값을 dao에 대입
-        ArrayList<BookDTO> list = dao.bestSeller();
-
-        System.out.println("BookServiceImpl.bestSeller() end");
-
-        return list;
+    public List bookId1() {
+        BookDAO dao = sqlSession.getMapper(BookDAO.class);
+        List bookId = dao.bookId1();
+        return bookId;
     }
 
-    public ArrayList<BookDTO> list(){
-        System.out.println("BookServiceImpl.list() start");
-
+    @Override
+    public List bookId2() {
         BookDAO dao = sqlSession.getMapper(BookDAO.class);
-        ArrayList<BookDTO> dto = dao.list();
+        List bookId = dao.bookId2();
+        return bookId;
+    }
 
-        System.out.println("BookServiceImpl.list() end");
+    @Override
+    public List bookId3() {
+        BookDAO dao = sqlSession.getMapper(BookDAO.class);
+        List bookId = dao.bookId3();
+        return bookId;
+    }
 
-        return dto;
+    @Override
+    public List bookId4() {
+        BookDAO dao = sqlSession.getMapper(BookDAO.class);
+        List bookId = dao.bookId4();
+        return bookId;
+    }
+
+    @Override
+    public List bookId5() {
+        BookDAO dao = sqlSession.getMapper(BookDAO.class);
+        List bookId = dao.bookId5();
+        return bookId;
     }
 
     @Override
@@ -54,12 +65,26 @@ public class BookServiceImpl implements BookService {
         return count;
     }
 
+    @Override
+    public List bookIdList(HashMap<String, String> param) {
+        BookDAO dao = sqlSession.getMapper(BookDAO.class);
+        List bookIdList = dao.bookIdList(param);
+        return bookIdList;
+    }
+
     /* 게시물 목록 + 페이징 */
     @Override
     public List bookList(HashMap<String, String> param) {
         BookDAO dao = sqlSession.getMapper(BookDAO.class);
         List bookList = dao.bookList(param);
         return bookList;
+    }
+
+    @Override
+    public List bestSeller() {
+        BookDAO dao = sqlSession.getMapper(BookDAO.class);
+        List bestSeller = dao.bestSeller();
+        return bestSeller;
     }
 
     @Override

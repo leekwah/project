@@ -3,21 +3,29 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- namespace에는 DAO가 있는 위치를 지정한다. -->
-<mapper namespace="com.project.greenbook.dao.BookDAO">
-    <!-- id에는 메서드 명을 넣는다. -->
-    <select id="bestSeller" resultType="com.project.greenbook.dto.BookDTO">
-        SELECT book_id,book_title,book_author,publication_date,book_description
-        FROM book_info
-    </select>
+    <!-- namespace에는 DAO가 있는 위치를 지정한다. -->
+    <mapper namespace="com.project.greenbook.dao.BookDAO">
     <!-- 조건문에 판매량을 넣어야하는데 판매량을 알 수 없어 임시로 리스트를 뽑아옴, 판매량 조건으로 정렬 필요-->
 
-    <!-- sql 조각 이용해서 하면 조회문 여러개 사용할 필요없기 때문에 리팩토링 필요 -->
-    <select id="list" resultType="com.project.greenbook.dto.BookDTO">
-        SELECT book_id,book_title,large_category,small_category,book_price,book_author,book_publisher
-        ,publication_date,book_description,book_stock,new_book
-        FROM book_info
-        ORDER BY publication_date desc
+    <select id="bookId1" resultType="String">
+        SELECT book_id FROM book_info WHERE large_category = '국내도서'
+        ORDER BY publication_date desc Limit 0, 4
+    </select>
+    <select id="bookId2" resultType="String">
+        SELECT book_id FROM book_info WHERE large_category = '외국도서'
+        ORDER BY publication_date desc Limit 0, 4
+    </select>
+    <select id="bookId3" resultType="String">
+        SELECT book_id FROM book_info WHERE large_category = 'eBook'
+        ORDER BY publication_date desc Limit 0, 4
+    </select>
+    <select id="bookId4" resultType="String">
+        SELECT book_id FROM book_info WHERE large_category = '웹소설/코믹'
+        ORDER BY publication_date desc Limit 0, 4
+    </select>
+    <select id="bookId5" resultType="String">
+        SELECT book_id FROM book_info WHERE large_category = '중고샵'
+        ORDER BY publication_date desc Limit 0, 4
     </select>
 
     <!-- if문을 이용해 세부 카테고리가 있을 때 없을 때 나눠야함 -->
@@ -33,7 +41,19 @@
         </if>
     </select>
 
-    <!-- if문을 이용해 세부 카테고리가 있을 때 없을 때 나눠야함 -->
+    <select id="bookIdList" resultType="String">
+        SELECT book_id FROM book_info
+        <include refid="where" />
+        <if test="searchType != null">
+            <include refid="search" />
+        </if>
+        <if test="title != null">
+            <include refid="usedBook" />
+        </if>
+        ORDER BY BOOK_ID
+        Limit ${displayPost},${postNum}
+    </select>
+
     <select id="bookList" resultType="com.project.greenbook.dto.BookDTO">
         SELECT book_id,book_title,large_category,small_category,book_price,book_author,book_publisher
         ,publication_date,book_description,book_stock,new_book
@@ -48,7 +68,11 @@
         ORDER BY BOOK_ID
         Limit ${displayPost},${postNum}
     </select>
-
+    <select id="bestSeller" resultType="String">
+        SELECT book_id, rank() over(partition by book_id order by sum(book_count))
+        FROM book_order
+        Limit 0,10
+    </select>
     <!-- sql code 조각 : 반복되는 sql의 일부를 따로 빼두고 사용 -->
     <sql id="where">
         <choose>
@@ -77,8 +101,6 @@
         AND book_title = #{title} AND book_author = #{author}
     </sql>
 
-
-
     <!-- 테이블의 컬럼과 DTO의 변수가 이름이 다를 경우 둘을 이어준다. -->
     <!-- Mapping Start -->
     <resultMap id="bookInfoMap" type="com.project.greenbook.dto.BookInfoDTO">
@@ -106,9 +128,10 @@
 
     <!-- insert Start-->
     <insert id="register" parameterType="hashmap">
-        INSERT INTO book_info
-        (book_title, large_category , small_category, book_price, book_author, book_publisher, publication_date , book_description , book_stock , new_book)
-        VALUES( #{bookTitle} , #{largeCategory} , #{smallCategory} , #{bookPrice} , #{bookAuthor}, #{bookPublisher} , #{publicationDate} , #{bookDescription} , 0 , 1
+        INSERT INTO book_info(book_title, large_category , small_category , book_price , book_author
+        , book_publisher , publication_date , book_description , book_stock , new_book
+        ) VALUES( #{bookTitle} , #{largeCategory} , #{smallCategory} , #{bookPrice} , #{bookAuthor}
+        , #{bookPublisher} , #{publicationDate} , #{bookDescription} , 0 , 1
         );
     </insert>
 
@@ -138,10 +161,8 @@
     <select id="bookInfoList" resultMap="bookInfoMap" parameterType="hashMap">
         SELECT book_id, book_title, large_category, small_category, book_price, book_author, book_publisher
         , publication_date, book_description, book_stock, new_book FROM book_info
-        WHERE
-        <if test="searchOption == 'book_id'"> book_id</if>
-        <if test="searchOption == 'book_title'"> book_title</if>
-
+        <if test="searchOption == 'book_id'">WHERE book_id</if>
+        <if test="searchOption == 'book_title'">WHERE book_title</if>
         like #{searchText}
         ORDER BY book_id desc;
     </select>
@@ -149,9 +170,9 @@
     <select id="bookImgList" resultMap="bookImgMap" parameterType="hashMap">
         SELECT book_id, origin_file_name, stored_file_name, stored_thumbnail, file_size
         FROM book_img
-        WHERE
-        <if test="searchOption == 'book_id'"> book_id like #{searchText}</if>
+        <if test="searchOption == 'book_id'"> WHERE book_id like #{searchText}</if>
         <if test="searchOption == 'book_title'">
+            WHERE
             book_id =
             (SELECT Book_id
             FROM book_info
@@ -184,6 +205,4 @@
         SELECT COUNT(book_id) FROM book_info;
     </select>
     <!-- select end -->
-
-
 </mapper>

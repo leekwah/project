@@ -1,6 +1,8 @@
 package com.project.greenbook.service;
 
 import com.project.greenbook.dao.ReviewDAO;
+import com.project.greenbook.dto.BookDTO;
+import com.project.greenbook.dto.BookImgDTO;
 import com.project.greenbook.dto.ReviewDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +16,11 @@ public class ReviewServiceImpl implements ReviewService {
     @Autowired
     private SqlSession sqlSession;
     @Override
-    public ArrayList<ReviewDTO> review() {
+    public ArrayList<ReviewDTO> review(String bookId) {
         System.out.println("@@@### BServiceImpl.review_list() start");
 
         ReviewDAO dao = sqlSession.getMapper(ReviewDAO.class);
-        ArrayList<ReviewDTO> review = dao.review();
+        ArrayList<ReviewDTO> review = dao.review(bookId);
 
         System.out.println("@@@### BServiceImpl.revuew_list() end");
         return review;
@@ -61,5 +63,19 @@ public class ReviewServiceImpl implements ReviewService {
         System.out.println("@@@### review.count() sum = "+review_sum);
 
         return review_sum;
+    }
+
+    @Override
+    public BookDTO bookDetail(String bookId) {
+        ReviewDAO dao = sqlSession.getMapper(ReviewDAO.class);
+        BookDTO bookDetail = dao.bookDetail(bookId);
+        return bookDetail;
+    }
+
+    @Override
+    public BookImgDTO bookImg(String bookId) {
+        ReviewDAO dao = sqlSession.getMapper(ReviewDAO.class);
+        BookImgDTO bookImg = dao.bookImg(bookId);
+        return bookImg;
     }
 }

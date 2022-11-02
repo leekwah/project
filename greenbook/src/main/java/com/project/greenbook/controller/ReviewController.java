@@ -1,5 +1,7 @@
 package com.project.greenbook.controller;
 
+import com.project.greenbook.dto.BookDTO;
+import com.project.greenbook.dto.BookImgDTO;
 import com.project.greenbook.dto.ReviewDTO;
 import com.project.greenbook.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,15 @@ public class ReviewController {
     private ReviewService service;
 
     @RequestMapping("/review")   //리스트
-    public String review(Model model) {
-        ArrayList<ReviewDTO> review = service.review();
+    public String review(@RequestParam String bookId,Model model) {
+        ArrayList<ReviewDTO> review = service.review(bookId);
         model.addAttribute("review", review);
+
+
+        BookDTO bookDetail = service.bookDetail(bookId);
+        BookImgDTO bookImg = service.bookImg(bookId);
+        model.addAttribute("bookDetail",bookDetail);
+        model.addAttribute("bookImg",bookImg);
 
         int review_count = (int)service.review_count();
         double review_sum = (double)service.review_sum();
@@ -30,13 +38,14 @@ public class ReviewController {
         model.addAttribute("review_count",review_count);
         model.addAttribute("avg", avg);
 
-        return "review";
+        return "product/review";
     }
 
     @RequestMapping("/review_write") // 작성
     public String review_write(@RequestParam HashMap<String, String> param) {
         service.review_write(param);
-        return "redirect:review";
+        String path = "redirect:review?bookId="+param.get("book_id");
+        return path;
     }
 
    /* @RequestMapping("/writeResult")
@@ -46,5 +55,6 @@ public class ReviewController {
 
         return "redirect:review";
     }*/
+
 }
 
