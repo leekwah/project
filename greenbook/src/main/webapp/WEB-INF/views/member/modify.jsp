@@ -19,106 +19,106 @@
             <h2>회원정보 수정</h2>
         </div>
         <c:forEach var="info" items="${memberInfo}">
-        <div class="row g-5">
-            <div class="col-md-12 col-lg-12">
-                <form name="modifyForm" class="needs-validation" novalidate action="memberModifyUpdate" method="post">
-                    <div class="row g-3">
-                        <h4>기본 정보</h4>
-                        <div class="col-sm-12">
-                            <label for="member_id" class="form-label">아이디</label>
-                            <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="member_id" id="member_id" placeholder="${info.member_id}" readonly required minlength="4">
-                                <div class="invalid-feedback">
-                                    부적절한 아이디입니다.
+            <div class="row g-5">
+                <div class="col-md-12 col-lg-12">
+                    <form name="modifyForm" class="needs-validation" novalidate action="memberModifyUpdate" method="post">
+                        <div class="row g-3">
+                            <h4>기본 정보</h4>
+                            <div class="col-sm-12">
+                                <label for="member_id" class="form-label">아이디</label>
+                                <div class="input-group has-validation">
+                                    <input type="text" class="form-control" name="member_id" id="member_id" placeholder="${info.member_id}" readonly required minlength="4">
+                                    <div class="invalid-feedback">
+                                        부적절한 아이디입니다.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <div class="col-sm-6">
-                            <label for="member_pwd" class="form-label">비밀번호</label>
-                            <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="member_pwd" id="member_pwd" placeholder="비밀번호를 적어주세요." required>
-                                <div class="invalid-feedback">
-                                    부적합한 비밀번호입니다.
+                            <div class="col-sm-6">
+                                <label for="member_pwd" class="form-label">비밀번호</label>
+                                <div class="input-group has-validation">
+                                    <input type="text" class="form-control" name="member_pwd" id="member_pwd" placeholder="비밀번호를 적어주세요." required>
+                                    <div class="invalid-feedback">
+                                        부적합한 비밀번호입니다.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-6">
-                            <label for="member_pwd_cnf" class="form-label">비밀번호 확인</label>
-                            <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="member_pwd_cnf" id="member_pwd_cnf" placeholder="비밀번호를 적어주세요." required>
-                                <div class="invalid-feedback">
-                                    비밀번호가 동일하지 않습니다.
+                            <div class="col-sm-6">
+                                <label for="member_pwd_cnf" class="form-label">비밀번호 확인</label>
+                                <div class="input-group has-validation">
+                                    <input type="text" class="form-control" name="member_pwd_cnf" id="member_pwd_cnf" placeholder="비밀번호를 적어주세요." required>
+                                    <div class="invalid-feedback">
+                                        비밀번호가 동일하지 않습니다.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-12">
-                            <label for="member_name" class="form-label">이름</label>
-                            <div class="input-group has-validation">
-                                <input type="text" class="form-control" name="member_name" id="member_name" value="${info.member_name}" required>
-                                <div class="invalid-feedback">
-                                    부적절한 이름입니다.
+                            <div class="col-sm-12">
+                                <label for="member_name" class="form-label">이름</label>
+                                <div class="input-group has-validation">
+                                    <input type="text" class="form-control" name="member_name" id="member_name" value="${info.member_name}" required>
+                                    <div class="invalid-feedback">
+                                        부적절한 이름입니다.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-12">
-                            <label for="member_phone" class="form-label">전화번호</label>
-                            <div class="input-group has-validation">
-                                <input type="tel" class="form-control" maxlength="12" name="member_phone" id="member_phone" required value="${info.member_phone}">
+                            <div class="col-12">
+                                <label for="member_phone" class="form-label">전화번호</label>
+                                <div class="input-group has-validation">
+                                    <input type="tel" class="form-control" maxlength="12" name="member_phone" id="member_phone" required value="${info.member_phone}">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-12">
-                            <label for="member_email" class="form-label">이메일</label>
-                            <input type="email" class="form-control" name="member_email" id="member_email" value="${info.member_email}" required>
-                            <div class="invalid-feedback">
-                                이메일을 형식에 맞게 적어주세요.
+                            <div class="col-12">
+                                <label for="member_email" class="form-label">이메일</label>
+                                <input type="email" class="form-control" name="member_email" id="member_email" value="${info.member_email}" required>
+                                <div class="invalid-feedback">
+                                    이메일을 형식에 맞게 적어주세요.
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <label for="member_postcode" class="form-label">우편번호</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="member_postcode" id="member_postcode" value="${info.member_postcode}" readonly>
-                                <input type="button" class="btn btn-secondary" onclick="execDaumPostcode()" value="우편번호 찾기"></input>
+                            <div class="col-md-4">
+                                <label for="member_postcode" class="form-label">우편번호</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="member_postcode" id="member_postcode" value="${info.member_postcode}" readonly>
+                                    <input type="button" class="btn btn-secondary" onclick="execDaumPostcode()" value="우편번호 찾기"></input>
+                                </div>
+                                <div class="invalid-feedback">
+                                    우편번호는 필수입니다.
+                                </div>
                             </div>
-                            <div class="invalid-feedback">
-                                우편번호는 필수입니다.
+
+                            <div id="wrap" style="display:none;border:1px solid;width:100%;height:400px;margin:5px 0;position:relative">
+                                <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
                             </div>
-                        </div>
 
-                        <div id="wrap" style="display:none;border:1px solid;width:100%;height:400px;margin:5px 0;position:relative">
-                            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-                        </div>
-
-                        <div class="col-md-12">
-                            <label for="member_address" class="form-label">주소</label>
-                            <input type="text" class="form-control" name="member_address" id="member_address" value="${info.member_address}" readonly required>
-                            <div class="invalid-feedback">
-                                올바른 주소를 입력하세요.
+                            <div class="col-md-12">
+                                <label for="member_address" class="form-label">주소</label>
+                                <input type="text" class="form-control" name="member_address" id="member_address" value="${info.member_address}" readonly required>
+                                <div class="invalid-feedback">
+                                    올바른 주소를 입력하세요.
+                                </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="member_extraAddress" id="member_extraAddress"  value="${info.member_extraAddress}">
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="member_detailAddress" id="member_detailAddress" value="${info.member_detailAddress}">
+                            </div>
+                            <hr class="my-4">
+
+                            <input class="w-100 btn btn-success btn-lg mb-3" type="button" onclick="modifyCheck()" value="수정하기">
+                            <input class="w-100 btn btn-outline-danger btn-lg" type="reset" value="돌아가기">
+
                         </div>
-
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="member_extraAddress" id="member_extraAddress"  value="${info.member_extraAddress}">
-                        </div>
-
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="member_detailAddress" id="member_detailAddress" value="${info.member_detailAddress}">
-                        </div>
-                        <hr class="my-4">
-
-                        <input class="w-100 btn btn-success btn-lg mb-3" type="button" onclick="modifyCheck()" value="수정하기">
-                        <input class="w-100 btn btn-outline-danger btn-lg" type="reset" value="돌아가기">
-
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
         </c:forEach>
     </main>
 </div>
