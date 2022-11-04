@@ -72,28 +72,27 @@
                     </li>
                     <li class="nav-item">
                         <c:if test="${not empty sessionScope.member_id}">
-                            <a class="nav-link" aria-current="page" href="/logout">마이페이지</a>
+                            <a class="nav-link" aria-current="page" href="/mypage">마이페이지</a>
                         </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/product">상품등록</a>
+                        <c:if test="${sessionScope.member_class ne 0 and not empty sessionScope.member_class}">
+                            <a class="nav-link" aria-current="page" href="/product">상품등록</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/review">리뷰</a>
+                        <c:if test="${sessionScope.member_class ne 2 and not empty sessionScope.member_class}">
+                            <a class="nav-link" aria-current="page" href="/cart">장바구니</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/cart">장바구니</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/order">주문/배송</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/qna">고객센터</a>
+                        <a class="nav-link" aria-current="page" href="/list">고객센터</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <section id="mainWrapper">
         <div class="container">
             <ul class="tabs">
@@ -124,7 +123,6 @@
                 <ul class="mainView">
                     <c:forEach var="view" items="${bookView2}" begin="0" end="3" varStatus="status">
                         <c:set var="thumbnail" value="thumbnail${status.index}" />
-                        <c:set var="bookId" value="bookId${status.index}" />
                         <c:set var="bookId" value="bookId${status.index}" />
                         <c:set var="title" value="title${status.index}" />
                         <c:set var="price" value="price${status.index}" />
@@ -217,18 +215,21 @@
         <div class="bestSeller">
             <span>Best Seller</span>
             <ul class="slider">
-                <c:forEach var="bestSeller" items="${bestSeller}" begin="0" end="9" step="1">
-                <a href="">
+                 <c:forEach items="${best}" begin="0" end="9" varStatus="status">
+                    <c:set var="book_thumbnail" value="thumbnail${status.index}" />
+                    <c:set var="book_id" value="bookId${status.index}" />
+                    <c:set var="book_title" value="title${status.index}" />
+                    <c:set var="book_description" value="description${status.index}" />
+                    <a href="/review?bookId=${best.get(book_id)}">
                     <li>
-                        <img src="upload/example8.jpg" />
-                        <p>${bestSeller.book_title}</p>
-                        <span class="description" style="width : 260px; text-overflow: ellipsis; white-space : nowrap; overflow : hidden; display : block;">
-                            ${bestSeller.book_description}
-                        </span>
+                        <img src="upload/${best.get(book_thumbnail)}" />
+                            <p>${best.get(book_title)}</p>
+                        <div class="description">
+                            ${best.get(book_description)}
+                        </div>
                     </li>
-                </a>
+                    </a>
                 </c:forEach>
-                <li>
             </ul>
         </div>
     </section>
@@ -239,7 +240,14 @@
             </a>
         </div>
     </section>
-
+    <div class="chatting">
+        <label for="chat">
+            <img src="img/1380370.png" alt=""><br />
+            <span>오픈채팅</span>
+        </label>
+        <input type="button" id="chat" onclick="openPop()" hidden/>
+        <%--<a href="" target="_blank" onclick="openPop()">오픈채팅</a>--%>
+    </div>
     <jsp:include page="footer.jsp" />
 
     <script>
@@ -282,6 +290,11 @@
             })
 
         })
+    </script>
+    <script type="text/javascript">
+        function openPop(){
+            var popup = window.open('/chat', '1:1대화', 'width=600px,height=600px,scrollbars=no');
+        }
     </script>
 </body>
 </html>

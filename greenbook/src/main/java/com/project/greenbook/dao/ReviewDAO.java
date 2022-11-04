@@ -11,8 +11,8 @@ public interface ReviewDAO {
     public ArrayList<ReviewDTO> review(String bookId);
     public void review_write (HashMap<String, String> param);
     public void delete(HashMap<String, String> param);
-    public int review_count();
-    public int review_sum();
+    public int review_count(String bookId);
+    public int review_sum(String bookId);
     public BookDTO bookDetail(String bookId);
     public BookImgDTO bookImg(String bookId);
 }

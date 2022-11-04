@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Green Book</title>
@@ -83,21 +84,23 @@
                             </h4>
                             <ul class="menuList">
                                 <li>
-                                    <a href="#"><img src="img/2-1.png" alt="">
+                                    <a href="/mypage"><img src="img/2-1.png" alt="">
                                         <p class="desc">
                                             마이페이지
                                         </p>
                                     </a>
                                 </li>
+                                <c:if test="${not empty sessionScope.member_id and sessionScope.member_class ne 2}">
                                 <li>
-                                    <a href=""><img src="img/2-2.png" alt="">
+                                    <a href="/cart"><img src="img/2-2.png" alt="">
                                         <p class="desc">
                                             CART
                                         </p>
                                     </a>
                                 </li>
+                                </c:if>
                                 <li>
-                                    <a href=""><img src="img/2-3.png" alt="">
+                                    <a href="/list"><img src="img/2-3.png" alt="">
                                         <p class="desc">
                                             CS CENTER
                                         </p>
@@ -201,5 +204,6 @@
         </div>
     </div>
 </footer>
+
 </body>
 </html>

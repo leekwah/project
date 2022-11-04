@@ -19,18 +19,43 @@
         (#{member_id}, #{member_pwd}, #{member_name}, #{member_phone}, #{member_email}, #{member_postcode}, #{member_address}, #{member_extraAddress}, #{member_detailAddress})
     </insert>
 
+    <select id="signIn" parameterType="hashmap" resultType="com.project.greenbook.dto.MemberDTO">
+        SELECT *
+        FROM member
+        WHERE member_id = #{member_id}
+        AND member_pwd = #{member_pwd}
+    </select>
+
     <!--아이디 중복 검사 -->
-    <select id="idCheck" parameterType="com.project.greenbook.dto.MemberDTO" resultType="int">
+    <select id="overlay" parameterType="String" resultType="Integer">
         SELECT COUNT(*)
         FROM member
         WHERE member_id = #{member_id}
     </select>
 
     <!--이메일 중복 검사 -->
-    <select id="emailCheck" parameterType="com.project.greenbook.dto.MemberDTO" resultType="int">
+    <select id="emoverlay" parameterType="String" resultType="Integer">
         SELECT COUNT(*)
         FROM member
         WHERE member_email = #{member_email}
     </select>
 
+
+    <update id="memberModify" parameterType="hashmap">
+        UPDATE member
+        SET
+        member_pwd = #{member_pwd}, member_name = #{member_name}, member_phone = #{member_phone}, member_email = #{member_email}, member_postcode = #{member_postcode}, member_address = #{member_address}, member_extraAddress = #{member_extraAddress}, member_detailAddress = #{member_detailAddress}
+        where member_id = #{member_id}
+    </update>
+
+    <delete id="withdrawal" parameterType="hashmap">
+        DELETE FROM member
+        WHERE member_id = #{member_id}
+    </delete>
+
+    <update id="classUp" parameterType="hashmap">
+        update member
+        SET member_class = 1
+        where member_id = #{member_id}
+    </update>
 </mapper>

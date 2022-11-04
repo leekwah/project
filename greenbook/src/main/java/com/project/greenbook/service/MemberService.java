@@ -10,5 +10,7 @@ public interface MemberService {
     public ArrayList<MemberDTO> loginCheck(HashMap<String, String> param);
     public void logout(HttpSession session);
     public void signUp(HashMap<String, String> param);
-    public int idCheck(String member_id) throws Exception;
+    public void memberModify(HashMap<String, String> param);
+    public void withdrawal(HashMap<String, String> param);
+    public void classUp(HashMap<String,String> param);
 }

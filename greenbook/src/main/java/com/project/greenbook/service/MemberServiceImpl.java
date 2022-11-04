@@ -36,10 +36,21 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public int idCheck(String member_id) throws Exception {
+    public void memberModify(HashMap<String, String> param) {
+
         MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
-        return dao.idCheck(member_id);
+        dao.memberModify(param);
+
     }
 
-
+    @Override
+    public void withdrawal(HashMap<String, String> param) {
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        dao.withdrawal(param);
+    }
+    @Override
+    public void classUp(HashMap<String,String> param){
+        MemberDAO dao = sqlSession.getMapper(MemberDAO.class);
+        dao.classUp(param.get("member_id"));
+    }
 }

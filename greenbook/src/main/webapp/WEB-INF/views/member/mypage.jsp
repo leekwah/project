@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+<jsp:include page="../header.jsp" />
 <c:forEach var="info" items="${memberInfo}">
     <div class="container px-4 py-5" id="featured-3">
         <div class="card mb-5 bg-light">
@@ -53,10 +55,15 @@
                             <td class="w-25">주소</td>
                             <td>${info.member_address} ${info.member_extraAddress} ${info.member_detailAddress}</td>
                         </tr>
-                        <tr>
+                        <tr style="text-align: center;">
                             <td colspan="2">
                                 <a href="/memberModify">수정하기</a>
-                                <a href="/loginOk">돌아가기</a>
+                                <a href="/buyOk">주문내역</a>
+                                <a href="/">Home</a>
+                                <a href="/withdrawal">탈퇴하기</a>
+                                <c:if test="${sessionScope.get('member_class')==0}">
+                                    <a href="/classUp">판매자 요청</a>
+                                </c:if>
                             </td>
                         </tr>
                         </tbody>
@@ -66,5 +73,6 @@
         </div>
     </div>
 </c:forEach>
+<jsp:include page="../footer.jsp" />
 </body>
 </html>

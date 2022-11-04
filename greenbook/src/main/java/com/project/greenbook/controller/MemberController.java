@@ -1,6 +1,8 @@
 package com.project.greenbook.controller;
 
 import com.project.greenbook.dto.MemberDTO;
+import com.project.greenbook.dto.OrderDTO;
+import com.project.greenbook.service.BuyService;
 import com.project.greenbook.service.MemberService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
+    @Autowired
+    private BuyService service;
+
     @RequestMapping("/login")
     public String login() {
 
@@ -27,7 +32,7 @@ public class MemberController {
     }
 
     @RequestMapping("/loginCheck")
-    public String loginCheck(HttpServletRequest request,@RequestParam HashMap<String, String> param, Model model) {
+    public String loginCheck(HttpServletRequest request, @RequestParam HashMap<String, String> param) {
 
         ArrayList<MemberDTO> dtos = memberService.loginCheck(param);
         String pw = param.get("member_pwd");
@@ -36,7 +41,8 @@ public class MemberController {
             return "redirect:login";
         } else {
             if (pw.equals(dtos.get(0).getMember_pwd())) {
-                session.setAttribute("member_id",param.get("member_id"));
+                session.setAttribute("member_id", param.get("member_id"));
+                session.setAttribute("member_class", dtos.get(0).getMember_class());
                 return "redirect:/";
             }
             return "redirect:login";
@@ -56,27 +62,68 @@ public class MemberController {
     }
 
     @RequestMapping("/signUpOk")
-    public String signUpOk(@RequestParam HashMap<String, String> param, Model model) {
+    public String signUpOk(@RequestParam HashMap<String, String> param) {
         memberService.signUp(param);
 
         return "redirect:login";
     }
 
+    // 마이페이지
     @RequestMapping("/mypage")
-    public String myPage() {
+    public String myPage(HttpServletRequest request, @RequestParam HashMap<String, String> param, Model model) {
+        HttpSession session = request.getSession();
+        param.put("member_id", (String) session.getAttribute("member_id"));
+
+        ArrayList<MemberDTO> dtos = memberService.loginCheck(param);
+        model.addAttribute("memberInfo", dtos);
+
+        System.out.println((String) session.getAttribute("book_id"));
+        param.put("member_id",(String) session.getAttribute("member_id"));
+        param.put("book_id",(String) session.getAttribute("book_id"));
+
+        ArrayList<OrderDTO> orderList = service.orderList(param);
+
+        model.addAttribute("orderList",orderList);
+        model.addAttribute("memberInfo",dtos);
+
         return "member/mypage";
     }
+    @RequestMapping("/memberModify")
+    public String modify(HttpServletRequest request, @RequestParam HashMap<String, String> param, Model model) {
+        HttpSession session = request.getSession();
+        param.put("member_id",(String) session.getAttribute("member_id"));
 
-    //아이디 중복확인
-    @ResponseBody
-    @RequestMapping(value = "/singup", method = RequestMethod.GET)
-    public void registerGET() throws Exception {}
+        ArrayList<MemberDTO> dtos = memberService.loginCheck(param);
+        model.addAttribute("memberInfo", dtos);
 
-    @ResponseBody
-    @RequestMapping(value = "/idCheck", method = RequestMethod.POST)
-    public int idCheck(String member_id) throws Exception {
-        int result = memberService.idCheck(member_id);
-        return result;
+        return "member/modify";
+    }
+    @RequestMapping("/memberModifyUpdate")
+    public String memberModify(HttpServletRequest request, @RequestParam HashMap<String, String> param, Model model) {
+        HttpSession session = request.getSession();
+        param.put("member_id",(String) session.getAttribute("member_id"));
+
+        ArrayList<MemberDTO> dtos = memberService.loginCheck(param);
+        model.addAttribute("memberInfo", dtos);
+
+        memberService.memberModify(param);
+
+        return "redirect:mypage";
+    }
+    @RequestMapping("/withdrawal")
+    public String withdrawal(HttpServletRequest request, @RequestParam HashMap<String, String> param) {
+        HttpSession session = request.getSession();
+        param.put("member_id", (String) session.getAttribute("member_id"));
+        memberService.withdrawal(param);
+        return "redirect:login";
     }
 
+    @RequestMapping("/classUp")
+    public String classUp(HttpServletRequest request, @RequestParam HashMap<String, String> param){
+        HttpSession session = request.getSession();
+        param.put("member_id", (String) session.getAttribute("member_id"));
+        session.setAttribute("member_class","1");
+        memberService.classUp(param);
+        return "redirect:/mypage";
+    }
 }

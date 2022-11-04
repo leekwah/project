@@ -28,14 +28,14 @@
                 <div class="input-group">
                     <!-- 검색 타입 선택 리스트 -->
                     <select name="searchType" class="form-select">
-                        <option value="all">통합검색</option>
-                        <option value="book_title">제목</option>
-                        <option value="book_author">저자</option>
-                        <option value="book_publisher">출판사</option>
-                        <option value="book_description">상세내용</option>
+                        <option value="all" <c:if test="${searchType eq 'all'}">selected</c:if>>통합검색</option>
+                        <option value="book_title" <c:if test="${searchType eq 'book_title'}">selected</c:if>>제목</option>
+                        <option value="book_author" <c:if test="${searchType eq 'book_author'}">selected</c:if>>저자</option>
+                        <option value="book_publisher" <c:if test="${searchType eq 'book_publisher'}">selected</c:if>>출판사</option>
+                        <option value="book_description" <c:if test="${searchType eq 'book_description'}">selected</c:if>>상세내용</option>
                     </select>
                     <!-- 키워드 입력 부분 -->
-                    <input type="text" class="form-control" name="searchName"/>
+                    <input type="text" class="form-control" name="searchName" value="<c:if test="${not empty searchName}">${searchName}</c:if>"/>
                     <input type="hidden" class="form-control" name="largeCategory" value="${largeCategory}"/>
                     <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="검색"/>
                 </div>
@@ -62,19 +62,32 @@
                 </ul>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">로그인</a>
+                        <c:choose>
+                            <c:when test="${empty sessionScope.member_id}">
+                                <a class="nav-link" aria-current="page" href="/login">로그인</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="nav-link" aria-current="page" href="/logout">로그아웃</a>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">마이페이지</a>
+                        <c:if test="${not empty sessionScope.member_id}">
+                            <a class="nav-link" aria-current="page" href="/logout">마이페이지</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">장바구니</a>
+                        <c:if test="${sessionScope.member_class ne 0 and not empty sessionScope.member_class}">
+                            <a class="nav-link" aria-current="page" href="/product">상품등록</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">주문/배송</a>
+                        <c:if test="${sessionScope.member_class ne 2 and not empty sessionScope.member_class}">
+                            <a class="nav-link" aria-current="page" href="/cart">장바구니</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">고객센터</a>
+                        <a class="nav-link" aria-current="page" href="/list">고객센터</a>
                     </li>
                 </ul>
             </nav>
@@ -84,17 +97,16 @@
         <div class="list_nav">
             <div>
                 <ul class="list-group">
+                    <c:if test="${sessionScope.member_class ne 0 and not empty sessionScope.member_id}">
                     <li class="list-group-item">
-                        <img src="" alt="">
-                        <a href="">내 가게에서 팔기</a>
+                        <a href="/product">내 가게에서 팔기</a>
+                    </li>
+                    </c:if>
+                    <li class="list-group-item">
+                        <a href="list">공지사항</a>
                     </li>
                     <li class="list-group-item">
-                        <img src="" alt="">
-                        <a href="">공지사항</a>
-                    </li>
-                    <li class="list-group-item">
-                        <img src="" alt="">
-                        <a href="">이용안내</a>
+                        <a href="list">이용안내</a>
                     </li>
                 </ul>
             </div>
@@ -296,11 +308,6 @@
                             <c:when test="${largeCategory eq '중고샵'}">중고샵</c:when>
                         </c:choose>
                     </h3>
-                    <span>
-                        <a href="">주간베스트</a>
-                        |
-                        <a href="">새로 나온 상품</a>
-                    </span>
                 </div>
                 <c:choose>
                     <c:when test="${largeCategory eq '국내도서'}">
@@ -414,23 +421,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="ParamSortTp=01&usedTp={}&FetchSize={}">발매일순</a>
                         </li>
+                        <c:if ~~~~ 중고샵일때만 작동 되게>
                         <li class="nav-item">
                             <a class="nav-link" href="ParamSortTp=01&usedTp={}&FetchSize={}">최저가</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ParamSortTp=01&usedTp={}&FetchSize={}">최고가</a>
                         </li>
+                        </c:if>
                         <li class="nav-item">
                             <a class="nav-link" href="ParamSortTp=01&usedTp={}&FetchSize={}">상품명</a>
                         </li>
                     </ul>--%>
-                    <!-- <div style="display: flex;">
-                        <select class="form-select" aria-label="Default select example" id="selectProductOptionsUsed">
-                            <option value="ParamSortTp={}&usedTp=1&FetchSize={}">상품단위로 보기</option>
-                            <option value="ParamSortTp={}&usedTp=2&&FetchSize={}">모든중고상품 보기</option>
-                            <option value="ParamSortTp={}&usedTp=3&&FetchSize={}">기업 직배송</option>
-                            <option value="ParamSortTp={}&usedTp=4&&FetchSize={}">판매자 배송</option>
-                        </select>
+                    <!-- <div>
                         <select class="form-select" aria-label="Default select example" id="selectProductOptions">
                             <option value="ParamSortTp={}&usedTp={}&FetchSize=20">20개씩 보기</option>
                             <option value="ParamSortTp={}&usedTp={}&FetchSize=40">40개씩 보기</option>
@@ -443,13 +446,14 @@
             <ul class="list-group">
             <c:choose>
                 <c:when test="${largeCategory eq '국내도서'}">
-                    <c:forEach var="bookList" items="${list}">
+                    <c:forEach var="bookList" items="${list}" varStatus="status">
                         <c:if test="${empty smallCategory and bookList.large_category eq largeCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -466,16 +470,17 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                         <c:if test="${bookList.large_category eq largeCategory and bookList.small_category eq smallCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -492,20 +497,21 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                     </c:forEach>
                 </c:when>
                 <c:when test="${largeCategory eq '외국도서'}">
-                    <c:forEach var="bookList" items="${list}">
+                    <c:forEach var="bookList" items="${list}" varStatus="status">
                         <c:if test="${empty smallCategory and bookList.large_category eq largeCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -522,16 +528,17 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                         <c:if test="${bookList.large_category eq largeCategory and bookList.small_category eq smallCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -548,20 +555,21 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                     </c:forEach>
                 </c:when>
                 <c:when test="${largeCategory eq 'eBook'}">
-                    <c:forEach var="bookList" items="${list}">
+                    <c:forEach var="bookList" items="${list}" varStatus="status">
                         <c:if test="${empty smallCategory and bookList.large_category eq largeCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -578,16 +586,17 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                         <c:if test="${bookList.large_category eq largeCategory and bookList.small_category eq smallCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -604,20 +613,21 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                     </c:forEach>
                 </c:when>
                 <c:when test="${largeCategory eq '웹소설/코믹'}">
-                    <c:forEach var="bookList" items="${list}">
+                    <c:forEach var="bookList" items="${list}" varStatus="status">
                         <c:if test="${empty smallCategory and bookList.large_category eq largeCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -634,16 +644,17 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                         <c:if test="${bookList.large_category eq largeCategory and bookList.small_category eq smallCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -660,20 +671,21 @@
                                 </div>
                                 <div class="button">
                                     <input type="button" class="btn btn-outline-success" value="중고상품 모두보기" onclick="location.href='book_list?largeCategory=중고샵&title=${bookList.book_title}&author=${bookList.book_author}'"/>
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                     </c:forEach>
                 </c:when>
                 <c:when test="${largeCategory eq '중고샵'}">
-                    <c:forEach var="bookList" items="${list}">
+                    <c:forEach var="bookList" items="${list}" varStatus="status">
                         <c:if test="${empty smallCategory and bookList.large_category eq largeCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -689,16 +701,17 @@
                                     <div class="description">${bookList.book_description}</div>
                                 </div>
                                 <div class="button">
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
                         <c:if test="${bookList.large_category eq largeCategory and bookList.small_category eq smallCategory}">
+                            <c:set var="thumbnail" value="thumbnail${status.index}" />
                             <li class="list-group-item">
                                 <div class="imgView">
                                     <div>
-                                        <a href="">
-                                            <img src="https://via.placeholder.com/100x150" alt="">
+                                        <a href="review?bookId=${bookList.book_id}">
+                                            <img src="upload/${imgList.get(thumbnail)}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -714,7 +727,7 @@
                                     <div class="description">${bookList.book_description}</div>
                                 </div>
                                 <div class="button">
-                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href=''"/>
+                                    <input type="button" class="btn btn-outline-success" value="책 상세보기" onclick="location.href='review?bookId=${bookList.book_id}'"/>
                                 </div>
                             </li>
                         </c:if>
@@ -820,5 +833,6 @@
             }
         }
     </script>
+
 </body>
 </html>

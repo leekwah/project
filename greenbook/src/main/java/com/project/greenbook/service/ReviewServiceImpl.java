@@ -46,20 +46,20 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public int review_count() {
+    public int review_count(String bookId) {
         System.out.println("@@@### review.count() start");
         ReviewDAO dao = sqlSession.getMapper(ReviewDAO.class);
-        int review_count = dao.review_count();
+        int review_count = dao.review_count(bookId);
         System.out.println("@@@### review.count() cout = "+review_count);
 
         return review_count;
     }
 
     @Override
-    public int review_sum() {
+    public int review_sum(String bookId) {
         System.out.println("@@@### review.sum() start");
         ReviewDAO dao = sqlSession.getMapper(ReviewDAO.class);
-        int review_sum = dao.review_sum();
+        int review_sum = dao.review_sum(bookId);
         System.out.println("@@@### review.count() sum = "+review_sum);
 
         return review_sum;

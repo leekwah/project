@@ -25,9 +25,10 @@
             <input type="password" class="form-control" name="member_pwd" id="floatingPassword" placeholder="비밀번호">
             <label for="floatingPassword">비밀번호</label>
         </div>
+
         <div class="checkbox mb-3">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                
             </label>
         </div>
         <button class="w-100 btn btn-lg btn-success" type="submit">로그인</button>

@@ -77,19 +77,17 @@
                         </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/product">상품등록</a>
+                        <c:if test="${sessionScope.member_class ne 0 and not empty sessionScope.member_class}">
+                            <a class="nav-link" aria-current="page" href="/product">상품등록</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/review">리뷰</a>
+                        <c:if test="${sessionScope.member_class ne 2 and not empty sessionScope.member_class}">
+                            <a class="nav-link" aria-current="page" href="/cart">장바구니</a>
+                        </c:if>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/cart">장바구니</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/order">주문/배송</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/qna">고객센터</a>
+                        <a class="nav-link" aria-current="page" href="/list">고객센터</a>
                     </li>
                 </ul>
             </nav>
@@ -99,17 +97,16 @@
         <div class="list_nav">
             <div>
                 <ul class="list-group">
+                    <c:if test="${sessionScope.member_class ne 0 and not empty sessionScope.member_id}">
                     <li class="list-group-item">
-                        <img src="" alt="">
-                        <a href="">내 가게에서 팔기</a>
+                        <a href="/product">내 가게에서 팔기</a>
+                    </li>
+                    </c:if>
+                    <li class="list-group-item">
+                        <a href="list">공지사항</a>
                     </li>
                     <li class="list-group-item">
-                        <img src="" alt="">
-                        <a href="">공지사항</a>
-                    </li>
-                    <li class="list-group-item">
-                        <img src="" alt="">
-                        <a href="">이용안내</a>
+                        <a href="list">이용안내</a>
                     </li>
                 </ul>
             </div>

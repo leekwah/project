@@ -28,7 +28,6 @@
                                 <label for="member_id" class="form-label">아이디</label>
                                 <div class="input-group has-validation">
                                     <input type="text" class="form-control" name="member_id" id="member_id" placeholder="아이디를 적어주세요." required minlength="4">
-                                    <input type="button" onclick="fn_idCheck()" name="idCheck" id="idCheck" value="중복확인" class="btn btn-secondary idCheck">
                                     <div class="invalid-feedback">
                                         부적절한 아이디입니다.
                                     </div>
@@ -115,7 +114,7 @@
                             <hr class="my-4">
 
                             <input class="w-100 btn btn-success btn-lg mb-3" type="button" onclick="signUpCheck()" value="가입하기">
-                            <input class="w-100 btn btn-outline-danger btn-lg" type="reset" value="돌아가기">
+                            <input class="w-100 btn btn-outline-danger btn-lg" type="reset" value="재작성">
 
                         </div>
                     </form>
@@ -197,24 +196,6 @@
         }).embed(element_wrap);
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
-    }
-</script>
-<script>
-    function fn_idCheck() {
-        $.ajax({
-            url : "/member/idCheck",
-            type : "POST",
-            dataType : "JSON",
-            data : {"member_id" : $("#member_id").val()},
-            success : function (data) {
-                if (data == 1) {
-                    alert("중복된 아이디 입니다.")
-                } else if (data == 0) {
-                    $("idCheck").attr("value", "Y");
-                    alert("사용가능한 아이디입니다.")
-                }
-            }
-        })
     }
 </script>
 <script src="/js/bootstrap.bundle.min.js"></script>
