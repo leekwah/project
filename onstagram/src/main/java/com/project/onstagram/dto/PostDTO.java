@@ -5,23 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class PostDTO {
+import java.time.LocalDate;
 
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class PostDTO {
     private Long pno;
-    @NotEmpty
-    @Size(min = 3, max = 100)
     private String title;
-    @NotEmpty
-    private String content;
-    @NotEmpty
-    private String writer;
-    private LocalDateTime regDate;
-    private LocalDateTime modDate;
+    private LocalDate dueDate;
+    private boolean finished;
 }
