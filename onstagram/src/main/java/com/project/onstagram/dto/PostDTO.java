@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ContentDTO {
+public class PostDTO {
 
-    private Long bno;
+    private Long pno;
     @NotEmpty
     @Size(min = 3, max = 100)
     private String title;
