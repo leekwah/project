@@ -1,17 +1,39 @@
 package com.leekwah.shop.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.leekwah.shop.constant.ItemSellStatus;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table
+@Table(name = "item")
+@Data
 public class Item {
 
-    private Long id;
+    @Id
+    @Column(name = "item_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id; // 상품코드
 
-    private String itemNm;
+    @Column(nullable = false, length = 50)
+    private String itemNm; // 상품명
 
-    private int price;
+    @Column(name = "price", nullable = false)
+    private int price; // 가격
 
+    @Column(nullable = false)
+    private int stockNumber; // 재고
+
+    @Lob
+    @Column(nullable = false)
+    private String itemDetail;
+
+    @Enumerated(EnumType.STRING)
+    private ItemSellStatus itemSellStatus;
+
+    private LocalDateTime regTime;
+
+    private LocalDateTime updateTime;
 
 }

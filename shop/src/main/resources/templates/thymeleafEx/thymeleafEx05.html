@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ex05</title>
+</head>
+<body>
+    <h1>Thymeleaf 링크 처리 예제 - th:href 를 이용</h1>
+    <div><a th:href="@{/thymeleaf/ex01}">예제 1 페이지 이동</a> </div>
+    <div><a th:href="@{/thymeleaf/ex02}">예제 2 페이지 이동</a> </div>
+    <div><a th:href="@{/thymeleaf/ex03}">예제 3 페이지 이동</a> </div>
+    <div><a th:href="@{/thymeleaf/ex04}">예제 4 페이지 이동</a> </div>
+    <div><a th:href="@{/thymeleaf/ex04_1}">예제 4_1 페이지 이동</a> </div>
+    <hr>
+    <div><a th:href="@{/thymeleaf/ex06(param1 = '파라미터 데이터 1', param2 = '파라미터 데이터 2')}">thymeleaf 파라미터 전달</a> </div>
+</body>
+</html>
