@@ -11,14 +11,14 @@ import java.util.List;
 @Entity
 @Table(name = "orders") // order 키워드가 정의되어 있기 때문에, orders 로 테이블 명을 설정한다.
 @Data
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     @GeneratedValue
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne // 한 명의 회원은 여러 번 주문을 할 수 있으므로, 다대일 단방향 매핑을 한다.
+    @ManyToOne(fetch = FetchType.LAZY) // 한 명의 회원은 여러 번 주문을 할 수 있으므로, 다대일 단방향 매핑을 한다.
     @JoinColumn(name = "member_id")
     private Member member;
 
@@ -27,7 +27,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus; // 주문상태
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // 주문 상품 엔티티와 일대다 매핑을 한다.
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY) // 주문 상품 엔티티와 일대다 매핑을 한다.
     private List<OrderItem> orderItems = new ArrayList<>();
     // 외래키인 order_id 가 order_item 테이블에 있으므로, 연관관계의 주인은 OrderItem 엔티티다.
     // Order 엔티티가 주인이 아니므로, "mappedBy" 속성으로 연관 관계의 주인을 설정한다.
@@ -35,8 +35,6 @@ public class Order {
     // -> 연관관계의 주인의 필드인 order 를 mappedBy 값으로 설정한다.
 
     // CascadeType.ALL 은 부모 엔티티의 영속성 상태 변화를 자식 엔티티에 모두 전이하는 옵션이다.
+    // orphanRemoval = true 는 고아객체를 삭제하는 옵션이다.
 
-    private LocalDateTime regTime;
-
-    private LocalDateTime updateTime;
 }
