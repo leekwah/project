@@ -4,7 +4,6 @@ import com.leekwah.shop.constant.ItemSellStatus;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "item")

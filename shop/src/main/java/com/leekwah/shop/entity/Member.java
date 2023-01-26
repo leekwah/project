@@ -2,7 +2,6 @@ package com.leekwah.shop.entity;
 
 import com.leekwah.shop.constant.Role;
 import com.leekwah.shop.dto.MemberFormDto;
-import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -12,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "mbmer")
 @Data
 public class Member extends BaseEntity {
+
     @Id
     @Column(name = "member_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

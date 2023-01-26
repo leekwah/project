@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "cart")
 @Data
 public class Cart extends BaseEntity {
+
     @Id
     @Column(name = "cart_id")
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -20,7 +20,7 @@ public class ItemImg extends BaseEntity {
 
     private String imgUrl; // 이미지 조회 경로
 
-    private String repimgYn; // 대표 이미지 여부
+    private String repImgYn; // 대표 이미지 여부
 
     @ManyToOne(fetch = FetchType.LAZY) // 상품 엔티티와 다대일 단방향 관계로 매핑한다. 지연 로딩을 설정하여 매핑된 상품 엔티티 정보가 필요할 경우 데이터를 조회하도록 한다.
     @JoinColumn(name = "item_id")

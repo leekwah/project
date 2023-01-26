@@ -3,7 +3,6 @@ package com.leekwah.shop.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Data
