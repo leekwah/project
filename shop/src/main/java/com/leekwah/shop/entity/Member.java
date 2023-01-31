@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "mbmer")
+@Table(name = "member")
 @Data
 public class Member extends BaseEntity {
 
