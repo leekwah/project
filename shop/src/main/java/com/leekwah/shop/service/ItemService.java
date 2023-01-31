@@ -3,6 +3,7 @@ package com.leekwah.shop.service;
 import com.leekwah.shop.dto.ItemFormDto;
 import com.leekwah.shop.dto.ItemImgDto;
 import com.leekwah.shop.dto.ItemSearchDto;
+import com.leekwah.shop.dto.MainItemDto;
 import com.leekwah.shop.entity.Item;
 import com.leekwah.shop.entity.ItemImg;
 import com.leekwah.shop.repository.ItemImgRepository;
@@ -87,5 +88,10 @@ public class ItemService {
     @Transactional(readOnly = true)
     public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
         return itemRepository.getAdminItemPage(itemSearchDto, pageable);
+    }
+
+    @Transactional
+    public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
+        return itemRepository.getMainItemPage(itemSearchDto, pageable);
     }
 }
