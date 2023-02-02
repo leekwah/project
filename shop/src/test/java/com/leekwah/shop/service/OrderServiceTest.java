@@ -1,6 +1,7 @@
 package com.leekwah.shop.service;
 
 import com.leekwah.shop.constant.ItemSellStatus;
+import com.leekwah.shop.constant.OrderStatus;
 import com.leekwah.shop.dto.OrderDto;
 import com.leekwah.shop.entity.Item;
 import com.leekwah.shop.entity.Member;
@@ -76,5 +77,24 @@ class OrderServiceTest {
         int totalPrice = orderDto.getCount() * item.getPrice(); // 주문한 상품의 총 가격을 구한다.
 
         assertEquals(totalPrice, order.getTotalPrice()); // 주문한 상품의 총 가격과 데이터베이스에 저장된 상품의 가격을 비교하여, 같으면 테스트가 성공적으로 종료된다.
+    }
+
+    @Test
+    @DisplayName("주문 취소 테스트")
+    public void cancelOrder() {
+        Item item = saveItem(); // 테스트를 위해서 상품 데이터를 생성한다.
+        Member member = saveMember(); // 테스트를 위해서 회원 데이터를 생성한다.
+
+        OrderDto orderDto = new OrderDto();
+        orderDto.setCount(10);
+        orderDto.setItemId(item.getId());
+        Long orderId = orderService.order(orderDto, member.getEmail()); // 테스트를 위해서 주문 데이터를 생성한다. 주문 개수는 총 10개이다.
+
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(EntityNotFoundException::new); // 생성한 주문 엔티티를 조회한다.
+        orderService.cancelOrder(orderId); // 주문을 취소한다.
+
+        assertEquals(OrderStatus.CANCEL, order.getOrderStatus()); // 취소된 상태라면 통과한다.
+        assertEquals(100, item.getStockNumber()); // 취소 후 상품 재고가 처음 재고 개수와 동일하면 테스트 통과
     }
 }
